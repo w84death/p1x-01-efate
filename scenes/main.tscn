@@ -81,20 +81,20 @@ custom_constants/separation = 16
 alignment = 1
 
 [node name="scene1" type="Button" parent="HUD/bottom/buttons"]
-margin_left = 79.0
-margin_right = 130.0
+margin_left = 64.0
+margin_right = 125.0
 margin_bottom = 24.0
 text = "SCENE #1"
 
 [node name="scene2" type="Button" parent="HUD/bottom/buttons"]
-margin_left = 146.0
-margin_right = 197.0
+margin_left = 141.0
+margin_right = 202.0
 margin_bottom = 24.0
 text = "SCENE #2"
 
 [node name="quit" type="Button" parent="HUD/bottom/buttons"]
-margin_left = 213.0
-margin_right = 240.0
+margin_left = 218.0
+margin_right = 255.0
 margin_bottom = 24.0
 text = "QUIT"
 
