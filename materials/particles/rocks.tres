@@ -11,9 +11,9 @@ shader_param/TERRAIN_MIN_H = 0.1
 shader_param/TERRAIN_MAX_H = 1.0
 shader_param/seed = 21.17
 shader_param/GRASS_ROWS = 16.0
-shader_param/GRASS_SPACING = 8.0
+shader_param/GRASS_SPACING = 4.0
 shader_param/GRASS_SCALE_MIN = 1.0
-shader_param/GRASS_SCALE_MAX = 2.0
+shader_param/GRASS_SCALE_MAX = 8.96
 shader_param/MAP_SIZE = Vector2( 512, 512 )
 shader_param/HEIGHT_MAP = ExtResource( 2 )
 

@@ -61,7 +61,7 @@ normal_bias = 0.0
 propagation = 0.8
 compress = true
 
-[sub_resource type="BakedLightmapData" id=11]
+[sub_resource type="BakedLightmapData" id=3]
 
 bounds = AABB( -128, -32, -128, 256, 64, 256 )
 cell_space_transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 512, 128, 512 )
@@ -251,7 +251,7 @@ __meta__ = {
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.950661, 0 )
 bake_quality = 2
 bake_extents = Vector3( 128, 32, 128 )
-light_data = SubResource( 11 )
+light_data = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -268,8 +268,7 @@ __meta__ = {
 }
 
 [node name="Camera" type="Camera" parent="."]
-editor/display_folded = true
-transform = Transform( -0.774613, -0.41583, -0.476507, 0, 0.753449, -0.657507, 0.632435, -0.509314, -0.583631, 2.09029, -22.257, -1.56061 )
+transform = Transform( -0.774613, 0.00878974, -0.632374, 0, 0.999904, 0.0138982, 0.632435, 0.0107658, -0.774539, -15.1723, -22.257, -20.4958 )
 fov = 50.0
 far = 1024.0
 
@@ -391,6 +390,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6982, -22.2497, 27.9842 )
 transform = Transform( 0.8012, 0.183137, 0.569683, -0.149254, 0.983087, -0.106125, -0.579484, 0, 0.814984, -49.1844, -23.2408, -28.6864 )
 
 [node name="Scene Root" parent="." instance=ExtResource( 17 )]
+editor/display_folded = true
 transform = Transform( 0.344498, 0, 0.938787, 0, 1, 0, -0.938787, 0, 0.344498, 0.920484, -25.7068, -1.43894 )
 
 [node name="PartObelisk3-" parent="Scene Root" index="0"]
