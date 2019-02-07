@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://materials/metal_parts.material" type="Material" id=1]
+[ext_resource path="res://materials/light.material" type="Material" id=2]
+
+[sub_resource type="CylinderMesh" id=1]
+
+material = ExtResource( 1 )
+top_radius = 0.2
+bottom_radius = 0.2
+height = 12.0
+radial_segments = 8
+
+[sub_resource type="CylinderMesh" id=2]
+
+material = ExtResource( 1 )
+top_radius = 0.5
+bottom_radius = 0.5
+height = 0.3
+radial_segments = 8
+
+[sub_resource type="CylinderMesh" id=3]
+
+material = ExtResource( 2 )
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.2
+radial_segments = 8
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("led2:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 5, 0 ), Vector3( 0, 4.75, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("led3:translation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 4.5, 0 ), Vector3( 0, 4.25, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("led:translation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 5.5, 0 ), Vector3( 0, 5.25, 0 ) ]
+}
+
+[node name="lamp" type="CSGMesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.78795, -22.2492, -11.7039 )
+mesh = SubResource( 1 )
+
+[node name="cap" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 0 )
+mesh = SubResource( 2 )
+
+[node name="cap2" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
+mesh = SubResource( 2 )
+
+[node name="led" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.42581, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="led2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.81495, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="led3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.25985, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="lamp_anim" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 4 )
+

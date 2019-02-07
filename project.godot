@@ -1,0 +1,39 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[application]
+
+config/name="Efate - P1X 01"
+run/main_scene="res://scenes/main.tscn"
+boot_splash/image="res://media/splash-p1x.png"
+boot_splash/bg_color=Color( 0.133333, 0.133333, 0.133333, 1 )
+config/icon="res://media/icon.png"
+
+[debug]
+
+settings/fps/force_fps=60
+
+[display]
+
+window/size/width=960
+window/size/height=480
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[rendering]
+
+threads/thread_model=2
+quality/shadows/filter_mode=2
+environment/default_environment="res://environments/default_env.tres"

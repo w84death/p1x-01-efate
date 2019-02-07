@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://materials/city_building.material" type="Material" id=1]
+[ext_resource path="res://materials/light.material" type="Material" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+material = ExtResource( 1 )
+size = Vector3( 4, 24, 4 )
+
+[sub_resource type="CubeMesh" id=2]
+
+material = ExtResource( 1 )
+size = Vector3( 1, 12, 1 )
+
+[sub_resource type="SphereMesh" id=3]
+
+material = ExtResource( 1 )
+radius = 3.0
+height = 6.0
+radial_segments = 12
+rings = 6
+
+[sub_resource type="CylinderMesh" id=6]
+
+material = ExtResource( 1 )
+top_radius = 4.0
+bottom_radius = 4.0
+radial_segments = 12
+rings = 1
+
+[sub_resource type="SphereMesh" id=4]
+
+material = ExtResource( 2 )
+radius = 2.0
+height = 4.0
+radial_segments = 8
+rings = 4
+
+[sub_resource type="CubeMesh" id=5]
+
+material = ExtResource( 2 )
+size = Vector3( 0.5, 10, 0.5 )
+
+[node name="citadel" type="Spatial"]
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.0431, 0 )
+mesh = SubResource( 1 )
+
+[node name="hole" type="CSGMesh" parent="CSGMesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, 2 )
+operation = 2
+mesh = SubResource( 2 )
+
+[node name="hole4" type="CSGMesh" parent="CSGMesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8, -2 )
+operation = 2
+mesh = SubResource( 2 )
+
+[node name="hole2" type="CSGMesh" parent="CSGMesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06, -8, 0 )
+operation = 2
+mesh = SubResource( 2 )
+
+[node name="hole3" type="CSGMesh" parent="CSGMesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -8, 0 )
+operation = 2
+mesh = SubResource( 2 )
+
+[node name="CSGMesh3" type="CSGMesh" parent="CSGMesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32859, 0 )
+operation = 2
+mesh = SubResource( 3 )
+
+[node name="CSGMesh4" type="CSGMesh" parent="CSGMesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.37003, 0 )
+operation = 2
+mesh = SubResource( 3 )
+
+[node name="CSGMesh5" type="CSGMesh" parent="CSGMesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.6523, 0 )
+operation = 2
+mesh = SubResource( 3 )
+
+[node name="CSGMesh" type="CSGMesh" parent="CSGMesh"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.5283, 0 )
+mesh = SubResource( 6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.4387, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.5162, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.1698, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance4" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 1.5 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance5" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -1.5 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance6" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 4, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance7" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 4, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+

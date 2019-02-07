@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://shaders/terrain.shader" type="Shader" id=1]
+[ext_resource path="res://materials/terrain/noise_terrain_coast.tres" type="Texture" id=2]
+[ext_resource path="res://materials/noise_512.tres" type="Texture" id=3]
+
+
+[sub_resource type="PlaneMesh" id=5]
+
+size = Vector2( 128, 128 )
+subdivide_width = 512
+subdivide_depth = 512
+
+[sub_resource type="ShaderMaterial" id=6]
+
+shader = ExtResource( 1 )
+shader_param/HEIGHTMAP_SIZE = Vector2( 1024, 1024 )
+shader_param/HEIGHT_FACTOR = 32.0
+shader_param/MOUNTAINS_FACTOR = 24.0
+shader_param/RANDOM_UV_FACTOR = 4.0
+shader_param/GRASS_UV_FACTOR = 3.0
+shader_param/white_line = 0.8
+shader_param/green_line = 0.5
+shader_param/ground_line = 0.44
+shader_param/blue_line = 0.48
+shader_param/GOLDEN_ANGLE_RADIAN = 2.39996
+shader_param/WAVES_FACTOR_BIG = 2.0
+shader_param/WAVES_FACTOR_SMALL = 1.0
+shader_param/heightmap = ExtResource( 2 )
+shader_param/noisemap = ExtResource( 3 )
+
+[node name="scene3" type="Spatial"]
+
+[node name="terrain" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -32, 0.048 )
+use_in_baked_light = true
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
