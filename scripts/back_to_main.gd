@@ -5,10 +5,7 @@ func _ready():
 
 func _input(event):
     if Input.is_key_pressed(KEY_ESCAPE):
-        quit_game()
+        back()
         
 func back():
     get_tree().change_scene("scenes/main.tscn")
-
-func quit_game():
-    get_tree().quit()

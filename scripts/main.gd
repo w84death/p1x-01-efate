@@ -2,7 +2,9 @@ extends Control
 
 #
 # P1X 01 - Efate
-# (c)2019 p1x.in
+#
+# https://github.com/w84death/p1x-01-efate
+# https://p1x.in 
 #
 
 func _ready():
@@ -19,6 +21,7 @@ func _on_scene1_pressed():
     get_tree().change_scene("scenes/scene1.tscn")
 
 func _on_scene2_pressed():
+    $HUD/bottom/status.show()
     get_tree().change_scene("scenes/scene2.tscn")
 
 func _on_quit_pressed():
