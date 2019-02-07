@@ -87,5 +87,4 @@ func select_camera(index):
     cameras[active_camera].set_current(true)
 
 func quit_game():
-    #get_tree().change_scene("scenes/main.tscn")
     get_tree().quit()
