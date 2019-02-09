@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://scripts/back_to_main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=2]
@@ -20,11 +20,12 @@
 [ext_resource path="res://scenes/boogie.tscn" type="PackedScene" id=18]
 [ext_resource path="res://models/Obelisks.dae" type="PackedScene" id=19]
 [ext_resource path="res://materials/light.material" type="Material" id=20]
+[ext_resource path="res://music/OKAM_vs_ps_-_01_-_Slit_View_of_the_Rapture.ogg" type="AudioStream" id=21]
 
 [sub_resource type="Animation" id=1]
 
 resource_name = "demo"
-length = 32.0
+length = 44.4
 tracks/0/type = "animation"
 tracks/0/path = NodePath("Camera/camera_anim")
 tracks/0/interp = 1
@@ -32,8 +33,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"clips": PoolStringArray( "forest_to_citadel", "boogie1", "boogie2", "drone" ),
-"times": PoolRealArray( 0, 11.9, 15.9, 19.8 )
+"clips": PoolStringArray( "in", "forest_to_citadel", "boogie1", "boogie2", "drone", "out" ),
+"times": PoolRealArray( 0, 6, 18, 21.8, 25.8, 37.8 )
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -42,7 +43,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 31.9 ),
+"times": PoolRealArray( 43.6 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -83,7 +84,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( -58.9104, -19.4816, -23.6685 ), Vector3( -54.8325, -19.4816, -32.6982 ) ]
+"values": [ Vector3( -66.94, -19.932, -7.609 ), Vector3( -64.073, -19.482, -41.918 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -161,15 +162,15 @@ tracks/1/keys = {
 length = 12.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 8, 12 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 3.1, 7.1, 12 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -45.287, -20.197, -53.851 ), Vector3( -3.02072, -22.257, -7.03668 ), Vector3( 2.09029, -22.257, -1.56061 ) ]
+"values": [ Vector3( -33.0003, -20.7958, -40.2422 ), Vector3( -25.5054, -21.1611, -31.9408 ), Vector3( -3.02072, -22.257, -7.03668 ), Vector3( 2.09029, -22.257, -1.56061 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -178,10 +179,116 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 7.5, 11.9667 ),
+"times": PoolRealArray( 0, 3.8, 7.8, 12 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 1.92, -140.77, -2 ), Vector3( -0.057, -140.77, 2 ), Vector3( 1.92, -140.77, -2 ), Vector3( 41.11, -140.77, 4.13 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+
+resource_name = "in"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 5.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 19.913, -21.493, -61.232 ), Vector3( -14.187, -21.493, -61.232 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -0.969398, -140.77, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../HUD/black:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../HUD/white:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+
+resource_name = "out"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -90, -140.77, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 17.337, 0 ), Vector3( 0, 33.107, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../HUD/black:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 3, 5.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 1.92, -140.77, 0 ), Vector3( 1.92, -140.77, 0 ), Vector3( 41.11, -140.77, 0 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../HUD/white:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -214,13 +321,13 @@ tracks/1/keys = {
 "values": [ Vector3( 1.865, -97.586, -0.13 ), Vector3( 1.81, -97.651, 0 ), Vector3( 1.9, -97.705, -0.05 ), Vector3( 1.92, -97.5213, 0 ) ]
 }
 
-[sub_resource type="PlaneMesh" id=10]
+[sub_resource type="PlaneMesh" id=9]
 
 size = Vector2( 128, 128 )
 subdivide_width = 512
 subdivide_depth = 512
 
-[sub_resource type="SphereMesh" id=11]
+[sub_resource type="SphereMesh" id=10]
 
 material = ExtResource( 15 )
 radius = 0.25
@@ -272,13 +379,15 @@ __meta__ = {
 }
 
 [node name="Camera" type="Position3D" parent="."]
-transform = Transform( -0.774613, 0.0106998, -0.632345, 0, 0.999857, 0.0169184, 0.632435, 0.0131052, -0.774503, -19.9272, -21.433, -25.7624 )
+transform = Transform( -0.774613, 0.632435, 2.76446e-08, 0, -4.37114e-08, 1, 0.632435, 0.774614, 3.38595e-08, 0, 17.337, 0 )
 
 [node name="camera_anim" type="AnimationPlayer" parent="Camera"]
 anims/boogie1 = SubResource( 4 )
 anims/boogie2 = SubResource( 5 )
 anims/drone = SubResource( 6 )
 anims/forest_to_citadel = SubResource( 7 )
+anims/in = SubResource( 11 )
+anims/out = SubResource( 12 )
 anims/shaky = SubResource( 8 )
 
 [node name="main_camera" parent="Camera" instance=ExtResource( 4 )]
@@ -288,7 +397,7 @@ anims/shaky = SubResource( 8 )
 [node name="terrain" type="MeshInstance" parent="forest"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -32, 0.048 )
 use_in_baked_light = true
-mesh = SubResource( 10 )
+mesh = SubResource( 9 )
 material/0 = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
@@ -344,7 +453,7 @@ use_in_baked_light = true
 amount = 256
 visibility_aabb = AABB( -512, 0, -512, 1024, 32, 1024 )
 process_material = ExtResource( 14 )
-draw_pass_1 = SubResource( 11 )
+draw_pass_1 = SubResource( 10 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -391,7 +500,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6681, -22.2499, -49.687 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6982, -22.2497, 27.9842 )
 
 [node name="boogie" parent="forest" instance=ExtResource( 18 )]
-transform = Transform( 0.8012, 0.183137, 0.569683, -0.149254, 0.983087, -0.106125, -0.579484, 0, 0.814984, -49.1844, -23.2408, -28.6864 )
+transform = Transform( 0.656291, -0.278769, 0.70112, 0.0883616, 0.951245, 0.295508, -0.749316, -0.131987, 0.648926, -46.614, -22.871, -28.446 )
 
 [node name="Scene Root" parent="." instance=ExtResource( 19 )]
 editor/display_folded = true
@@ -422,5 +531,11 @@ use_in_baked_light = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.054, 2.01682, -34.8467 )
 use_in_baked_light = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 21 )
+autoplay = true
+
+
+[editable path="HUD"]
 
 [editable path="Scene Root"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/DASK_-_01_-_Arrival.ogg-36417ce7dc384b6d63b0afde31fea1d9.oggstr"
+
+[deps]
+
+source_file="res://music/DASK_-_01_-_Arrival.ogg"
+dest_files=[ "res://.import/DASK_-_01_-_Arrival.ogg-36417ce7dc384b6d63b0afde31fea1d9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

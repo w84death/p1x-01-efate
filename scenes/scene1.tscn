@@ -1,14 +1,15 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scripts/back_to_main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://environments/night.tres" type="Environment" id=3]
 [ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=4]
-[ext_resource path="res://materials/noise_1024.tres" type="Texture" id=5]
-[ext_resource path="res://materials/light.material" type="Material" id=6]
-[ext_resource path="res://materials/metal_parts.material" type="Material" id=7]
-[ext_resource path="res://materials/flag/flag-vs.tres" type="Shader" id=8]
-[ext_resource path="res://scenes/futuristic_building1.tscn" type="PackedScene" id=9]
+[ext_resource path="res://music/DASK_-_01_-_Arrival.ogg" type="AudioStream" id=5]
+[ext_resource path="res://materials/noise_1024.tres" type="Texture" id=6]
+[ext_resource path="res://materials/light.material" type="Material" id=7]
+[ext_resource path="res://materials/metal_parts.material" type="Material" id=8]
+[ext_resource path="res://materials/flag/flag-vs.tres" type="Shader" id=9]
+[ext_resource path="res://scenes/futuristic_building1.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 
@@ -33,7 +34,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 10.3 ),
+"times": PoolRealArray( 10.1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -64,6 +65,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Vector3( 0, 8, 0 ), Vector3( 0, 8, 0 ), Vector3( 0, 0, 0 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("HUD/black:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.9, 7.3, 9.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="GIProbeData" id=2]
 
@@ -92,21 +105,21 @@ subdivide_depth = 128
 [sub_resource type="SpatialMaterial" id=5]
 
 albedo_color = Color( 0.243137, 0.964706, 0.964706, 1 )
-albedo_texture = ExtResource( 5 )
+albedo_texture = ExtResource( 6 )
 metallic = 0.64
-metallic_texture = ExtResource( 5 )
+metallic_texture = ExtResource( 6 )
 metallic_texture_channel = 4
 roughness = 0.44
-roughness_texture = ExtResource( 5 )
+roughness_texture = ExtResource( 6 )
 roughness_texture_channel = 4
 normal_enabled = true
 normal_scale = 0.2
-normal_texture = ExtResource( 5 )
+normal_texture = ExtResource( 6 )
 uv1_scale = Vector3( 16, 16, 16 )
 
 [sub_resource type="SphereMesh" id=6]
 
-material = ExtResource( 6 )
+material = ExtResource( 7 )
 radial_segments = 8
 rings = 4
 
@@ -140,7 +153,7 @@ angular_velocity = 6.16571e-44
 
 [sub_resource type="CylinderMesh" id=11]
 
-material = ExtResource( 7 )
+material = ExtResource( 8 )
 top_radius = 0.1
 bottom_radius = 0.1
 height = 8.0
@@ -149,7 +162,7 @@ rings = 2
 
 [sub_resource type="ShaderMaterial" id=12]
 
-shader = ExtResource( 8 )
+shader = ExtResource( 9 )
 
 [sub_resource type="PlaneMesh" id=13]
 
@@ -162,7 +175,10 @@ script = ExtResource( 1 )
 
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="black" parent="HUD" index="1"]
+modulate = Color( 1, 1, 1, 1 )
+
+[node name="main" type="AnimationPlayer" parent="."]
 autoplay = "test"
 playback_speed = 0.5
 anims/test = SubResource( 1 )
@@ -184,8 +200,12 @@ light_data = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.542, 11.44 )
 current = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+
 [node name="block" type="Spatial" parent="."]
-transform = Transform( 0.938468, 0, -0.345365, 0, 1, 0, 0.345365, 0, 0.938468, 0, 0, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
 
 [node name="floor" type="MeshInstance" parent="block"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.047739 )
@@ -235,11 +255,13 @@ mesh = SubResource( 13 )
 material/0 = null
 
 [node name="pillars" type="Spatial" parent="block"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.35484, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0 )
 
-[node name="futuristic_building2" parent="block/pillars" instance=ExtResource( 9 )]
+[node name="futuristic_building2" parent="block/pillars" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0 )
 
-[node name="futuristic_building3" parent="block/pillars" instance=ExtResource( 9 )]
+[node name="futuristic_building3" parent="block/pillars" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0 )
 
+
+[editable path="HUD"]
