@@ -3,7 +3,7 @@
 [ext_resource path="res://gui/theme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/main.gd" type="Script" id=2]
 [ext_resource path="res://scenes/scene0.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scripts/fps.gd" type="Script" id=4]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=4]
 
 [node name="main" type="Control"]
 anchor_right = 1.0
@@ -11,19 +11,9 @@ anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="scene1" parent="." instance=ExtResource( 3 )]
+[node name="scene0" parent="." instance=ExtResource( 3 )]
 
-[node name="HUD" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="fps" type="Label" parent="HUD"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 56.0
-margin_bottom = 24.0
-text = "FPS: 60"
-script = ExtResource( 4 )
+[node name="HUD" parent="." instance=ExtResource( 4 )]
 
 [node name="center" type="Control" parent="HUD"]
 anchor_left = 0.5
@@ -31,28 +21,28 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 
-[node name="Label" type="Label" parent="HUD/center"]
+[node name="Label" type="Label" parent="HUD"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -160.0
-margin_top = -7.0
+margin_top = -67.0
 margin_right = 160.0
-margin_bottom = 7.0
+margin_bottom = -53.0
 rect_min_size = Vector2( 320, 0 )
 text = "Welcome to the P1X firste demo - Efate"
 align = 1
 
-[node name="Label2" type="Label" parent="HUD/center"]
+[node name="Label2" type="Label" parent="HUD"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -160.0
-margin_top = 22.0
+margin_top = -38.0
 margin_right = 160.0
-margin_bottom = 52.0
+margin_bottom = -8.0
 rect_min_size = Vector2( 320, 0 )
 text = "\"Efate is an island in the Pacific Ocean which is part of the Shefa Province in Vanuatu. 
 It is also known as Île Vate.\" - Wikipedia"
@@ -98,18 +88,19 @@ margin_right = 255.0
 margin_bottom = 24.0
 text = "QUIT"
 
-[node name="status" type="Label" parent="HUD/bottom"]
-visible = false
+[node name="info" type="Label" parent="HUD/bottom"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -30.5
-margin_top = -45.5
-margin_right = 30.5
-margin_bottom = -34.5
-text = "LOADING..."
+margin_left = -160.0
+margin_top = -32.5
+margin_right = 160.0
+margin_bottom = -24.5
+rect_min_size = Vector2( 320, 0 )
+text = "Glorious 21:9 aspect, 1024x429 pixels, 60fps."
 align = 1
+autowrap = true
 
 [connection signal="pressed" from="HUD/bottom/buttons/scene1" to="." method="_on_scene1_pressed"]
 [connection signal="pressed" from="HUD/bottom/buttons/scene2" to="." method="_on_scene2_pressed"]

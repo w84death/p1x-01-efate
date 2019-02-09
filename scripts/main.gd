@@ -21,7 +21,6 @@ func _on_scene1_pressed():
     get_tree().change_scene("scenes/scene1.tscn")
 
 func _on_scene2_pressed():
-    $HUD/bottom/status.show()
     get_tree().change_scene("scenes/scene2.tscn")
 
 func _on_quit_pressed():
