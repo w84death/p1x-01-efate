@@ -28,6 +28,7 @@ settings/fps/force_fps=60
 [display]
 
 window/size/height=429
+window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 

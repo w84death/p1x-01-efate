@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://materials/city_building.material" type="Material" id=1]
+[ext_resource path="res://materials/glass.material" type="Material" id=2]
+[ext_resource path="res://materials/light.material" type="Material" id=3]
+
+[sub_resource type="CubeMesh" id=15]
+
+material = ExtResource( 1 )
+size = Vector3( 4, 24, 8 )
+
+[sub_resource type="CubeMesh" id=16]
+
+material = ExtResource( 2 )
+size = Vector3( 10, 1, 10 )
+
+[sub_resource type="CubeMesh" id=17]
+
+material = ExtResource( 3 )
+size = Vector3( 2, 22, 6 )
+
+[node name="futuristic_building1" type="CSGMesh"]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.65405, 0.0524609, 0.0110683 )
+mesh = SubResource( 15 )
+
+[node name="cut" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 1.5, 0 )
+operation = 2
+mesh = SubResource( 16 )
+
+[node name="cut2" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 4, 0 )
+operation = 2
+mesh = SubResource( 16 )
+
+[node name="cut3" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 6.5, 0 )
+operation = 2
+mesh = SubResource( 16 )
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+mesh = SubResource( 17 )
+
