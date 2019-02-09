@@ -332,6 +332,7 @@ script = ExtResource( 1 )
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
 [node name="master" type="AnimationPlayer" parent="."]
+autoplay = "demo"
 anims/demo = SubResource( 1 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -495,7 +496,6 @@ transform = Transform( 0.656291, -0.278769, 0.70112, 0.0883616, 0.951245, 0.2955
 [node name="Scene Root" parent="." instance=ExtResource( 19 )]
 editor/display_folded = true
 transform = Transform( 0.344498, 0, 0.938787, 0, 1, 0, -0.938787, 0, 0.344498, 0.920484, -25.7068, -1.43894 )
-visible = false
 
 [node name="PartObelisk3-" parent="Scene Root" index="0"]
 transform = Transform( 0.994265, 0, 0.106949, 0, 1, 0, -0.106949, 0, 0.994265, 10.9543, 18.9977, 34.6869 )

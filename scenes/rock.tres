@@ -7,6 +7,6 @@
 material = ExtResource( 1 )
 radius = 0.25
 height = 0.5
-radial_segments = 32
-rings = 12
+radial_segments = 16
+rings = 8
 

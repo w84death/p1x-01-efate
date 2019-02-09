@@ -59,17 +59,18 @@ bake_extents = Vector3( 128, 32, 128 )
 light_data = SubResource( 2 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.734985, -0.678083, 0, 0.678083, 0.734985, 0, 0, 4.712 )
+transform = Transform( 1, 0, 0, 0, 0.752645, -0.658427, 0, 0.658427, 0.752645, 0, 0, 0 )
 current = true
 far = 1024.0
 
 [node name="Particles" type="Particles" parent="."]
-transform = Transform( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 0.176, 64, -35.096 )
+transform = Transform( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 0, 32, 0 )
 use_in_baked_light = true
 amount = 512
 lifetime = 2.0
 preprocess = 2.0
-visibility_aabb = AABB( -32, -32.51, -32, 64, 64, 64 )
+speed_scale = 0.1
+visibility_aabb = AABB( -32, 0, -32, 64, 64, 64 )
 process_material = SubResource( 3 )
 draw_pass_1 = SubResource( 5 )
 

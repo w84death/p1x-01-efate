@@ -18,6 +18,7 @@ tonemap_exposure = 0.7
 tonemap_white = 2.0
 ss_reflections_enabled = true
 dof_blur_near_enabled = true
+glow_enabled = true
 glow_intensity = 1.0
 glow_bloom = 0.3
 
