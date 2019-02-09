@@ -1,0 +1,12 @@
+[gd_resource type="SphereMesh" load_steps=2 format=2]
+
+[ext_resource path="res://materials/rocks/rock.material" type="Material" id=1]
+
+[resource]
+
+material = ExtResource( 1 )
+radius = 0.25
+height = 0.5
+radial_segments = 32
+rings = 12
+

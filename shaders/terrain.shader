@@ -65,7 +65,7 @@ void vertex() {
 	h += mix(0., -0.0 + (ran * .007), ground_line);
 	h = h * HEIGHT_FACTOR + anim;
 	float fh = mix(h, h + ran, mountains_line);
-	VERTEX.y = fh;
+	VERTEX = fh;
 }
 
 void fragment() {

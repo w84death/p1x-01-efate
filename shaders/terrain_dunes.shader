@@ -18,7 +18,7 @@ float get_height(vec2 pos) {
 void vertex() {
 	float h = get_height(VERTEX.xz);
 	color_height = h;
-	VERTEX.y = h * HEIGHT_FACTOR ;
+    VERTEX.y = h * HEIGHT_FACTOR;
 }
 
 void fragment() {
