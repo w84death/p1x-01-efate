@@ -27,7 +27,9 @@ settings/fps/force_fps=60
 
 [display]
 
-window/size/height=429
+window/size/width=960
+window/size/height=411
+window/size/fullscreen=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
@@ -35,4 +37,5 @@ window/stretch/aspect="keep"
 
 threads/thread_model=2
 quality/shadows/filter_mode=2
+quality/voxel_cone_tracing/high_quality=false
 environment/default_environment="res://environments/default_env.tres"

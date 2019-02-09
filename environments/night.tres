@@ -4,7 +4,8 @@
 
 sky_top_color = Color( 0.0352941, 0.0941176, 0.243137, 1 )
 sky_horizon_color = Color( 0.835294, 0.0627451, 0.0627451, 1 )
-ground_horizon_color = Color( 0, 0.290196, 0.435294, 1 )
+ground_bottom_color = Color( 0.0352941, 0.0941176, 0.243137, 1 )
+ground_horizon_color = Color( 0.835294, 0.0627451, 0.0627451, 1 )
 sun_color = Color( 0.729412, 0.54902, 0.101961, 1 )
 sun_latitude = 0.71
 sun_curve = 0.0732044
@@ -13,11 +14,22 @@ sun_curve = 0.0732044
 
 background_mode = 2
 background_sky = SubResource( 1 )
+fog_color = Color( 0, 0.584314, 0.698039, 1 )
+fog_depth_enabled = false
+fog_depth_end = 128.0
+fog_depth_curve = 1.7411
+fog_height_enabled = true
+fog_height_min = 12.0
+fog_height_max = 0.0
+fog_height_curve = 3.605
 tonemap_mode = 2
 tonemap_exposure = 0.7
 tonemap_white = 2.0
 ss_reflections_enabled = true
+dof_blur_far_distance = 96.0
+dof_blur_far_quality = 2
 dof_blur_near_enabled = true
+dof_blur_near_quality = 2
 glow_enabled = true
 glow_intensity = 1.0
 glow_bloom = 0.3

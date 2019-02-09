@@ -370,6 +370,7 @@ __meta__ = {
 }
 
 [node name="Camera" type="Position3D" parent="."]
+editor/display_folded = true
 transform = Transform( -0.774561, 0.010019, -0.632419, 0.0186712, 0.999801, -0.00702866, 0.632223, -0.0172522, -0.774594, -28.0127, -21.0389, -34.7179 )
 
 [node name="camera_anim" type="AnimationPlayer" parent="Camera"]
