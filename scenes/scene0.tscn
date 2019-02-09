@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/back_to_main.gd" type="Script" id=1]
 [ext_resource path="res://environments/night.tres" type="Environment" id=2]
+[ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=3]
 
 [sub_resource type="GIProbeData" id=1]
 
@@ -58,17 +59,15 @@ bake_quality = 2
 bake_extents = Vector3( 128, 32, 128 )
 light_data = SubResource( 2 )
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.752645, -0.658427, 0, 0.658427, 0.752645, 0, 0, 0 )
-current = true
-far = 1024.0
+[node name="main_camera" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0 )
 
 [node name="Particles" type="Particles" parent="."]
-transform = Transform( 1, 0, 1.74845e-07, 0, 1, 0, -1.74845e-07, 0, 1, 0, 32, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32, 0 )
 use_in_baked_light = true
 amount = 512
 lifetime = 2.0
-preprocess = 2.0
+preprocess = 32.0
 speed_scale = 0.1
 visibility_aabb = AABB( -32, 0, -32, 64, 64, 64 )
 process_material = SubResource( 3 )

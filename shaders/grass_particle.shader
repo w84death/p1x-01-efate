@@ -15,6 +15,10 @@ uniform float TERRAIN_MIN_H = 0.5;
 uniform float TERRAIN_MAX_H = 0.6;
 uniform float seed = 0.123;
 
+uniform bool TERRAIN_FLAT = false;
+uniform bool VOID_CENTER = false;
+uniform float VOID_SIZE = 12.0;
+
 // VEGETATION SETTINGS
 uniform float GRASS_ROWS = 64;
 uniform float GRASS_SPACING = 8.0;
@@ -30,6 +34,7 @@ uniform vec2 MAP_SIZE = vec2(1024.0, 1024.0);
 
 // RETURNS HEIGHT FROM HEIGHT_MAP
 float get_height(vec2 pos) {
+    if (TERRAIN_FLAT == true) return 0.;
 	pos -= 0.5 * MAP_SIZE;
 	pos /= MAP_SIZE; // center
 	float h = texture(HEIGHT_MAP, pos).r; // read height from texture
@@ -81,9 +86,13 @@ void vertex() {
 	feat_pos /= MAP_SIZE; // center
 
 	// remove particle if
-	if (pos.y < TERRAIN_MIN_H || pos.y > TERRAIN_MAX_H ) { // don't fit any terrain mask or is underwater
+	if (!TERRAIN_FLAT && pos.y < TERRAIN_MIN_H || pos.y > TERRAIN_MAX_H ) { // don't fit any terrain mask or is underwater
 		pos.y = -100000.0;
 	}
+    
+    if (VOID_CENTER && length(pos) < VOID_SIZE) {
+        pos.y = -100000.0;
+    }
 
 	pos.y *= TERRAIN_HEIGHT_SCALE;
 

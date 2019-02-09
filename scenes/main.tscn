@@ -12,9 +12,7 @@ theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="scene0" parent="." instance=ExtResource( 3 )]
-
-[node name="Particles" parent="scene0" index="4"]
-preprocess = 32.0
+editor/display_folded = true
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
@@ -108,5 +106,3 @@ autowrap = true
 [connection signal="pressed" from="HUD/bottom/buttons/scene1" to="." method="_on_scene1_pressed"]
 [connection signal="pressed" from="HUD/bottom/buttons/scene2" to="." method="_on_scene2_pressed"]
 [connection signal="pressed" from="HUD/bottom/buttons/quit" to="." method="_on_quit_pressed"]
-
-[editable path="scene0"]
