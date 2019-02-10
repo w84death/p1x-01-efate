@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scripts/back_to_main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=2]
@@ -64,7 +64,7 @@ normal_bias = 0.0
 propagation = 0.8
 compress = true
 
-[sub_resource type="BakedLightmapData" id=12]
+[sub_resource type="BakedLightmapData" id=3]
 
 bounds = AABB( -128, -32, -128, 256, 64, 256 )
 cell_space_transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 512, 128, 512 )
@@ -326,6 +326,34 @@ size = Vector2( 128, 128 )
 subdivide_width = 512
 subdivide_depth = 512
 
+[sub_resource type="ParticlesMaterial" id=14]
+
+emission_shape = 2
+emission_box_extents = Vector3( 64, 1, 64 )
+spread = 118.48
+gravity = Vector3( 0, 1, 0 )
+initial_velocity = 2.0
+angular_velocity = 6.16571e-44
+
+[sub_resource type="SpatialMaterial" id=15]
+
+flags_transparent = true
+flags_do_not_receive_shadows = true
+albedo_color = Color( 0, 0, 0, 1 )
+metallic_specular = 1.0
+emission_enabled = true
+emission = Color( 0.945098, 0.513726, 0.0156863, 1 )
+emission_energy = 4.0
+emission_operator = 0
+emission_on_uv2 = false
+transmission_enabled = true
+transmission = Color( 1, 1, 1, 1 )
+
+[sub_resource type="CubeMesh" id=16]
+
+material = SubResource( 15 )
+size = Vector3( 0.02, 0.05, 0.02 )
+
 [node name="scene2" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0 )
 script = ExtResource( 1 )
@@ -357,7 +385,7 @@ __meta__ = {
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.950661, 0 )
 bake_quality = 2
 bake_extents = Vector3( 128, 32, 128 )
-light_data = SubResource( 12 )
+light_data = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -374,7 +402,7 @@ __meta__ = {
 }
 
 [node name="Camera" type="Position3D" parent="."]
-transform = Transform( -0.761165, -0.0756678, -0.644129, 0, 0.993171, -0.116671, 0.648558, -0.0888057, -0.755966, -54.8577, -21.974, -35.4122 )
+transform = Transform( -0.774394, 0.0185352, -0.632431, 0.0265043, 0.999644, -0.00315638, 0.632148, -0.0192065, -0.774609, -26.4267, -21.1162, -32.9612 )
 
 [node name="camera_anim" type="AnimationPlayer" parent="Camera"]
 anims/boogie1 = SubResource( 4 )
@@ -497,6 +525,16 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6982, -22.2497, 27.9842 )
 
 [node name="boogie" parent="forest" instance=ExtResource( 18 )]
 transform = Transform( 0.557952, 0.166049, 0.813091, -0.20625, 0.976782, -0.0579473, -0.803835, -0.135368, 0.579244, -46.134, -21.871, -27.836 )
+
+[node name="Particles" type="Particles" parent="forest"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.176, -22.254, -0.176 )
+use_in_baked_light = true
+amount = 4096
+lifetime = 3.0
+preprocess = 3.0
+visibility_aabb = AABB( -16, -8, -16, 32, 32, 32 )
+process_material = SubResource( 14 )
+draw_pass_1 = SubResource( 16 )
 
 [node name="Scene Root" parent="." instance=ExtResource( 19 )]
 editor/display_folded = true

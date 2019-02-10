@@ -7,8 +7,9 @@ sky_horizon_color = Color( 0.945098, 0.662745, 0.364706, 1 )
 sky_curve = 0.127279
 ground_horizon_color = Color( 0.945098, 0.662745, 0.364706, 1 )
 ground_curve = 0.234254
-sun_latitude = 26.17
-sun_longitude = 37.5
+sun_latitude = 7.2
+sun_longitude = -37.6
+sun_curve = 0.0378929
 
 [resource]
 
@@ -22,7 +23,7 @@ fog_transmit_enabled = true
 fog_height_enabled = true
 fog_height_min = 12.0
 fog_height_max = 8.0
-fog_height_curve = 3.24901
+fog_height_curve = 4.43828
 tonemap_mode = 2
 tonemap_exposure = 0.4
 tonemap_white = 2.0

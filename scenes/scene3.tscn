@@ -69,7 +69,7 @@ tracks/1/keys = {
 "values": [ Vector3( 10, 0, 0 ), Vector3( 10, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=3]
 
 resource_name = "down_to_cube"
 length = 8.0
@@ -110,9 +110,8 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 
-resource_name = "from_hi_office"
 length = 8.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -139,7 +138,7 @@ tracks/1/keys = {
 "values": [ Vector3( -8.197, 21.102, 32.62 ), Vector3( -8.197, 8.242, 32.62 ), Vector3( -1.957, 7.002, 25.5 ), Vector3( -1.117, 1.192, 23.14 ) ]
 }
 
-[sub_resource type="GIProbeData" id=4]
+[sub_resource type="GIProbeData" id=5]
 
 bounds = AABB( -130, -32, -130, 260, 64, 260 )
 cell_size = 1.01562
@@ -152,25 +151,25 @@ normal_bias = 0.0
 propagation = 0.4
 compress = true
 
-[sub_resource type="BakedLightmapData" id=5]
+[sub_resource type="BakedLightmapData" id=6]
 
 bounds = AABB( -128, -32, -128, 256, 64, 256 )
 cell_space_transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 512, 128, 512 )
 cell_subdiv = 11
 octree = PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255 )
 
-[sub_resource type="PlaneMesh" id=6]
+[sub_resource type="PlaneMesh" id=7]
 
 size = Vector2( 128, 128 )
 subdivide_width = 512
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=8]
 
 metallic = 0.73
 metallic_specular = 1.0
 roughness = 0.0
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 
 loop = true
 tracks/0/type = "value"
@@ -186,7 +185,7 @@ tracks/0/keys = {
 "values": [ Vector3( -64, 0, 0 ), Vector3( -64, 360, 0 ) ]
 }
 
-[sub_resource type="CubeMesh" id=9]
+[sub_resource type="CubeMesh" id=10]
 
 material = ExtResource( 10 )
 size = Vector3( 0.1, 0.25, 0.1 )
@@ -205,8 +204,8 @@ transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, -
 
 [node name="camera_anim" type="AnimationPlayer" parent="main_camera"]
 anims/dolly = SubResource( 2 )
-anims/down_to_cube = SubResource( 10 )
-anims/from_hi_office = SubResource( 3 )
+anims/down_to_cube = SubResource( 3 )
+anims/from_hi_office = SubResource( 4 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 4 )
@@ -218,19 +217,19 @@ extents = Vector3( 130, 32, 130 )
 energy = 0.1
 propagation = 0.4
 compress = true
-data = SubResource( 4 )
+data = SubResource( 5 )
 
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.950661, 0 )
 bake_quality = 2
 bake_extents = Vector3( 128, 32, 128 )
-light_data = SubResource( 5 )
+light_data = SubResource( 6 )
 
 [node name="terrain" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166069, 0, -0.166067 )
 use_in_baked_light = true
-mesh = SubResource( 6 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0647926, 4.90285, 20.2963 )
@@ -253,7 +252,7 @@ directional_shadow_max_distance = 256.0
 
 [node name="sun_anim" type="AnimationPlayer" parent="sun"]
 playback_speed = 0.05
-anims/full_day = SubResource( 8 )
+anims/full_day = SubResource( 9 )
 
 [node name="city" type="Spatial" parent="."]
 
@@ -295,7 +294,7 @@ use_in_baked_light = true
 amount = 1024
 visibility_aabb = AABB( -128, 0, -128, 256, 128, 256 )
 process_material = ExtResource( 9 )
-draw_pass_1 = SubResource( 9 )
+draw_pass_1 = SubResource( 10 )
 
 
 [editable path="HUD"]

@@ -126,11 +126,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -160.0
-margin_top = -32.5
+margin_top = -31.0
 margin_right = 160.0
-margin_bottom = -24.5
+margin_bottom = -23.0
 rect_min_size = Vector2( 320, 0 )
-text = "Glorious 21:9 aspect ratio and 60fps."
+text = "In glorious 21:9 aspect ratio and 60fps."
 align = 1
 autowrap = true
 
