@@ -31,7 +31,7 @@ tracks/0/keys = {
 }
 
 [node name="the_box" type="CSGMesh"]
-transform = Transform( 0.984372, 0.0923733, 0.149931, -0.109478, 0.987867, 0.110148, -0.137937, -0.124841, 0.982541, 0, 0, 0 )
+transform = Transform( 0.786566, 0.0794595, 0.612372, 0.5, 0.499999, -0.707107, -0.362372, 0.862372, 0.353553, 0, 0, 0 )
 mesh = SubResource( 1 )
 
 [node name="CSGMesh" type="CSGMesh" parent="."]

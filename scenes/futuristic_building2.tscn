@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://materials/black.material" type="Material" id=1]
 [ext_resource path="res://materials/light.material" type="Material" id=2]
@@ -32,10 +32,15 @@ size = Vector3( 11, 2, 7 )
 material = ExtResource( 2 )
 size = Vector3( 12.5, 0.25, 8.5 )
 
+[sub_resource type="CubeMesh" id=7]
+
+material = ExtResource( 2 )
+size = Vector3( 11.1, 0.5, 7.1 )
+
 [sub_resource type="CubeMesh" id=5]
 
 material = ExtResource( 1 )
-size = Vector3( 10, 0.5, 1 )
+size = Vector3( 14, 0.5, 1 )
 
 [node name="block" type="CSGMesh"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0 )
@@ -60,7 +65,7 @@ mesh = SubResource( 6 )
 
 [node name="LED3" type="CSGMesh" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.5, 0 )
-mesh = SubResource( 6 )
+mesh = SubResource( 7 )
 
 [node name="CSGMesh2" type="CSGMesh" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.7151, 4 )

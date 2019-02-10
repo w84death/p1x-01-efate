@@ -2,6 +2,7 @@
 
 [sub_resource type="ProceduralSky" id=1]
 
+sky_top_color = Color( 1, 1, 1, 1 )
 
 [resource]
 
@@ -9,8 +10,7 @@ background_mode = 3
 background_sky = SubResource( 1 )
 background_color = Color( 1, 1, 1, 1 )
 fog_enabled = true
-fog_color = Color( 0.713726, 0.854902, 0.901961, 1 )
-fog_sun_color = Color( 1, 1, 1, 1 )
+fog_color = Color( 1, 1, 1, 1 )
 fog_depth_end = 64.0
 fog_depth_curve = 1.68179
 fog_transmit_enabled = true
@@ -18,6 +18,7 @@ fog_transmit_curve = 1.68179
 fog_height_enabled = true
 fog_height_min = 4.0
 fog_height_max = -4.0
+fog_height_curve = 1.8025
 tonemap_mode = 2
 tonemap_exposure = 0.7
 tonemap_white = 2.0
