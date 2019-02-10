@@ -1,0 +1,23 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://shaders/grass_particle.shader" type="Shader" id=1]
+
+[resource]
+
+shader = ExtResource( 1 )
+shader_param/TERRAIN_HEIGHT_SCALE = 128.0
+shader_param/TERRAIN_MIN_H = 0.5
+shader_param/TERRAIN_MAX_H = 0.6
+shader_param/seed = 19.253
+shader_param/TERRAIN_FLAT = true
+shader_param/VOID_CENTER = false
+shader_param/VOID_SIZE = 16.3
+shader_param/ALIVE = true
+shader_param/ALIVE_SPEED = 0.05
+shader_param/ALIVE_RANGE = 12.0
+shader_param/GRASS_ROWS = 32.0
+shader_param/GRASS_SPACING = 2.01
+shader_param/GRASS_SCALE_MIN = 0.5
+shader_param/GRASS_SCALE_MAX = 4.0
+shader_param/MAP_SIZE = Vector2( 1024, 1024 )
+

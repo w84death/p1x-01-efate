@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://materials/crazy_red.tres" type="Material" id=1]
+[ext_resource path="res://materials/black.material" type="Material" id=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+material = ExtResource( 1 )
+
+[sub_resource type="CubeMesh" id=3]
+
+material = ExtResource( 2 )
+size = Vector3( 0.2, 2.2, 2.2 )
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "lol"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 45, 60, 45 ), Vector3( 405, 420, 405 ) ]
+}
+
+[node name="the_box" type="CSGMesh"]
+transform = Transform( 0.984372, 0.0923733, 0.149931, -0.109478, 0.987867, 0.110148, -0.137937, -0.124841, 0.982541, 0, 0, 0 )
+mesh = SubResource( 1 )
+
+[node name="CSGMesh" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+operation = 2
+mesh = SubResource( 3 )
+
+[node name="CSGMesh2" type="CSGMesh" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
+operation = 2
+mesh = SubResource( 3 )
+
+[node name="CSGMesh3" type="CSGMesh" parent="."]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0, 0 )
+operation = 2
+mesh = SubResource( 3 )
+
+[node name="box_anim" type="AnimationPlayer" parent="."]
+autoplay = "lol"
+anims/lol = SubResource( 2 )
+

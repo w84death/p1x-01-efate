@@ -17,11 +17,23 @@ func _input(event):
 func quit_game():
     get_tree().quit()
 
+func _on_quit_pressed():
+    quit_game()
+    
 func _on_scene1_pressed():
     get_tree().change_scene("scenes/scene1.tscn")
 
 func _on_scene2_pressed():
     get_tree().change_scene("scenes/scene2.tscn")
 
-func _on_quit_pressed():
-    quit_game()
+func _on_scene3_pressed():
+    get_tree().change_scene("scenes/scene3.tscn")
+
+func _on_scene51_pressed():
+    get_tree().change_scene("scenes/scene51.tscn")
+
+func _on_scene50_pressed():
+    get_tree().change_scene("scenes/scene50.tscn")
+
+
+

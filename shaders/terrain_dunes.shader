@@ -30,8 +30,10 @@ void fragment() {
 	alb.b *= .1 + ran *.2;
 	
 
-	SPECULAR = 0.8 * ran;
-	ROUGHNESS = 0.6 + 0.2 * ran;
+	SPECULAR = 0.1 * ran;
+	ROUGHNESS = 0.5 + 0.2 * ran;
+    NORMALMAP = texture(noisemap, UV * UV_FACTOR * .5).rgb;
+    NORMALMAP_DEPTH = .5;
 	METALLIC = 0.;
 	
 	ALBEDO = alb;

@@ -117,34 +117,9 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 360 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=9]
 
-length = 4.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("car/back-left:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, -160, 0 ), Vector3( 0, -200, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("car/front-right2:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 20, 0 ), Vector3( 0, -20, 0 ) ]
-}
+resource_name = "run"
 
 [node name="boogie" type="Position3D"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
@@ -169,12 +144,11 @@ material/0 = null
 material/1 = null
 
 [node name="tyre_anim" type="AnimationPlayer" parent="car/front-right"]
-autoplay = "run-reverse"
 anims/run = SubResource( 1 )
 anims/run-reverse = SubResource( 2 )
 
 [node name="front-right2" type="Position3D" parent="car"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.77699, 2.55106, 4.45744 )
+transform = Transform( 0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 4.77699, 2.55106, 4.45744 )
 
 [node name="tyre" type="MeshInstance" parent="car/front-right2"]
 transform = Transform( 0.316409, 0.948623, 0, -0.948623, 0.316409, 0, 0, 0, 1, 0, 0, 0 )
@@ -183,7 +157,6 @@ material/0 = null
 material/1 = null
 
 [node name="tyre_anim" type="AnimationPlayer" parent="car/front-right2"]
-autoplay = "run"
 anims/run = SubResource( 3 )
 
 [node name="back-right" type="Position3D" parent="car"]
@@ -196,12 +169,11 @@ material/0 = null
 material/1 = null
 
 [node name="tyre_anim" type="AnimationPlayer" parent="car/back-right"]
-autoplay = "run_left"
 anims/run_left = SubResource( 4 )
 anims/run_right = SubResource( 5 )
 
 [node name="back-left" type="Position3D" parent="car"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -5.43932, 2.55106, 4.45744 )
+transform = Transform( -0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, -0.939693, -5.43932, 2.55106, 4.45744 )
 
 [node name="tyre" type="MeshInstance" parent="car/back-left"]
 transform = Transform( -0.950605, -0.310404, 0, 0.310404, -0.950605, 0, 0, 0, 1, 0, 0, 0 )
@@ -210,10 +182,9 @@ material/0 = null
 material/1 = null
 
 [node name="tyre_anim" type="AnimationPlayer" parent="car/back-left"]
-autoplay = "run_right"
 anims/run_left = SubResource( 6 )
 anims/run_right = SubResource( 7 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/New Anim" = SubResource( 8 )
+anims/run = SubResource( 9 )
 

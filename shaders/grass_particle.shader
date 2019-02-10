@@ -19,6 +19,10 @@ uniform bool TERRAIN_FLAT = false;
 uniform bool VOID_CENTER = false;
 uniform float VOID_SIZE = 12.0;
 
+uniform bool ALIVE = false;
+uniform float ALIVE_SPEED = .5;
+uniform float ALIVE_RANGE = 24.0;
+
 // VEGETATION SETTINGS
 uniform float GRASS_ROWS = 64;
 uniform float GRASS_SPACING = 8.0;
@@ -80,6 +84,12 @@ void vertex() {
 	pos.x += ran * GRASS_SPACING;
 	pos.z += ran * GRASS_SPACING; // apply noise and spacing
 	pos.y = get_height(pos.xz); // apply height
+    
+    if (ALIVE) {
+        pos.x += sin(ALIVE_SPEED * TIME + pos.x + ran) * ALIVE_RANGE;
+        pos.z += sin(ALIVE_SPEED * TIME + pos.z + ran) * ALIVE_RANGE;
+        pos.y += sin(10. * TIME + pos.x + ran) * .0002;
+    }
 
 	vec2 feat_pos = pos.xz;
 	feat_pos -= 0.5 * MAP_SIZE;

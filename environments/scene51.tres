@@ -2,23 +2,21 @@
 
 [sub_resource type="ProceduralSky" id=1]
 
-sky_top_color = Color( 0.913725, 0.784314, 0.501961, 1 )
-sky_horizon_color = Color( 0.945098, 0.662745, 0.364706, 1 )
-sky_curve = 0.127279
-ground_horizon_color = Color( 0.945098, 0.662745, 0.364706, 1 )
-ground_curve = 0.234254
-sun_latitude = 26.17
-sun_longitude = 37.5
+ground_horizon_color = Color( 0.368627, 0.690196, 0.584314, 1 )
 
 [resource]
 
 background_mode = 2
 background_sky = SubResource( 1 )
 fog_enabled = true
-fog_color = Color( 0.862745, 0.627451, 0.376471, 1 )
+fog_color = Color( 0.811765, 0.811765, 0.811765, 1 )
 fog_sun_color = Color( 1, 1, 1, 1 )
 fog_depth_end = 64.0
 fog_transmit_enabled = true
+fog_height_enabled = true
+fog_height_min = 4.0
+fog_height_max = -4.0
+fog_height_curve = 2.46229
 tonemap_mode = 2
 tonemap_exposure = 0.4
 tonemap_white = 2.0
