@@ -1,12 +1,12 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/back_to_main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://environments/clear_lab.tres" type="Environment" id=4]
-[ext_resource path="res://music/OKAM_vs_ps_-_01_-_Slit_View_of_the_Rapture.ogg" type="AudioStream" id=5]
-[ext_resource path="res://music/DASK_-_01_-_Arrival.ogg" type="AudioStream" id=6]
-[ext_resource path="res://scenes/the_box.tscn" type="PackedScene" id=7]
+[ext_resource path="res://music/DASK_-_01_-_Arrival.ogg" type="AudioStream" id=5]
+[ext_resource path="res://scenes/the_box.tscn" type="PackedScene" id=6]
+[ext_resource path="res://music/OKAM_vs_ps_-_01_-_Slit_View_of_the_Rapture.ogg" type="AudioStream" id=7]
 [ext_resource path="res://scenes/futuristic_building2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://materials/particles/small_peple.tres" type="Material" id=9]
 [ext_resource path="res://materials/turquise.material" type="Material" id=10]
@@ -14,7 +14,7 @@
 [sub_resource type="Animation" id=1]
 
 resource_name = "demo"
-length = 32.0
+length = 38.0
 tracks/0/type = "animation"
 tracks/0/path = NodePath("main_camera/camera_anim")
 tracks/0/interp = 1
@@ -22,8 +22,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"clips": PoolStringArray( "dolly", "from_hi_office", "down_to_cube" ),
-"times": PoolRealArray( 0, 16, 24 )
+"clips": PoolStringArray( "from_the_office_room", "dolly", "from_hi_office", "down_to_cube" ),
+"times": PoolRealArray( 0, 6, 22.1, 30.2 )
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -32,7 +32,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 32 ),
+"times": PoolRealArray( 37.9 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -138,6 +138,35 @@ tracks/1/keys = {
 "values": [ Vector3( -8.197, 21.102, 32.62 ), Vector3( -8.197, 8.242, 32.62 ), Vector3( -1.957, 7.002, 25.5 ), Vector3( -1.117, 1.192, 23.14 ) ]
 }
 
+[sub_resource type="Animation" id=11]
+
+resource_name = "from_the_office_room"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 11.16, 5.242, 3.19 ), Vector3( 11.16, 5.242, 30.53 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 2.92, 23.3, 0 ) ]
+}
+
 [sub_resource type="GIProbeData" id=5]
 
 bounds = AABB( -130, -32, -130, 260, 64, 260 )
@@ -200,12 +229,13 @@ autoplay = "demo"
 anims/demo = SubResource( 1 )
 
 [node name="main_camera" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, -14.58, 0.112, 32.65 )
+transform = Transform( 0.918446, 0.0201497, 0.395032, 0, 0.998702, -0.0509416, -0.395546, 0.0467871, 0.917254, 11.16, 5.242, 3.19 )
 
 [node name="camera_anim" type="AnimationPlayer" parent="main_camera"]
 anims/dolly = SubResource( 2 )
 anims/down_to_cube = SubResource( 3 )
 anims/from_hi_office = SubResource( 4 )
+anims/from_the_office_room = SubResource( 11 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 4 )
@@ -231,14 +261,8 @@ use_in_baked_light = true
 mesh = SubResource( 7 )
 material/0 = SubResource( 8 )
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0647926, 4.90285, 20.2963 )
-stream = ExtResource( 5 )
-unit_size = 3.0
-autoplay = true
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource( 5 )
 autoplay = true
 
 [node name="sun" type="DirectionalLight" parent="."]
@@ -256,8 +280,14 @@ anims/full_day = SubResource( 9 )
 
 [node name="city" type="Spatial" parent="."]
 
-[node name="the_box" parent="city" instance=ExtResource( 7 )]
-transform = Transform( 0.786566, 0.0794594, 0.612372, 0.5, 0.5, -0.707107, -0.362372, 0.862372, 0.353553, 0, 5.22472, 20.4164 )
+[node name="the_box" parent="city" instance=ExtResource( 6 )]
+transform = Transform( 0.813414, 0.140835, 0.564378, 0.483967, 0.3744, -0.790949, -0.322697, 0.91651, 0.236382, 0, 5.22472, 20.4164 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="city/the_box"]
+transform = Transform( -0.309477, 0.487623, -0.816363, -0.759781, 0.38944, 0.520644, 0.571803, 0.781384, 0.249964, -0.0789566, -0.237105, -0.244476 )
+stream = ExtResource( 7 )
+unit_size = 3.0
+autoplay = true
 
 [node name="block10" parent="city" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, -2 )
@@ -298,3 +328,5 @@ draw_pass_1 = SubResource( 10 )
 
 
 [editable path="HUD"]
+
+[editable path="city/the_box"]
