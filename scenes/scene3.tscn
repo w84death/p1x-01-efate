@@ -1,12 +1,71 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/back_to_main.gd" type="Script" id=1]
-[ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=2]
-[ext_resource path="res://environments/clear_lab.tres" type="Environment" id=3]
-[ext_resource path="res://scenes/the_box.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/futuristic_building2.tscn" type="PackedScene" id=5]
-[ext_resource path="res://materials/particles/small_peple.tres" type="Material" id=6]
-[ext_resource path="res://materials/turquise.material" type="Material" id=7]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://environments/clear_lab.tres" type="Environment" id=4]
+[ext_resource path="res://scenes/the_box.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/futuristic_building2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://materials/particles/small_peple.tres" type="Material" id=7]
+[ext_resource path="res://materials/turquise.material" type="Material" id=8]
+
+[sub_resource type="Animation" id=10]
+
+resource_name = "demo"
+length = 18.0
+tracks/0/type = "animation"
+tracks/0/path = NodePath("main_camera/camera_anim")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "dolly" ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 17.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "back"
+} ]
+}
+
+[sub_resource type="Animation" id=9]
+
+resource_name = "dolly"
+length = 16.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 16 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -14.58, 0.112, 32.65 ), Vector3( 14.5, 0.112, 32.65 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4, 8, 12, 16 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 10, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 20, 0, 0 ), Vector3( 10, 0, 0 ), Vector3( 10, 0, 0 ) ]
+}
 
 [sub_resource type="GIProbeData" id=1]
 
@@ -57,19 +116,26 @@ tracks/0/keys = {
 
 [sub_resource type="CubeMesh" id=6]
 
-material = ExtResource( 7 )
+material = ExtResource( 8 )
 size = Vector3( 0.1, 0.25, 0.1 )
 
 [node name="scene3" type="Spatial"]
 script = ExtResource( 1 )
 
-[node name="main" type="AnimationPlayer" parent="."]
+[node name="HUD" parent="." instance=ExtResource( 2 )]
 
-[node name="main_camera" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 0.940822, -0.338902, 0, 0.338902, 0.940822, 0, 0.112, 32.65 )
+[node name="main" type="AnimationPlayer" parent="."]
+autoplay = "demo"
+anims/demo = SubResource( 10 )
+
+[node name="main_camera" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.953293, -0.302048, 0, 0.302048, 0.953293, -2.5845, 0.112, 32.65 )
+
+[node name="camera_anim" type="AnimationPlayer" parent="main_camera"]
+anims/dolly = SubResource( 9 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource( 3 )
+environment = ExtResource( 4 )
 
 [node name="GIProbe" type="GIProbe" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.55237, 0 )
@@ -105,40 +171,40 @@ anims/full_day = SubResource( 4 )
 
 [node name="city" type="Spatial" parent="."]
 
-[node name="the_box" parent="city" instance=ExtResource( 4 )]
+[node name="the_box" parent="city" instance=ExtResource( 5 )]
 transform = Transform( 0.786566, 0.0794594, 0.612372, 0.5, 0.5, -0.707107, -0.362372, 0.862372, 0.353553, 0, 5.22472, 20.4164 )
 
-[node name="block10" parent="city" instance=ExtResource( 5 )]
+[node name="block10" parent="city" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, -2 )
 
-[node name="block2" parent="city" instance=ExtResource( 5 )]
+[node name="block2" parent="city" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14, 16, -1 )
 
-[node name="block9" parent="city" instance=ExtResource( 5 )]
+[node name="block9" parent="city" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14, 16, -14 )
 
-[node name="block5" parent="city" instance=ExtResource( 5 )]
+[node name="block5" parent="city" instance=ExtResource( 6 )]
 transform = Transform( 6.70552e-08, 0, 1, 0, 1, 0, -1, 0, 6.70552e-08, -14, 16, 12 )
 
-[node name="block7" parent="city" instance=ExtResource( 5 )]
+[node name="block7" parent="city" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14, 16, 24.7904 )
 
-[node name="block3" parent="city" instance=ExtResource( 5 )]
+[node name="block3" parent="city" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14, 16, -1 )
 
-[node name="block8" parent="city" instance=ExtResource( 5 )]
+[node name="block8" parent="city" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14, 16, -14 )
 
-[node name="block4" parent="city" instance=ExtResource( 5 )]
+[node name="block4" parent="city" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14, 16, 12 )
 
-[node name="block6" parent="city" instance=ExtResource( 5 )]
+[node name="block6" parent="city" instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14, 16, 24.7904 )
 
 [node name="small_people" type="Particles" parent="city"]
 use_in_baked_light = true
 amount = 1024
 visibility_aabb = AABB( -128, 0, -128, 256, 128, 256 )
-process_material = ExtResource( 6 )
+process_material = ExtResource( 7 )
 draw_pass_1 = SubResource( 6 )
 

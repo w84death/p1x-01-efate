@@ -58,6 +58,10 @@ mesh = SubResource( 6 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.5, 0 )
 mesh = SubResource( 6 )
 
+[node name="LED3" type="CSGMesh" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -15.5, 0 )
+mesh = SubResource( 6 )
+
 [node name="CSGMesh2" type="CSGMesh" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.7151, 4 )
 operation = 2
