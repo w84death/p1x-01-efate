@@ -58,66 +58,113 @@ anchor_bottom = 1.0
 margin_top = -60.0
 margin_bottom = -60.0
 
-[node name="buttons" type="HBoxContainer" parent="HUD/bottom"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -255.5
-margin_top = -12.0
-margin_right = 255.5
-margin_bottom = 12.0
-rect_min_size = Vector2( 320, 0 )
+[node name="demos" type="Panel" parent="HUD/bottom"]
+editor/display_folded = true
+margin_left = -251.0
+margin_top = -19.0
+margin_right = -3.0
+margin_bottom = 20.0
+
+[node name="buttons" type="HBoxContainer" parent="HUD/bottom/demos"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 8.0
+margin_bottom = -8.0
 custom_constants/separation = 16
 alignment = 1
 
-[node name="scene1" type="Button" parent="HUD/bottom/buttons"]
+[node name="scene1" type="Button" parent="HUD/bottom/demos/buttons"]
 margin_left = 16.0
 margin_right = 77.0
-margin_bottom = 24.0
+margin_bottom = 23.0
 text = "SCENE #1"
 
-[node name="scene2" type="Button" parent="HUD/bottom/buttons"]
+[node name="scene2" type="Button" parent="HUD/bottom/demos/buttons"]
 margin_left = 93.0
 margin_right = 154.0
-margin_bottom = 24.0
+margin_bottom = 23.0
 text = "SCENE #2"
 
-[node name="scene3" type="Button" parent="HUD/bottom/buttons"]
+[node name="scene3" type="Button" parent="HUD/bottom/demos/buttons"]
 margin_left = 170.0
 margin_right = 231.0
-margin_bottom = 24.0
+margin_bottom = 23.0
 text = "SCENE #3"
 
-[node name="gap" type="Container" parent="HUD/bottom/buttons"]
-margin_left = 247.0
-margin_right = 311.0
-margin_bottom = 24.0
-rect_min_size = Vector2( 64, 0 )
+[node name="Label" type="Label" parent="HUD/bottom/demos"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -15.0
+margin_top = -2.0
+margin_right = 15.0
+margin_bottom = 6.0
+text = "DEMOS"
 
-[node name="scene50" type="Button" parent="HUD/bottom/buttons"]
-margin_left = 327.0
-margin_right = 394.0
-margin_bottom = 24.0
+[node name="static" type="Panel" parent="HUD/bottom"]
+editor/display_folded = true
+margin_left = 27.0
+margin_top = -18.0
+margin_right = 235.0
+margin_bottom = 18.0
+
+[node name="Label2" type="Label" parent="HUD/bottom/static"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -19.5
+margin_top = -2.0
+margin_right = 19.5
+margin_bottom = 6.0
+text = "TESTING"
+
+[node name="buttons" type="HBoxContainer" parent="HUD/bottom/static"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 8.0
+margin_right = -2.0
+margin_bottom = -8.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="scene50" type="Button" parent="HUD/bottom/static/buttons"]
+margin_left = 28.0
+margin_right = 95.0
+margin_bottom = 20.0
 text = "SCENE #50"
 
-[node name="scene51" type="Button" parent="HUD/bottom/buttons"]
-visible = false
-margin_left = 394.0
-margin_right = 461.0
-margin_bottom = 24.0
+[node name="scene51" type="Button" parent="HUD/bottom/static/buttons"]
+margin_left = 111.0
+margin_right = 178.0
+margin_bottom = 20.0
 text = "SCENE #51"
 
-[node name="gap2" type="Container" parent="HUD/bottom/buttons"]
-margin_left = 410.0
-margin_right = 442.0
-margin_bottom = 24.0
-rect_min_size = Vector2( 32, 0 )
+[node name="tools" type="Panel" parent="HUD/bottom"]
+editor/display_folded = true
+margin_left = 360.992
+margin_top = -18.5336
+margin_right = 427.992
+margin_bottom = 17.4664
 
-[node name="quit" type="Button" parent="HUD/bottom/buttons"]
-margin_left = 458.0
-margin_right = 495.0
-margin_bottom = 24.0
+[node name="Label2" type="Label" parent="HUD/bottom/tools"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -14.5
+margin_top = -2.0
+margin_right = 15.5
+margin_bottom = 6.0
+text = "TOOLS"
+
+[node name="buttons" type="HBoxContainer" parent="HUD/bottom/tools"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 8.0
+margin_bottom = -8.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="quit" type="Button" parent="HUD/bottom/tools/buttons"]
+margin_left = 15.0
+margin_right = 52.0
+margin_bottom = 20.0
 text = "QUIT"
 
 [node name="info" type="Label" parent="HUD/bottom"]
@@ -126,17 +173,17 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -160.0
-margin_top = -31.0
+margin_top = -61.0
 margin_right = 160.0
-margin_bottom = -23.0
+margin_bottom = -53.0
 rect_min_size = Vector2( 320, 0 )
 text = "In glorious 21:9 aspect ratio and 60fps."
 align = 1
 autowrap = true
 
-[connection signal="pressed" from="HUD/bottom/buttons/scene1" to="." method="_on_scene1_pressed"]
-[connection signal="pressed" from="HUD/bottom/buttons/scene2" to="." method="_on_scene2_pressed"]
-[connection signal="pressed" from="HUD/bottom/buttons/scene3" to="." method="_on_scene3_pressed"]
-[connection signal="pressed" from="HUD/bottom/buttons/scene50" to="." method="_on_scene50_pressed"]
-[connection signal="pressed" from="HUD/bottom/buttons/scene51" to="." method="_on_scene51_pressed"]
-[connection signal="pressed" from="HUD/bottom/buttons/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="HUD/bottom/demos/buttons/scene1" to="." method="_on_scene1_pressed"]
+[connection signal="pressed" from="HUD/bottom/demos/buttons/scene2" to="." method="_on_scene2_pressed"]
+[connection signal="pressed" from="HUD/bottom/demos/buttons/scene3" to="." method="_on_scene3_pressed"]
+[connection signal="pressed" from="HUD/bottom/static/buttons/scene50" to="." method="_on_scene50_pressed"]
+[connection signal="pressed" from="HUD/bottom/static/buttons/scene51" to="." method="_on_scene51_pressed"]
+[connection signal="pressed" from="HUD/bottom/tools/buttons/quit" to="." method="_on_quit_pressed"]
