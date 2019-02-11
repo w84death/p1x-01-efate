@@ -62,10 +62,14 @@ void vertex() {
 	
 	float w = -WAVES_FACTOR_SMALL + get_waves(VERTEX.xz * 0.005, 16, TIME) * WAVES_FACTOR_BIG;
 	float anim = mix(w, 0., shore_line);
-	h += mix(0., -0.0 + (ran * .007), ground_line);
+	h += mix(0., ran * .007, ground_line);
 	h = h * HEIGHT_FACTOR + anim;
 	float fh = mix(h, h + ran, mountains_line);
-	VERTEX = fh;
+	VERTEX.y = fh;
+    
+    TANGENT = normalize( vec3(0.0, get_height(VERTEX.xz + vec2(0.0, 0.2)) - get_height(VERTEX.xz + vec2(0.0, -0.2)), 0.4));
+    BINORMAL = normalize( vec3(0.4, get_height(VERTEX.xz + vec2(0.2, 0.0)) - get_height(VERTEX.xz + vec2(-0.2, 0.0)), 0.0));
+    NORMAL = cross(TANGENT, BINORMAL);
 }
 
 void fragment() {
@@ -75,9 +79,9 @@ void fragment() {
 	
 	// sand (yellow) vs grass (green)
 	float y_line = step(ground_line + ran * .15, color_height);
-	alb.r = mix(.3 + ran *.3, 	(.3 - ran * .1) * ran2, 	y_line);
-	alb.g = mix(.2 + ran *.2, 	(.9 - ran * .1) * ran2, 	y_line);
-	alb.b = mix(.1 + ran *.2, 	(0.1) * ran2, 				y_line);
+	alb.r = mix(.6 + ran *.3, 	(.23 - ran * .1) * ran2, 	y_line);
+	alb.g = mix(.4 + ran *.2, 	(.9 - ran * .1) * ran2, 	y_line);
+	alb.b = mix(.3 + ran *.2, 	(0.1) * ran2, 				y_line);
 	
 	// rest vs white top
 	float g_line = step(green_line + ran * .3, color_height);
@@ -96,9 +100,9 @@ void fragment() {
 	TRANSMISSION += mix(vec3(color_height * ran * 24.), vec3(0.), b_line);
 	TRANSMISSION += mix(vec3(.9, .9, .8), TRANSMISSION, g_line);
 	
-	SPECULAR = mix(1., .4, b_line);
-	ROUGHNESS = mix(.6, 1., b_line);
-	METALLIC = mix(0.5, 0., b_line);
+	SPECULAR = mix(1., .1, b_line);
+	ROUGHNESS = mix(.6, 0.8, b_line);
+	METALLIC = mix(0.5, 0.2, b_line);
 	
 	ALBEDO = alb;
 }

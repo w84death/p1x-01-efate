@@ -59,8 +59,7 @@ margin_top = -60.0
 margin_bottom = -60.0
 
 [node name="demos" type="Panel" parent="HUD/bottom"]
-editor/display_folded = true
-margin_left = -251.0
+margin_left = -328.0
 margin_top = -19.0
 margin_right = -3.0
 margin_bottom = 20.0
@@ -90,6 +89,12 @@ margin_left = 170.0
 margin_right = 231.0
 margin_bottom = 23.0
 text = "SCENE #3"
+
+[node name="scene4" type="Button" parent="HUD/bottom/demos/buttons"]
+margin_left = 247.0
+margin_right = 308.0
+margin_bottom = 23.0
+text = "SCENE #4"
 
 [node name="Label" type="Label" parent="HUD/bottom/demos"]
 anchor_left = 0.5
@@ -184,6 +189,7 @@ autowrap = true
 [connection signal="pressed" from="HUD/bottom/demos/buttons/scene1" to="." method="_on_scene1_pressed"]
 [connection signal="pressed" from="HUD/bottom/demos/buttons/scene2" to="." method="_on_scene2_pressed"]
 [connection signal="pressed" from="HUD/bottom/demos/buttons/scene3" to="." method="_on_scene3_pressed"]
+[connection signal="pressed" from="HUD/bottom/demos/buttons/scene4" to="." method="_on_scene4_pressed"]
 [connection signal="pressed" from="HUD/bottom/static/buttons/scene50" to="." method="_on_scene50_pressed"]
 [connection signal="pressed" from="HUD/bottom/static/buttons/scene51" to="." method="_on_scene51_pressed"]
 [connection signal="pressed" from="HUD/bottom/tools/buttons/quit" to="." method="_on_quit_pressed"]

@@ -1,0 +1,51 @@
+[gd_resource type="Environment" load_steps=2 format=2]
+
+[sub_resource type="ProceduralSky" id=1]
+
+sky_top_color = Color( 0.741176, 0.909804, 1, 1 )
+sky_horizon_color = Color( 0.960784, 0.980392, 0.839216, 1 )
+sky_curve = 0.107029
+ground_horizon_color = Color( 0.960784, 0.980392, 0.839216, 1 )
+ground_curve = 0.2884
+sun_latitude = 26.17
+sun_longitude = 37.5
+
+[resource]
+
+background_mode = 2
+background_sky = SubResource( 1 )
+background_energy = 2.0
+ambient_light_energy = 0.0
+ambient_light_sky_contribution = 0.0
+fog_enabled = true
+fog_color = Color( 0.752941, 1, 0.67451, 1 )
+fog_depth_begin = 24.0
+fog_depth_end = 64.0
+fog_depth_curve = 1.62451
+fog_transmit_enabled = true
+fog_height_enabled = true
+fog_height_min = 3.0
+fog_height_max = -3.0
+tonemap_mode = 2
+tonemap_exposure = 0.4
+tonemap_white = 2.0
+ss_reflections_enabled = true
+ssao_enabled = true
+ssao_radius = 2.0
+ssao_intensity = 5.0
+ssao_radius2 = 3.0
+ssao_intensity2 = 4.0
+ssao_ao_channel_affect = 1.0
+ssao_quality = 1
+dof_blur_far_enabled = true
+dof_blur_far_distance = 32.0
+dof_blur_far_transition = 12.0
+dof_blur_far_amount = 0.12
+dof_blur_far_quality = 2
+dof_blur_near_enabled = true
+dof_blur_near_distance = 4.0
+dof_blur_near_quality = 2
+glow_enabled = true
+glow_levels/2 = true
+glow_bloom = 0.2
+

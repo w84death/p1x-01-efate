@@ -1,13 +1,10 @@
-[gd_resource type="VisualShader" load_steps=34 format=2]
+[gd_resource type="VisualShader" load_steps=31 format=2]
 
-[ext_resource path="res://assets/materials/fire/fire_gradient.tres" type="Texture" id=1]
-[ext_resource path="res://assets/materials/gradient_bw.tres" type="Texture" id=2]
-[ext_resource path="res://assets/materials/detailed_noise.tres" type="Texture" id=3]
-[ext_resource path="res://assets/materials/gradient_l.tres" type="Texture" id=4]
+[ext_resource path="res://materials/fire/fire_gradient.tres" type="Texture" id=1]
 
 [sub_resource type="VisualShaderNodeTexture" id=1]
 
-texture = ExtResource( 1 )
+output_port_for_preview = 0
 
 [sub_resource type="VisualShaderNodeColorOp" id=2]
 
@@ -17,7 +14,6 @@ operator = 4
 [sub_resource type="VisualShaderNodeTexture" id=3]
 
 output_port_for_preview = 1
-texture = ExtResource( 2 )
 
 [sub_resource type="VisualShaderNodeScalarOp" id=4]
 
@@ -41,7 +37,7 @@ input_name = "time"
 
 [sub_resource type="VisualShaderNodeTexture" id=9]
 
-texture = ExtResource( 3 )
+texture = ExtResource( 1 )
 
 [sub_resource type="VisualShaderNodeScalarOp" id=10]
 
@@ -62,7 +58,6 @@ operator = 2
 
 [sub_resource type="VisualShaderNodeTexture" id=14]
 
-texture = ExtResource( 3 )
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id=15]
 
@@ -75,7 +70,6 @@ texture = ExtResource( 3 )
 
 [sub_resource type="VisualShaderNodeTexture" id=18]
 
-texture = ExtResource( 4 )
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id=19]
 
@@ -260,10 +254,15 @@ void fragment() {
 	n_out4p0 = tex_frg_4_read.rgb;
 	n_out4p1 = tex_frg_4_read.a;
 
+// ScalarOp:19
+	float n_in19p1 = 0.00000;
+	float n_out19p0;
+	n_out19p0 = n_out3p0 + n_in19p1;
+
 // Texture:11
 	vec3 n_out11p0;
 	float n_out11p1;
-	vec4 tex_frg_11_read = texture( tex_frg_11 , n_out2p0.xy );
+	vec4 tex_frg_11_read = textureLod( tex_frg_11 , n_out2p0.xy , n_out19p0 );
 	n_out11p0 = tex_frg_11_read.rgb;
 	n_out11p1 = tex_frg_11_read.a;
 
@@ -322,7 +321,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( -26.8245, -77.354 )
+graph_offset = Vector2( 254.124, 75 )
 modes/cull = 2
 nodes/vertex/0/position = Vector2( 1720, -20 )
 nodes/vertex/3/node = SubResource( 25 )
@@ -385,5 +384,5 @@ nodes/fragment/18/node = SubResource( 5 )
 nodes/fragment/18/position = Vector2( 860, 240 )
 nodes/fragment/19/node = SubResource( 6 )
 nodes/fragment/19/position = Vector2( 80, 260 )
-nodes/fragment/connections = PoolIntArray( 2, 0, 8, 0, 3, 0, 5, 0, 7, 0, 4, 0, 4, 0, 12, 0, 11, 0, 12, 1, 2, 0, 11, 0, 13, 1, 0, 1, 12, 0, 0, 17, 12, 0, 0, 5, 8, 2, 7, 2, 5, 0, 7, 0, 8, 1, 14, 0, 14, 0, 7, 1, 12, 0, 0, 7, 3, 0, 19, 0, 4, 0, 18, 1, 2, 0, 18, 0, 18, 0, 13, 0, 12, 0, 0, 0 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 8, 0, 3, 0, 5, 0, 7, 0, 4, 0, 4, 0, 12, 0, 11, 0, 12, 1, 2, 0, 11, 0, 13, 1, 0, 1, 12, 0, 0, 17, 12, 0, 0, 5, 8, 2, 7, 2, 5, 0, 7, 0, 8, 1, 14, 0, 14, 0, 7, 1, 12, 0, 0, 7, 3, 0, 19, 0, 4, 0, 18, 1, 2, 0, 18, 0, 18, 0, 13, 0, 12, 0, 0, 0, 19, 0, 11, 1 )
 

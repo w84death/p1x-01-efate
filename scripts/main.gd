@@ -29,11 +29,12 @@ func _on_scene2_pressed():
 func _on_scene3_pressed():
     get_tree().change_scene("scenes/scene3.tscn")
 
+func _on_scene4_pressed():
+    get_tree().change_scene("scenes/scene4.tscn")
+    
 func _on_scene51_pressed():
     get_tree().change_scene("scenes/scene51.tscn")
 
 func _on_scene50_pressed():
     get_tree().change_scene("scenes/scene50.tscn")
-
-
 
