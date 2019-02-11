@@ -2,10 +2,12 @@
 
 [sub_resource type="ProceduralSky" id=1]
 
-sky_top_color = Color( 0.741176, 0.909804, 1, 1 )
-sky_horizon_color = Color( 0.960784, 0.980392, 0.839216, 1 )
+radiance_size = 3
+sky_top_color = Color( 0.686275, 0.964706, 0.878431, 1 )
+sky_horizon_color = Color( 0.94902, 0.835294, 0.501961, 1 )
 sky_curve = 0.107029
-ground_horizon_color = Color( 0.960784, 0.980392, 0.839216, 1 )
+ground_bottom_color = Color( 0.137255, 0.12549, 0.0901961, 1 )
+ground_horizon_color = Color( 0.94902, 0.835294, 0.501961, 1 )
 ground_curve = 0.2884
 sun_latitude = 26.17
 sun_longitude = 37.5
@@ -14,8 +16,7 @@ sun_longitude = 37.5
 
 background_mode = 2
 background_sky = SubResource( 1 )
-background_energy = 2.0
-ambient_light_energy = 0.0
+ambient_light_color = Color( 0.133333, 0.266667, 0.266667, 1 )
 ambient_light_sky_contribution = 0.0
 fog_enabled = true
 fog_color = Color( 0.752941, 1, 0.67451, 1 )
@@ -38,7 +39,7 @@ ssao_intensity2 = 4.0
 ssao_ao_channel_affect = 1.0
 ssao_quality = 1
 dof_blur_far_enabled = true
-dof_blur_far_distance = 32.0
+dof_blur_far_distance = 42.0
 dof_blur_far_transition = 12.0
 dof_blur_far_amount = 0.12
 dof_blur_far_quality = 2
