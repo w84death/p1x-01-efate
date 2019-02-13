@@ -29,7 +29,6 @@ settings/fps/force_fps=60
 
 window/size/width=960
 window/size/height=411
-window/size/fullscreen=true
 mouse_cursor/custom_image="res://media/coursor.png"
 mouse_cursor/custom_image_hotspot=Vector2( 8, 8 )
 window/stretch/mode="viewport"
@@ -40,4 +39,5 @@ window/stretch/aspect="keep"
 threads/thread_model=2
 quality/shadows/filter_mode=2
 quality/voxel_cone_tracing/high_quality=false
+quality/filters/msaa=3
 environment/default_environment="res://environments/default_env.tres"

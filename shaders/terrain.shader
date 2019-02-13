@@ -15,7 +15,8 @@ uniform float ground_line = 0.38;
 uniform float blue_line = 0.4;
 uniform float GOLDEN_ANGLE_RADIAN = 2.39996;
 uniform float WAVES_FACTOR_BIG = 16.;
-uniform float WAVES_FACTOR_SMALL = 8;
+uniform float WAVES_FACTOR_SMALL = 8.;
+uniform int WAVES_ITERAIONS = 4;
 
 float get_height(vec2 pos) {
 	pos -= .5 * HEIGHTMAP_SIZE;
@@ -60,16 +61,16 @@ void vertex() {
 	float ran = texture(noisemap, VERTEX.xz * 8.).x * MOUNTAINS_FACTOR;
 	h = mix(blue_line, h, shore_line);
 	
-	float w = -WAVES_FACTOR_SMALL + get_waves(VERTEX.xz * 0.005, 16, TIME) * WAVES_FACTOR_BIG;
+	float w = get_waves(VERTEX.xz * 0.2, WAVES_ITERAIONS, TIME);
 	float anim = mix(w, 0., shore_line);
 	h += mix(0., ran * .007, ground_line);
 	h = h * HEIGHT_FACTOR + anim;
 	float fh = mix(h, h + ran, mountains_line);
 	VERTEX.y = fh;
     
-    TANGENT = normalize( vec3(0.0, get_height(VERTEX.xz + vec2(0.0, 0.2)) - get_height(VERTEX.xz + vec2(0.0, -0.2)), 0.4));
+    /*TANGENT = normalize( vec3(0.0, get_height(VERTEX.xz + vec2(0.0, 0.2)) - get_height(VERTEX.xz + vec2(0.0, -0.2)), 0.4));
     BINORMAL = normalize( vec3(0.4, get_height(VERTEX.xz + vec2(0.2, 0.0)) - get_height(VERTEX.xz + vec2(-0.2, 0.0)), 0.0));
-    NORMAL = cross(TANGENT, BINORMAL);
+    NORMAL = cross(TANGENT, BINORMAL);*/
 }
 
 void fragment() {
