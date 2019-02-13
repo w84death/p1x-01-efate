@@ -1,20 +1,27 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://scripts/back_to_main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://environments/joungle.tres" type="Environment" id=4]
 [ext_resource path="res://materials/terrain/joungle.material" type="Material" id=5]
-[ext_resource path="res://shaders/grass_particle.shader" type="Shader" id=6]
-[ext_resource path="res://materials/terrain/noise_terrain_joung;e.tres" type="Texture" id=7]
-[ext_resource path="res://models/palm1.mesh" type="ArrayMesh" id=8]
-[ext_resource path="res://materials/rocks/rock.material" type="Material" id=9]
-[ext_resource path="res://scenes/lamp.tscn" type="PackedScene" id=10]
+[ext_resource path="res://materials/particles/scene4_palms1.material" type="Material" id=6]
+[ext_resource path="res://models/palm1.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://materials/particles/scene4_palms2.material" type="Material" id=8]
+[ext_resource path="res://models/palm2.mesh" type="ArrayMesh" id=9]
+[ext_resource path="res://materials/particles/scene4_palms3.material" type="Material" id=10]
+[ext_resource path="res://models/palm3.mesh" type="ArrayMesh" id=11]
+[ext_resource path="res://shaders/grass_particle.shader" type="Shader" id=12]
+[ext_resource path="res://materials/terrain/noise_terrain_joung;e.tres" type="Texture" id=13]
+[ext_resource path="res://models/grass1.mesh" type="ArrayMesh" id=14]
+[ext_resource path="res://models/grass2.mesh" type="ArrayMesh" id=15]
+[ext_resource path="res://materials/rocks/rock.material" type="Material" id=16]
+[ext_resource path="res://scenes/lamp.tscn" type="PackedScene" id=17]
 
 [sub_resource type="Animation" id=1]
 
 resource_name = "demo"
-length = 48.0
+length = 56.2
 tracks/0/type = "animation"
 tracks/0/path = NodePath("main_camera/camera_anim")
 tracks/0/interp = 1
@@ -22,8 +29,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"clips": PoolStringArray( "dolly_in_laguna", "in", "over_lagua_drone" ),
-"times": PoolRealArray( 0, 8.1, 24 )
+"clips": PoolStringArray( "dolly_in_laguna", "in", "over_lagua_drone", "into the joungle" ),
+"times": PoolRealArray( 0, 8.1, 24, 48.1 )
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -32,7 +39,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 48 ),
+"times": PoolRealArray( 56 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -40,7 +47,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=2]
 
 resource_name = "dolly_in_laguna"
 length = 8.0
@@ -69,9 +76,8 @@ tracks/1/keys = {
 "values": [ Vector3( 7.11, 171.19, 0 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 
-resource_name = "in"
 length = 16.0
 loop = true
 tracks/0/type = "value"
@@ -101,6 +107,35 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=11]
 
+resource_name = "into the joungle"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -12.607, 18.34, -13.684 ), Vector3( -12.8998, 2.71, -13.8112 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -23.64, -79.008, 0 ), Vector3( -4.36, -46.268, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+
 resource_name = "over_lagua_drone"
 length = 24.0
 tracks/0/type = "value"
@@ -110,10 +145,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 8, 16, 23.8 ),
+"times": PoolRealArray( 0, 8, 20.5, 24 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 31.959, 28.31, -57.524 ), Vector3( 31.959, 28.31, -26.984 ), Vector3( 16.699, 22.86, -2.264 ), Vector3( -9.831, 19.78, 1.176 ) ]
+"values": [ Vector3( 31.959, 28.31, -57.524 ), Vector3( 31.959, 28.31, -26.984 ), Vector3( 18.789, 28.31, -22.904 ), Vector3( 17.199, 28.31, -22.904 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -122,13 +157,13 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 6.5, 14, 23.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 6.5, 23.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -22.62, 142.24, 0 ), Vector3( -39.43, 125.76, 0 ), Vector3( -9.9, 132.01, 0 ), Vector3( -16.16, 168.52, 0 ) ]
+"values": [ Vector3( -22.62, 142.24, 0 ), Vector3( -39.43, 125.76, 0 ), Vector3( -49.56, 102.91, 0 ) ]
 }
 
-[sub_resource type="GIProbeData" id=3]
+[sub_resource type="GIProbeData" id=5]
 
 bounds = AABB( -96, -32, -96, 192, 64, 192 )
 cell_size = 0.75
@@ -141,48 +176,67 @@ normal_bias = 0.0
 propagation = 0.7
 compress = true
 
-[sub_resource type="BakedLightmapData" id=9]
+[sub_resource type="BakedLightmapData" id=6]
 
 bounds = AABB( -96, -32, -96, 192, 64, 192 )
 cell_space_transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 384, 128, 384 )
 cell_subdiv = 11
 octree = PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255 )
 
-[sub_resource type="PlaneMesh" id=5]
+[sub_resource type="PlaneMesh" id=7]
 
 size = Vector2( 128, 128 )
 subdivide_width = 512
 subdivide_depth = 512
 
-[sub_resource type="ShaderMaterial" id=6]
+[sub_resource type="ShaderMaterial" id=12]
 
-shader = ExtResource( 6 )
+shader = ExtResource( 12 )
 shader_param/TERRAIN_HEIGHT_SCALE = 64.0
 shader_param/TERRAIN_MIN_H = 0.4
 shader_param/TERRAIN_MAX_H = 0.51
-shader_param/seed = 7.403
+shader_param/seed = 41.793
 shader_param/TERRAIN_FLAT = false
 shader_param/VOID_CENTER = false
 shader_param/VOID_SIZE = 12.0
 shader_param/ALIVE = false
 shader_param/ALIVE_SPEED = 0.5
 shader_param/ALIVE_RANGE = 24.0
-shader_param/GRASS_ROWS = 64.0
-shader_param/GRASS_SPACING = 2.0
-shader_param/GRASS_SCALE_MIN = 0.25
-shader_param/GRASS_SCALE_MAX = 1.0
+shader_param/GRASS_ROWS = 32.0
+shader_param/GRASS_SPACING = 4.0
+shader_param/GRASS_SCALE_MIN = 3.0
+shader_param/GRASS_SCALE_MAX = 4.0
 shader_param/MAP_SIZE = Vector2( 512, 512 )
-shader_param/HEIGHT_MAP = ExtResource( 7 )
+shader_param/HEIGHT_MAP = ExtResource( 13 )
 
-[sub_resource type="SphereMesh" id=7]
+[sub_resource type="ShaderMaterial" id=13]
 
-material = ExtResource( 9 )
+shader = ExtResource( 12 )
+shader_param/TERRAIN_HEIGHT_SCALE = 64.0
+shader_param/TERRAIN_MIN_H = 0.4
+shader_param/TERRAIN_MAX_H = 0.51
+shader_param/seed = 55.593
+shader_param/TERRAIN_FLAT = false
+shader_param/VOID_CENTER = false
+shader_param/VOID_SIZE = 12.0
+shader_param/ALIVE = false
+shader_param/ALIVE_SPEED = 0.5
+shader_param/ALIVE_RANGE = 24.0
+shader_param/GRASS_ROWS = 32.0
+shader_param/GRASS_SPACING = 4.0
+shader_param/GRASS_SCALE_MIN = 4.0
+shader_param/GRASS_SCALE_MAX = 8.0
+shader_param/MAP_SIZE = Vector2( 512, 512 )
+shader_param/HEIGHT_MAP = ExtResource( 13 )
+
+[sub_resource type="SphereMesh" id=9]
+
+material = ExtResource( 16 )
 radial_segments = 6
 rings = 4
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=10]
 
-resource_name = "New Anim"
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -205,14 +259,14 @@ autoplay = "demo"
 anims/demo = SubResource( 1 )
 
 [node name="main_camera" parent="." instance=ExtResource( 2 )]
-editor/display_folded = true
-transform = Transform( -0.988202, 0.0189571, 0.15198, 0, 0.99231, -0.123775, -0.153158, -0.122314, -0.980602, 9.79175, 0.88, -39.134 )
+transform = Transform( -0.22342, -0.741847, 0.632255, 0, 0.648651, 0.761086, -0.974722, 0.170042, -0.144922, 17.199, 28.31, -22.904 )
 current = true
 
 [node name="camera_anim" type="AnimationPlayer" parent="main_camera"]
-anims/dolly_in_laguna = SubResource( 10 )
-anims/in = SubResource( 2 )
-anims/over_lagua_drone = SubResource( 11 )
+anims/dolly_in_laguna = SubResource( 2 )
+anims/in = SubResource( 3 )
+"anims/into the joungle" = SubResource( 11 )
+anims/over_lagua_drone = SubResource( 4 )
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
@@ -226,27 +280,57 @@ subdiv = 2
 extents = Vector3( 96, 32, 96 )
 energy = 0.6
 compress = true
-data = SubResource( 3 )
+data = SubResource( 5 )
 
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.5607, 0 )
 bake_quality = 2
 bake_hdr = true
 bake_extents = Vector3( 96, 32, 96 )
-light_data = SubResource( 9 )
+light_data = SubResource( 6 )
 
 [node name="terrain" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26, 0 )
 use_in_baked_light = true
-mesh = SubResource( 5 )
+mesh = SubResource( 7 )
 material/0 = ExtResource( 5 )
 
 [node name="palms1" type="Particles" parent="terrain"]
 use_in_baked_light = true
-amount = 4096
+amount = 1024
 visibility_aabb = AABB( -128, 0, -128, 256, 32, 256 )
-process_material = SubResource( 6 )
-draw_pass_1 = ExtResource( 8 )
+process_material = ExtResource( 6 )
+draw_pass_1 = ExtResource( 7 )
+
+[node name="palms2" type="Particles" parent="terrain"]
+use_in_baked_light = true
+amount = 1024
+visibility_aabb = AABB( -128, 0, -128, 256, 32, 256 )
+process_material = ExtResource( 8 )
+draw_pass_1 = ExtResource( 9 )
+
+[node name="palms3" type="Particles" parent="terrain"]
+use_in_baked_light = true
+amount = 1024
+visibility_aabb = AABB( -128, 0, -128, 256, 32, 256 )
+process_material = ExtResource( 10 )
+draw_pass_1 = ExtResource( 11 )
+
+[node name="grass1" type="Particles" parent="terrain"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54, 0 )
+use_in_baked_light = true
+amount = 1024
+visibility_aabb = AABB( -128, 0, -128, 256, 32, 256 )
+process_material = SubResource( 12 )
+draw_pass_1 = ExtResource( 14 )
+
+[node name="flowers1" type="Particles" parent="terrain"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54, 0 )
+use_in_baked_light = true
+amount = 1024
+visibility_aabb = AABB( -128, 0, -128, 256, 32, 256 )
+process_material = SubResource( 13 )
+draw_pass_1 = ExtResource( 15 )
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 0.866025, -0.453154, 0.211309, 0, 0.422618, 0.906308, -0.5, -0.784886, 0.365998, 0, 41.9501, 0 )
@@ -264,38 +348,38 @@ directional_shadow_max_distance = 512.0
 [node name="potato" type="MeshInstance" parent="city"]
 editor/display_folded = true
 transform = Transform( -0.617862, -0.604439, 0.502891, 0.495934, -0.79589, -0.347288, 0.61016, 0.0348243, 0.791513, -7.266, 1.07, -21.736 )
-mesh = SubResource( 7 )
+mesh = SubResource( 9 )
 material/0 = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="city/potato"]
 autoplay = "New Anim"
-"anims/New Anim" = SubResource( 8 )
+"anims/New Anim" = SubResource( 10 )
 
-[node name="lamp" parent="city" instance=ExtResource( 10 )]
+[node name="lamp" parent="city" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 0.998974, -0.0452832, 0, 0.0452832, 0.998974, 1.72481, 0.377888, -15.9226 )
 
-[node name="lamp8" parent="city" instance=ExtResource( 10 )]
+[node name="lamp8" parent="city" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 0.998974, -0.0452832, 0, 0.0452832, 0.998974, -6.22092, 3.54732, -2.67971 )
 
-[node name="lamp9" parent="city" instance=ExtResource( 10 )]
+[node name="lamp9" parent="city" instance=ExtResource( 17 )]
 transform = Transform( 0.98246, 0.186284, -0.00840477, -0.186474, 0.981461, -0.0442815, 0, 0.0450721, 0.998984, -14.7243, 8.47754, -0.0311327 )
 
-[node name="lamp3" parent="city" instance=ExtResource( 10 )]
+[node name="lamp3" parent="city" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0598, -1.73507, -14.1613 )
 
-[node name="lamp4" parent="city" instance=ExtResource( 10 )]
+[node name="lamp4" parent="city" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 0.962856, 0.270014, 0, -0.270014, 0.962856, 20.4377, -1.73507, -12.0879 )
 
-[node name="lamp5" parent="city" instance=ExtResource( 10 )]
+[node name="lamp5" parent="city" instance=ExtResource( 17 )]
 transform = Transform( 0.986022, -0.156927, -0.0559873, 0.166615, 0.928686, 0.331331, 0, -0.336028, 0.941852, -35.0118, 4.60379, -24.0455 )
 
-[node name="lamp6" parent="city" instance=ExtResource( 10 )]
+[node name="lamp6" parent="city" instance=ExtResource( 17 )]
 transform = Transform( 0.986022, -0.156927, -0.0559873, 0.166615, 0.928686, 0.331331, 0, -0.336028, 0.941852, -39.612, 4.60379, -32.5488 )
 
-[node name="lamp7" parent="city" instance=ExtResource( 10 )]
+[node name="lamp7" parent="city" instance=ExtResource( 17 )]
 transform = Transform( 0.999621, -0.00188708, 0.027481, -0.0113131, 0.881501, 0.472045, -0.0251153, -0.472177, 0.881145, -40.0302, 2.843, -19.5847 )
 
-[node name="lamp2" parent="city" instance=ExtResource( 10 )]
+[node name="lamp2" parent="city" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02231, -2.08723, -16.3113 )
 
 
