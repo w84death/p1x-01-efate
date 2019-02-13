@@ -21,7 +21,7 @@
 [sub_resource type="Animation" id=1]
 
 resource_name = "demo"
-length = 56.2
+length = 60.1
 tracks/0/type = "animation"
 tracks/0/path = NodePath("main_camera/camera_anim")
 tracks/0/interp = 1
@@ -30,7 +30,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "clips": PoolStringArray( "dolly_in_laguna", "in", "over_lagua_drone", "into the joungle" ),
-"times": PoolRealArray( 0, 8.1, 24, 48.1 )
+"times": PoolRealArray( 0, 8.1, 24.3, 48.2 )
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -39,7 +39,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 56 ),
+"times": PoolRealArray( 60.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -79,7 +79,6 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=3]
 
 length = 16.0
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
 tracks/0/interp = 2
@@ -105,10 +104,10 @@ tracks/1/keys = {
 "values": [ Vector3( -21.24, 149.61, 27.18 ), Vector3( -31.04, 127.86, 0.31 ), Vector3( -43.86, 127.86, 0.31 ), Vector3( -24.32, 147.96, 0.31 ), Vector3( -8.76, 205.81, 0.31 ), Vector3( -8.76, 229.74, 0.31 ), Vector3( -8.76, 238.13, 0.31 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=4]
 
 resource_name = "into the joungle"
-length = 8.0
+length = 12.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
 tracks/0/interp = 2
@@ -116,10 +115,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 8 ),
+"times": PoolRealArray( 0, 6.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( -12.607, 18.34, -13.684 ), Vector3( -12.8998, 2.71, -13.8112 ) ]
+"values": [ Vector3( -12.607, 18.34, -13.684 ), Vector3( -12.958, 2.401, -14.842 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -128,15 +127,14 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 6, 12 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -23.64, -79.008, 0 ), Vector3( -4.36, -46.268, 0 ) ]
+"values": [ Vector3( -23.64, -79.008, 0 ), Vector3( -4.36, -46.268, 0 ), Vector3( 0.44, -49.258, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 
-resource_name = "over_lagua_drone"
 length = 24.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
@@ -163,7 +161,7 @@ tracks/1/keys = {
 "values": [ Vector3( -22.62, 142.24, 0 ), Vector3( -39.43, 125.76, 0 ), Vector3( -49.56, 102.91, 0 ) ]
 }
 
-[sub_resource type="GIProbeData" id=5]
+[sub_resource type="GIProbeData" id=6]
 
 bounds = AABB( -96, -32, -96, 192, 64, 192 )
 cell_size = 0.75
@@ -176,20 +174,20 @@ normal_bias = 0.0
 propagation = 0.7
 compress = true
 
-[sub_resource type="BakedLightmapData" id=6]
+[sub_resource type="BakedLightmapData" id=7]
 
 bounds = AABB( -96, -32, -96, 192, 64, 192 )
 cell_space_transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 384, 128, 384 )
 cell_subdiv = 11
 octree = PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255 )
 
-[sub_resource type="PlaneMesh" id=7]
+[sub_resource type="PlaneMesh" id=8]
 
 size = Vector2( 128, 128 )
 subdivide_width = 512
 subdivide_depth = 512
 
-[sub_resource type="ShaderMaterial" id=12]
+[sub_resource type="ShaderMaterial" id=9]
 
 shader = ExtResource( 12 )
 shader_param/TERRAIN_HEIGHT_SCALE = 64.0
@@ -209,7 +207,7 @@ shader_param/GRASS_SCALE_MAX = 4.0
 shader_param/MAP_SIZE = Vector2( 512, 512 )
 shader_param/HEIGHT_MAP = ExtResource( 13 )
 
-[sub_resource type="ShaderMaterial" id=13]
+[sub_resource type="ShaderMaterial" id=10]
 
 shader = ExtResource( 12 )
 shader_param/TERRAIN_HEIGHT_SCALE = 64.0
@@ -229,13 +227,13 @@ shader_param/GRASS_SCALE_MAX = 8.0
 shader_param/MAP_SIZE = Vector2( 512, 512 )
 shader_param/HEIGHT_MAP = ExtResource( 13 )
 
-[sub_resource type="SphereMesh" id=9]
+[sub_resource type="SphereMesh" id=11]
 
 material = ExtResource( 16 )
 radial_segments = 6
 rings = 4
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=12]
 
 loop = true
 tracks/0/type = "value"
@@ -259,14 +257,14 @@ autoplay = "demo"
 anims/demo = SubResource( 1 )
 
 [node name="main_camera" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.22342, -0.741847, 0.632255, 0, 0.648651, 0.761086, -0.974722, 0.170042, -0.144922, 17.199, 28.31, -22.904 )
+transform = Transform( -0.527286, 0.132192, -0.839342, 0.00534738, 0.98832, 0.152296, 0.849671, 0.0758152, -0.521835, -58.7, 14.07, -32.414 )
 current = true
 
 [node name="camera_anim" type="AnimationPlayer" parent="main_camera"]
 anims/dolly_in_laguna = SubResource( 2 )
 anims/in = SubResource( 3 )
-"anims/into the joungle" = SubResource( 11 )
-anims/over_lagua_drone = SubResource( 4 )
+"anims/into the joungle" = SubResource( 4 )
+anims/over_lagua_drone = SubResource( 5 )
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
@@ -280,19 +278,19 @@ subdiv = 2
 extents = Vector3( 96, 32, 96 )
 energy = 0.6
 compress = true
-data = SubResource( 5 )
+data = SubResource( 6 )
 
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.5607, 0 )
 bake_quality = 2
 bake_hdr = true
 bake_extents = Vector3( 96, 32, 96 )
-light_data = SubResource( 6 )
+light_data = SubResource( 7 )
 
 [node name="terrain" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26, 0 )
 use_in_baked_light = true
-mesh = SubResource( 7 )
+mesh = SubResource( 8 )
 material/0 = ExtResource( 5 )
 
 [node name="palms1" type="Particles" parent="terrain"]
@@ -321,7 +319,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54, 0 )
 use_in_baked_light = true
 amount = 1024
 visibility_aabb = AABB( -128, 0, -128, 256, 32, 256 )
-process_material = SubResource( 12 )
+process_material = SubResource( 9 )
 draw_pass_1 = ExtResource( 14 )
 
 [node name="flowers1" type="Particles" parent="terrain"]
@@ -329,7 +327,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.54, 0 )
 use_in_baked_light = true
 amount = 1024
 visibility_aabb = AABB( -128, 0, -128, 256, 32, 256 )
-process_material = SubResource( 13 )
+process_material = SubResource( 10 )
 draw_pass_1 = ExtResource( 15 )
 
 [node name="sun" type="DirectionalLight" parent="."]
@@ -348,12 +346,12 @@ directional_shadow_max_distance = 512.0
 [node name="potato" type="MeshInstance" parent="city"]
 editor/display_folded = true
 transform = Transform( -0.617862, -0.604439, 0.502891, 0.495934, -0.79589, -0.347288, 0.61016, 0.0348243, 0.791513, -7.266, 1.07, -21.736 )
-mesh = SubResource( 9 )
+mesh = SubResource( 11 )
 material/0 = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="city/potato"]
 autoplay = "New Anim"
-"anims/New Anim" = SubResource( 10 )
+"anims/New Anim" = SubResource( 12 )
 
 [node name="lamp" parent="city" instance=ExtResource( 17 )]
 transform = Transform( 1, 0, 0, 0, 0.998974, -0.0452832, 0, 0.0452832, 0.998974, 1.72481, 0.377888, -15.9226 )
