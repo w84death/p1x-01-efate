@@ -1,39 +1,65 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scripts/back_to_main.gd" type="Script" id=1]
 [ext_resource path="res://environments/night.tres" type="Environment" id=2]
 [ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://materials/light.material" type="Material" id=4]
+[ext_resource path="res://materials/black.material" type="Material" id=5]
 
 [sub_resource type="Animation" id=1]
 
 resource_name = "ninety_to_zero"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Particles:rotation_degrees")
+tracks/0/path = NodePath("stars_particles:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 90, 0 ), Vector3( 0, 0, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("main_camera:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 30, -48, 0 ), Vector3( 30, 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 
 resource_name = "zero_to_ninety"
 tracks/0/type = "value"
-tracks/0/path = NodePath("Particles:rotation_degrees")
+tracks/0/path = NodePath("stars_particles:rotation_degrees")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 90, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("main_camera:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.0085511, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 30, 0, 0 ), Vector3( 30, -48, 0 ) ]
 }
 
 [sub_resource type="GIProbeData" id=3]
@@ -75,6 +101,65 @@ emission_on_uv2 = false
 material = SubResource( 6 )
 size = Vector3( 0.05, 0.05, 0.05 )
 
+[sub_resource type="Gradient" id=20]
+
+offsets = PoolRealArray( 0, 0.343374, 0.542169, 0.759036 )
+colors = PoolColorArray( 0, 0, 0, 0, 0.0515499, 0.0281982, 0.164062, 0.333333, 0.711609, 0.472656, 1, 0.431373, 0, 0.882812, 1, 0.254902 )
+
+[sub_resource type="GradientTexture" id=21]
+
+gradient = SubResource( 20 )
+
+[sub_resource type="ParticlesMaterial" id=22]
+
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 8.0
+color_ramp = SubResource( 21 )
+
+[sub_resource type="SpatialMaterial" id=11]
+
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+albedo_color = Color( 1, 1, 1, 0.552941 )
+
+[sub_resource type="QuadMesh" id=12]
+
+material = SubResource( 11 )
+size = Vector2( 128, 32 )
+
+[sub_resource type="SphereMesh" id=23]
+
+material = ExtResource( 4 )
+radial_segments = 32
+rings = 16
+
+[sub_resource type="SphereMesh" id=24]
+
+material = ExtResource( 5 )
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Animation" id=19]
+
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 36, 0, 0 ), Vector3( 36, 360, 0 ) ]
+}
+
 [node name="scene0" type="Spatial"]
 script = ExtResource( 1 )
 
@@ -98,8 +183,8 @@ light_data = SubResource( 4 )
 [node name="main_camera" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0 )
 
-[node name="Particles" type="Particles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32, 0 )
+[node name="stars_particles" type="Particles" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 32, 0 )
 use_in_baked_light = true
 amount = 512
 lifetime = 2.0
@@ -108,4 +193,26 @@ speed_scale = 0.1
 visibility_aabb = AABB( -32, 0, -32, 64, 64, 64 )
 process_material = SubResource( 5 )
 draw_pass_1 = SubResource( 7 )
+
+[node name="fx_particles" type="Particles" parent="."]
+transform = Transform( 0.773991, 0.418101, 0.47553, -0.632602, 0.543109, 0.552129, -0.0274187, -0.728164, 0.684854, 26.2232, 53.4033, -69.8658 )
+amount = 12
+lifetime = 6.0
+preprocess = 12.0
+process_material = SubResource( 22 )
+draw_pass_1 = SubResource( 12 )
+
+[node name="star" type="MeshInstance" parent="."]
+transform = Transform( -0.543521, -0.493384, -0.679085, 0, 0.809017, -0.587785, 0.839396, -0.319474, -0.439718, 36.7383, 35.3949, -33.4254 )
+mesh = SubResource( 23 )
+material/0 = null
+
+[node name="planet" type="MeshInstance" parent="star"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+mesh = SubResource( 24 )
+material/0 = null
+
+[node name="star_anim" type="AnimationPlayer" parent="star"]
+autoplay = "rotate"
+anims/rotate = SubResource( 19 )
 

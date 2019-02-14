@@ -1,11 +1,12 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://gui/theme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/main.gd" type="Script" id=2]
 [ext_resource path="res://scenes/scene0.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://gui/h1_font.tres" type="DynamicFont" id=5]
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=1]
 
 resource_name = "init"
 tracks/0/type = "value"
@@ -20,10 +21,47 @@ tracks/0/keys = {
 "update": 1,
 "values": [ true ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("HUD/main_menu:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 480, 351 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("HUD/settings:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HUD/settings:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1460, 351 ) ]
+}
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 
 resource_name = "menu"
+length = 2.0
 tracks/0/type = "animation"
 tracks/0/path = NodePath("HUD/main_menu/menu_anim")
 tracks/0/interp = 1
@@ -54,10 +92,19 @@ tracks/2/keys = {
 "clips": PoolStringArray( "hide_right" ),
 "times": PoolRealArray( 0 )
 }
+tracks/3/type = "animation"
+tracks/3/path = NodePath("HUD/title/title_anim")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": PoolStringArray( "show" ),
+"times": PoolRealArray( 0 )
+}
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=3]
 
-resource_name = "settings"
 tracks/0/type = "animation"
 tracks/0/path = NodePath("HUD/main_menu/menu_anim")
 tracks/0/interp = 1
@@ -88,10 +135,56 @@ tracks/2/keys = {
 "clips": PoolStringArray( "show_from_right" ),
 "times": PoolRealArray( 0 )
 }
+tracks/3/type = "animation"
+tracks/3/path = NodePath("HUD/title/title_anim")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": PoolStringArray( "hide" ),
+"times": PoolRealArray( 0 )
+}
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="CanvasItemMaterial" id=4]
 
-resource_name = "hide_left"
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "hide"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("efate:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.470588, 0.890196, 1 ), Color( 0, 0, 0, 0.235294 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "show"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("efate:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0.0666667, 0.0666667, 0.133333, 0 ), Color( 0.0509804, 0.054902, 0.309804, 0.235294 ), Color( 1, 1, 1, 1 ), Color( 0.839216, 0.941176, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
@@ -141,9 +234,8 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=8]
 
-resource_name = "show_from_left"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
@@ -169,9 +261,8 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=9]
 
-resource_name = "hide_right"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
@@ -197,9 +288,8 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=10]
 
-resource_name = "show_from_right"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1
@@ -230,53 +320,60 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="main" type="AnimationPlayer" parent="."]
 autoplay = "init"
-anims/init = SubResource( 7 )
-anims/menu = SubResource( 6 )
-anims/settings = SubResource( 1 )
+anims/init = SubResource( 1 )
+anims/menu = SubResource( 2 )
+anims/settings = SubResource( 3 )
 
 [node name="scene0" parent="." instance=ExtResource( 3 )]
 
-[node name="Particles" parent="scene0" index="5"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 32, 0 )
-
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
-[node name="center" type="Control" parent="HUD"]
+[node name="h1" type="Label" parent="HUD"]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-
-[node name="Label" type="Label" parent="HUD"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
 margin_left = -160.0
-margin_top = -67.0
+margin_top = 10.0
 margin_right = 160.0
-margin_bottom = -53.0
+margin_bottom = 18.0
 rect_min_size = Vector2( 320, 0 )
 text = "Welcome to the P1X firste demo - Efate"
 align = 1
 
-[node name="Label2" type="Label" parent="HUD"]
+[node name="title" type="Control" parent="HUD"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+
+[node name="efate" type="Label" parent="HUD/title"]
+modulate = Color( 0, 0, 0, 0 )
+material = SubResource( 4 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -160.0
-margin_top = -38.0
+margin_top = -37.5
 margin_right = 160.0
-margin_bottom = -8.0
+margin_bottom = 34.5
 rect_min_size = Vector2( 320, 0 )
+custom_fonts/font = ExtResource( 5 )
 text = "\"Efate is an island in the Pacific Ocean which is part of the Shefa Province in Vanuatu. 
-It is also known as Île Vate.\" - Wikipedia"
+It is also known as Île Vate.\" 
+- Wikipedia"
 align = 1
 autowrap = true
+
+[node name="title_anim" type="AnimationPlayer" parent="HUD/title"]
+autoplay = "show"
+anims/hide = SubResource( 5 )
+anims/show = SubResource( 6 )
 
 [node name="main_menu" type="Control" parent="HUD"]
 anchor_left = 0.5
@@ -287,8 +384,8 @@ margin_top = -60.0
 margin_bottom = -60.0
 
 [node name="menu_anim" type="AnimationPlayer" parent="HUD/main_menu"]
-anims/hide_left = SubResource( 2 )
-anims/show_from_left = SubResource( 3 )
+anims/hide_left = SubResource( 7 )
+anims/show_from_left = SubResource( 8 )
 
 [node name="demos" type="Panel" parent="HUD/main_menu"]
 margin_left = -328.0
@@ -434,8 +531,8 @@ margin_right = 980.0
 margin_bottom = -60.0
 
 [node name="settings_anim" type="AnimationPlayer" parent="HUD/settings"]
-anims/hide_right = SubResource( 4 )
-anims/show_from_right = SubResource( 5 )
+anims/hide_right = SubResource( 9 )
+anims/show_from_right = SubResource( 10 )
 
 [node name="graphics" type="Panel" parent="HUD/settings"]
 anchor_left = 0.5
