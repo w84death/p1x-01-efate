@@ -38,3 +38,11 @@ func _on_scene51_pressed():
 func _on_scene50_pressed():
     get_tree().change_scene("scenes/scene50.tscn")
 
+
+
+func _on_settings_pressed():
+    $main.play("settings")
+
+
+func _on_back_pressed():
+    $main.play("menu")

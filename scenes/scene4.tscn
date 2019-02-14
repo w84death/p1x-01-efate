@@ -86,7 +86,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2.8, 4.7, 8.2, 9.3, 11.6, 13.6, 16 ),
+"times": PoolRealArray( 0, 2.8, 4.7, 8.2, 9.6, 11.6, 13.6, 16 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 23.19, 15.46, -35.934 ), Vector3( 12.12, 13.56, -36.834 ), Vector3( 2.55, 13.56, -33.414 ), Vector3( -4.98, 18.48, -32.414 ), Vector3( -4.98, 21.1, -32.414 ), Vector3( -37.96, 21.1, -32.414 ), Vector3( -55.99, 18.56, -32.414 ), Vector3( -58.7, 14.07, -32.414 ) ]
@@ -257,7 +257,7 @@ autoplay = "demo"
 anims/demo = SubResource( 1 )
 
 [node name="main_camera" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.527286, 0.132192, -0.839342, 0.00534738, 0.98832, 0.152296, 0.849671, 0.0758152, -0.521835, -58.7, 14.07, -32.414 )
+transform = Transform( -0.851065, 0.230994, 0.471519, 0.425758, 0.829148, 0.362276, -0.307276, 0.509073, -0.804007, 23.19, 15.46, -35.934 )
 current = true
 
 [node name="camera_anim" type="AnimationPlayer" parent="main_camera"]

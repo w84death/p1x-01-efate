@@ -1,9 +1,229 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://gui/theme.tres" type="Theme" id=1]
 [ext_resource path="res://scripts/main.gd" type="Script" id=2]
 [ext_resource path="res://scenes/scene0.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=7]
+
+resource_name = "init"
+tracks/0/type = "value"
+tracks/0/path = NodePath("HUD/main_menu:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "menu"
+tracks/0/type = "animation"
+tracks/0/path = NodePath("HUD/main_menu/menu_anim")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "show_from_left" ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("scene0/main")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "ninety_to_zero" ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "animation"
+tracks/2/path = NodePath("HUD/settings/settings_anim")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": PoolStringArray( "hide_right" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "settings"
+tracks/0/type = "animation"
+tracks/0/path = NodePath("HUD/main_menu/menu_anim")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "hide_left" ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "animation"
+tracks/1/path = NodePath("scene0/main")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": PoolStringArray( "zero_to_ninety" ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "animation"
+tracks/2/path = NodePath("HUD/settings/settings_anim")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": PoolStringArray( "show_from_right" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "hide_left"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 480, 351 ), Vector2( -500, 351 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../settings:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1460, 351 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../settings:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "show_from_left"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -500, 351 ), Vector2( 480, 351 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "hide_right"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 480, 351 ), Vector2( 1460, 351 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "show_from_right"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1460, 351 ), Vector2( 480, 351 ) ]
+}
 
 [node name="main" type="Control"]
 anchor_right = 1.0
@@ -11,8 +231,16 @@ anchor_bottom = 1.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
+[node name="main" type="AnimationPlayer" parent="."]
+autoplay = "init"
+anims/init = SubResource( 7 )
+anims/menu = SubResource( 6 )
+anims/settings = SubResource( 1 )
+
 [node name="scene0" parent="." instance=ExtResource( 3 )]
-editor/display_folded = true
+
+[node name="Particles" parent="scene0" index="5"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 32, 0 )
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 
@@ -50,7 +278,7 @@ It is also known as Île Vate.\" - Wikipedia"
 align = 1
 autowrap = true
 
-[node name="bottom" type="Control" parent="HUD"]
+[node name="main_menu" type="Control" parent="HUD"]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -58,13 +286,27 @@ anchor_bottom = 1.0
 margin_top = -60.0
 margin_bottom = -60.0
 
-[node name="demos" type="Panel" parent="HUD/bottom"]
+[node name="menu_anim" type="AnimationPlayer" parent="HUD/main_menu"]
+anims/hide_left = SubResource( 2 )
+anims/show_from_left = SubResource( 3 )
+
+[node name="demos" type="Panel" parent="HUD/main_menu"]
+editor/display_folded = true
 margin_left = -328.0
 margin_top = -19.0
 margin_right = -3.0
 margin_bottom = 20.0
 
-[node name="buttons" type="HBoxContainer" parent="HUD/bottom/demos"]
+[node name="title" type="Label" parent="HUD/main_menu/demos"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -15.0
+margin_top = -2.0
+margin_right = 15.0
+margin_bottom = 6.0
+text = "Demos"
+
+[node name="buttons" type="HBoxContainer" parent="HUD/main_menu/demos"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 8.0
@@ -72,56 +314,46 @@ margin_bottom = -8.0
 custom_constants/separation = 16
 alignment = 1
 
-[node name="scene1" type="Button" parent="HUD/bottom/demos/buttons"]
+[node name="scene1" type="Button" parent="HUD/main_menu/demos/buttons"]
 margin_left = 16.0
 margin_right = 77.0
 margin_bottom = 23.0
 text = "SCENE #1"
 
-[node name="scene2" type="Button" parent="HUD/bottom/demos/buttons"]
+[node name="scene2" type="Button" parent="HUD/main_menu/demos/buttons"]
 margin_left = 93.0
 margin_right = 154.0
 margin_bottom = 23.0
 text = "SCENE #2"
 
-[node name="scene3" type="Button" parent="HUD/bottom/demos/buttons"]
+[node name="scene3" type="Button" parent="HUD/main_menu/demos/buttons"]
 margin_left = 170.0
 margin_right = 231.0
 margin_bottom = 23.0
 text = "SCENE #3"
 
-[node name="scene4" type="Button" parent="HUD/bottom/demos/buttons"]
+[node name="scene4" type="Button" parent="HUD/main_menu/demos/buttons"]
 margin_left = 247.0
 margin_right = 308.0
 margin_bottom = 23.0
 text = "SCENE #4"
 
-[node name="Label" type="Label" parent="HUD/bottom/demos"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -15.0
-margin_top = -2.0
-margin_right = 15.0
-margin_bottom = 6.0
-text = "DEMOS"
-
-[node name="static" type="Panel" parent="HUD/bottom"]
-editor/display_folded = true
+[node name="testing" type="Panel" parent="HUD/main_menu"]
 margin_left = 27.0
 margin_top = -18.0
 margin_right = 235.0
 margin_bottom = 18.0
 
-[node name="Label2" type="Label" parent="HUD/bottom/static"]
+[node name="title" type="Label" parent="HUD/main_menu/testing"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -19.5
+margin_left = -19.0
 margin_top = -2.0
-margin_right = 19.5
+margin_right = 20.0
 margin_bottom = 6.0
-text = "TESTING"
+text = "Testing"
 
-[node name="buttons" type="HBoxContainer" parent="HUD/bottom/static"]
+[node name="buttons" type="HBoxContainer" parent="HUD/main_menu/testing"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 8.0
@@ -130,26 +362,25 @@ margin_bottom = -8.0
 custom_constants/separation = 16
 alignment = 1
 
-[node name="scene50" type="Button" parent="HUD/bottom/static/buttons"]
+[node name="scene50" type="Button" parent="HUD/main_menu/testing/buttons"]
 margin_left = 28.0
 margin_right = 95.0
 margin_bottom = 20.0
 text = "SCENE #50"
 
-[node name="scene51" type="Button" parent="HUD/bottom/static/buttons"]
+[node name="scene51" type="Button" parent="HUD/main_menu/testing/buttons"]
 margin_left = 111.0
 margin_right = 178.0
 margin_bottom = 20.0
 text = "SCENE #51"
 
-[node name="tools" type="Panel" parent="HUD/bottom"]
-editor/display_folded = true
-margin_left = 360.992
-margin_top = -18.5336
-margin_right = 427.992
-margin_bottom = 17.4664
+[node name="tools" type="Panel" parent="HUD/main_menu"]
+margin_left = 289.0
+margin_top = -19.0
+margin_right = 428.0
+margin_bottom = 17.0
 
-[node name="Label2" type="Label" parent="HUD/bottom/tools"]
+[node name="Label2" type="Label" parent="HUD/main_menu/tools"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -14.5
@@ -158,7 +389,7 @@ margin_right = 15.5
 margin_bottom = 6.0
 text = "TOOLS"
 
-[node name="buttons" type="HBoxContainer" parent="HUD/bottom/tools"]
+[node name="buttons" type="HBoxContainer" parent="HUD/main_menu/tools"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 8.0
@@ -166,13 +397,19 @@ margin_bottom = -8.0
 custom_constants/separation = 16
 alignment = 1
 
-[node name="quit" type="Button" parent="HUD/bottom/tools/buttons"]
-margin_left = 15.0
-margin_right = 52.0
+[node name="settings" type="Button" parent="HUD/main_menu/tools/buttons"]
+margin_left = 12.0
+margin_right = 73.0
 margin_bottom = 20.0
-text = "QUIT"
+text = "Settings"
 
-[node name="info" type="Label" parent="HUD/bottom"]
+[node name="quit" type="Button" parent="HUD/main_menu/tools/buttons"]
+margin_left = 89.0
+margin_right = 126.0
+margin_bottom = 20.0
+text = "Quit"
+
+[node name="info" type="Label" parent="HUD/main_menu"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -186,10 +423,108 @@ text = "In glorious 21:9 aspect ratio and 60fps."
 align = 1
 autowrap = true
 
-[connection signal="pressed" from="HUD/bottom/demos/buttons/scene1" to="." method="_on_scene1_pressed"]
-[connection signal="pressed" from="HUD/bottom/demos/buttons/scene2" to="." method="_on_scene2_pressed"]
-[connection signal="pressed" from="HUD/bottom/demos/buttons/scene3" to="." method="_on_scene3_pressed"]
-[connection signal="pressed" from="HUD/bottom/demos/buttons/scene4" to="." method="_on_scene4_pressed"]
-[connection signal="pressed" from="HUD/bottom/static/buttons/scene50" to="." method="_on_scene50_pressed"]
-[connection signal="pressed" from="HUD/bottom/static/buttons/scene51" to="." method="_on_scene51_pressed"]
-[connection signal="pressed" from="HUD/bottom/tools/buttons/quit" to="." method="_on_quit_pressed"]
+[node name="settings" type="Control" parent="HUD"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 980.0
+margin_top = -60.0
+margin_right = 980.0
+margin_bottom = -60.0
+
+[node name="settings_anim" type="AnimationPlayer" parent="HUD/settings"]
+anims/hide_right = SubResource( 4 )
+anims/show_from_right = SubResource( 5 )
+
+[node name="graphics" type="Panel" parent="HUD/settings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -96.0
+margin_top = -78.0
+margin_right = 96.0
+margin_bottom = -42.0
+
+[node name="title" type="Label" parent="HUD/settings/graphics"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -19.5
+margin_top = -2.0
+margin_right = 19.5
+margin_bottom = 6.0
+text = "Graphics"
+
+[node name="buttons" type="HBoxContainer" parent="HUD/settings/graphics"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 8.0
+margin_right = -2.0
+margin_bottom = -8.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="low" type="Button" parent="HUD/settings/graphics/buttons"]
+margin_left = 19.0
+margin_right = 53.0
+margin_bottom = 20.0
+text = "LOW"
+
+[node name="medium" type="Button" parent="HUD/settings/graphics/buttons"]
+margin_left = 69.0
+margin_right = 121.0
+margin_bottom = 20.0
+text = "NORMAL"
+
+[node name="hi" type="Button" parent="HUD/settings/graphics/buttons"]
+margin_left = 137.0
+margin_right = 171.0
+margin_bottom = 20.0
+text = "MAX"
+
+[node name="back" type="Panel" parent="HUD/settings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -41.5
+margin_top = -18.0
+margin_right = 41.5
+margin_bottom = 18.0
+
+[node name="title" type="Label" parent="HUD/settings/back"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -22.5
+margin_top = -2.0
+margin_right = 22.5
+margin_bottom = 6.0
+text = "Settings"
+
+[node name="buttons" type="HBoxContainer" parent="HUD/settings/back"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 8.0
+margin_bottom = -8.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="back" type="Button" parent="HUD/settings/back/buttons"]
+margin_left = 14.0
+margin_right = 69.0
+margin_bottom = 20.0
+text = "Confirm"
+
+[connection signal="pressed" from="HUD/main_menu/demos/buttons/scene1" to="." method="_on_scene1_pressed"]
+[connection signal="pressed" from="HUD/main_menu/demos/buttons/scene2" to="." method="_on_scene2_pressed"]
+[connection signal="pressed" from="HUD/main_menu/demos/buttons/scene3" to="." method="_on_scene3_pressed"]
+[connection signal="pressed" from="HUD/main_menu/demos/buttons/scene4" to="." method="_on_scene4_pressed"]
+[connection signal="pressed" from="HUD/main_menu/testing/buttons/scene50" to="." method="_on_scene50_pressed"]
+[connection signal="pressed" from="HUD/main_menu/testing/buttons/scene51" to="." method="_on_scene51_pressed"]
+[connection signal="pressed" from="HUD/main_menu/tools/buttons/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="HUD/main_menu/tools/buttons/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="HUD/settings/back/buttons/back" to="." method="_on_back_pressed"]
+
+[editable path="scene0"]
