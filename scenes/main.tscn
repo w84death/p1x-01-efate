@@ -291,7 +291,6 @@ anims/hide_left = SubResource( 2 )
 anims/show_from_left = SubResource( 3 )
 
 [node name="demos" type="Panel" parent="HUD/main_menu"]
-editor/display_folded = true
 margin_left = -328.0
 margin_top = -19.0
 margin_right = -3.0
