@@ -7,7 +7,6 @@
 [ext_resource path="res://gui/h1_font.tres" type="DynamicFont" id=5]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "init"
 tracks/0/type = "value"
 tracks/0/path = NodePath("HUD/main_menu:visible")
@@ -59,7 +58,6 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-
 resource_name = "menu"
 length = 2.0
 tracks/0/type = "animation"
@@ -104,7 +102,6 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-
 tracks/0/type = "animation"
 tracks/0/path = NodePath("HUD/main_menu/menu_anim")
 tracks/0/interp = 1
@@ -148,9 +145,7 @@ tracks/3/keys = {
 
 [sub_resource type="CanvasItemMaterial" id=4]
 
-
 [sub_resource type="Animation" id=5]
-
 resource_name = "hide"
 length = 0.5
 tracks/0/type = "value"
@@ -167,7 +162,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=6]
-
 resource_name = "show"
 length = 2.0
 tracks/0/type = "value"
@@ -184,7 +178,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
@@ -235,7 +228,6 @@ tracks/3/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
@@ -262,7 +254,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
@@ -289,7 +280,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=10]
-
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
 tracks/0/interp = 1

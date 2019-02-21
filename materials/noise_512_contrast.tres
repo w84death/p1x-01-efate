@@ -1,7 +1,6 @@
 [gd_resource type="NoiseTexture" load_steps=2 format=2]
 
 [sub_resource type="OpenSimplexNoise" id=1]
-
 seed = 34
 octaves = 2
 period = 27.0
@@ -9,7 +8,6 @@ persistence = 0.132
 lacunarity = 2.66
 
 [resource]
-
 seamless = true
 noise = SubResource( 1 )
 

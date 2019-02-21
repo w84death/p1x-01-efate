@@ -3,7 +3,6 @@
 [ext_resource path="res://gui/Endamage.ttf" type="DynamicFontData" id=1]
 
 [sub_resource type="StyleBoxFlat" id=1]
-
 bg_color = Color( 0.0980392, 0.305882, 0.419608, 0.784314 )
 border_width_left = 1
 border_width_top = 1
@@ -14,7 +13,6 @@ shadow_color = Color( 0.278431, 0.564706, 0.752941, 0.6 )
 shadow_size = 2
 
 [sub_resource type="StyleBoxFlat" id=2]
-
 content_margin_left = 8.0
 content_margin_right = 8.0
 bg_color = Color( 0, 0, 0, 0.501961 )
@@ -28,7 +26,6 @@ shadow_color = Color( 0.278431, 0.564706, 0.752941, 0.6 )
 shadow_size = 2
 
 [sub_resource type="StyleBoxFlat" id=3]
-
 bg_color = Color( 0.211765, 0.454902, 0.713726, 1 )
 border_width_left = 1
 border_width_top = 1
@@ -39,7 +36,6 @@ shadow_color = Color( 0.278431, 0.564706, 0.752941, 0.6 )
 shadow_size = 2
 
 [sub_resource type="StyleBoxFlat" id=4]
-
 bg_color = Color( 1, 1, 1, 0.0470588 )
 border_width_left = 1
 border_width_top = 1
@@ -55,7 +51,6 @@ shadow_size = 4
 anti_aliasing = false
 
 [sub_resource type="DynamicFont" id=5]
-
 size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -64,7 +59,6 @@ use_filter = true
 font_data = ExtResource( 1 )
 
 [resource]
-
 default_font = SubResource( 5 )
 Button/colors/font_color = Color( 0.878431, 0.878431, 0.878431, 1 )
 Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
