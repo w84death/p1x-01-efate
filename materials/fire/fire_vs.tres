@@ -1,120 +1,93 @@
-[gd_resource type="VisualShader" load_steps=31 format=2]
+[gd_resource type="VisualShader" load_steps=32 format=2]
 
-[ext_resource path="res://materials/fire/fire_gradient.tres" type="Texture" id=1]
+[ext_resource path="res://materials/fire/fire_noise.tres" type="Texture" id=1]
+[ext_resource path="res://materials/fire/fire_gradient.tres" type="Texture" id=2]
+[ext_resource path="res://materials/fire/fire_offset_gradient.tres" type="Texture" id=3]
 
 [sub_resource type="VisualShaderNodeTexture" id=1]
-
 output_port_for_preview = 0
+texture = ExtResource( 1 )
 
 [sub_resource type="VisualShaderNodeColorOp" id=2]
-
 output_port_for_preview = 0
-operator = 4
+operator = 3
 
 [sub_resource type="VisualShaderNodeTexture" id=3]
-
 output_port_for_preview = 1
+texture = ExtResource( 2 )
 
-[sub_resource type="VisualShaderNodeScalarOp" id=4]
-
-default_input_values = [ 0, 0.0, 1, 0.1 ]
-operator = 2
-
-[sub_resource type="VisualShaderNodeColorOp" id=5]
-
-output_port_for_preview = 0
-
-[sub_resource type="VisualShaderNodeScalarOp" id=6]
-
+[sub_resource type="VisualShaderNodeScalarOp" id=30]
+default_input_values = [ 0, 0.0, 1, 0.001 ]
+operator = 1
 
 [sub_resource type="VisualShaderNodeInput" id=7]
-
 input_name = "uv"
 
-[sub_resource type="VisualShaderNodeInput" id=8]
+[sub_resource type="VisualShaderNodeVectorCompose" id=31]
 
+[sub_resource type="VisualShaderNodeColorConstant" id=33]
+constant = Color( 0.646791, 0.462438, 0.192999, 1 )
+
+[sub_resource type="VisualShaderNodeVectorOp" id=34]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShaderNodeInput" id=8]
 input_name = "time"
 
 [sub_resource type="VisualShaderNodeTexture" id=9]
-
-texture = ExtResource( 1 )
-
-[sub_resource type="VisualShaderNodeScalarOp" id=10]
-
-default_input_values = [ 0, 0.0, 1, 0.05 ]
-operator = 2
-
-[sub_resource type="VisualShaderNodeVectorCompose" id=11]
-
 output_port_for_preview = 0
+texture = ExtResource( 2 )
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id=12]
 
-
 [sub_resource type="VisualShaderNodeScalarOp" id=13]
-
 default_input_values = [ 0, 0.0, 1, 32.0 ]
 operator = 2
 
 [sub_resource type="VisualShaderNodeTexture" id=14]
-
+texture = ExtResource( 1 )
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id=15]
 
-
 [sub_resource type="VisualShaderNodeScalarOp" id=16]
-
 
 [sub_resource type="VisualShaderNodeScalarOp" id=17]
 
-
 [sub_resource type="VisualShaderNodeTexture" id=18]
-
+texture = ExtResource( 3 )
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id=19]
 
-
 [sub_resource type="VisualShaderNodeScalarInterp" id=20]
-
 default_input_values = [ 0, 0.0, 1, 0.0, 2, 0.8 ]
 
 [sub_resource type="VisualShaderNodeScalarOp" id=21]
-
 default_input_values = [ 0, 0.0, 1, 0.4 ]
 operator = 2
 
 [sub_resource type="VisualShaderNodeInput" id=22]
-
 input_name = "uv"
 
 [sub_resource type="VisualShaderNodeScalarOp" id=23]
 
-
 [sub_resource type="VisualShaderNodeScalarOp" id=24]
-
 default_input_values = [ 0, 0.0, 1, 1.0 ]
 operator = 2
 
 [sub_resource type="VisualShaderNodeInput" id=25]
-
 input_name = "vertex"
 
 [sub_resource type="VisualShaderNodeInput" id=26]
-
 input_name = "time"
 
 [sub_resource type="VisualShaderNodeVectorCompose" id=27]
 
-
 [sub_resource type="VisualShaderNodeVectorDecompose" id=28]
 
-
 [sub_resource type="VisualShaderNodeScalarFunc" id=29]
-
 function = 0
 
 [resource]
-
 code = "shader_type spatial;
 render_mode cull_disabled;
 
@@ -201,7 +174,7 @@ void vertex() {
 // ScalarOp:26
 	float n_in26p1 = 1.00000;
 	float n_out26p0;
-	n_out26p0 = n_out19p0 * n_in26p1;
+	n_out26p0 = n_out19p1 * n_in26p1;
 
 // ScalarInterp:21
 	float n_out21p0;
@@ -217,18 +190,16 @@ void vertex() {
 }
 
 void fragment() {
-// Input:3
-	float n_out3p0;
-	n_out3p0 = TIME;
-
-// ScalarOp:5
-	float n_in5p1 = 0.05000;
-	float n_out5p0;
-	n_out5p0 = n_out3p0 * n_in5p1;
-
 // Input:2
 	vec3 n_out2p0;
 	n_out2p0 = vec3(UV,0.0);
+
+// Texture:4
+	vec3 n_out4p0;
+	float n_out4p1;
+	vec4 tex_frg_4_read = texture( tex_frg_4 , n_out2p0.xy );
+	n_out4p0 = tex_frg_4_read.rgb;
+	n_out4p1 = tex_frg_4_read.a;
 
 // VectorDecompose:8
 	float n_out8p0;
@@ -238,79 +209,50 @@ void fragment() {
 	n_out8p1 = n_out2p0.y;
 	n_out8p2 = n_out2p0.z;
 
-// ScalarOp:14
-	float n_in14p1 = 0.10000;
-	float n_out14p0;
-	n_out14p0 = n_out8p1 * n_in14p1;
-
-// VectorCompose:7
-	vec3 n_out7p0;
-	n_out7p0 = vec3( n_out5p0 , n_out14p0 , n_out8p2 );
-
-// Texture:4
-	vec3 n_out4p0;
-	float n_out4p1;
-	vec4 tex_frg_4_read = texture( tex_frg_4 , n_out7p0.xy );
-	n_out4p0 = tex_frg_4_read.rgb;
-	n_out4p1 = tex_frg_4_read.a;
+// Input:3
+	float n_out3p0;
+	n_out3p0 = TIME;
 
 // ScalarOp:19
-	float n_in19p1 = 0.00000;
 	float n_out19p0;
-	n_out19p0 = n_out3p0 + n_in19p1;
+	n_out19p0 = n_out8p0 - n_out3p0;
+
+// VectorCompose:20
+	vec3 n_out20p0;
+	n_out20p0 = vec3( n_out19p0 , n_out8p1 , n_out8p2 );
 
 // Texture:11
 	vec3 n_out11p0;
 	float n_out11p1;
-	vec4 tex_frg_11_read = textureLod( tex_frg_11 , n_out2p0.xy , n_out19p0 );
+	vec4 tex_frg_11_read = texture( tex_frg_11 , n_out20p0.xy );
 	n_out11p0 = tex_frg_11_read.rgb;
 	n_out11p1 = tex_frg_11_read.a;
 
 // ColorOp:12
 	vec3 n_out12p0;
-	{
-		float base=n_out4p0.x;
-		float blend=n_out11p0.x;
-		if (base < 0.5) {
-			n_out12p0.x = 2.0 * base * blend;
-		} else {
-			n_out12p0.x = 1.0 - 2.0 * (1.0 - blend) * (1.0 - base);
-		}
-	}
-	{
-		float base=n_out4p0.y;
-		float blend=n_out11p0.y;
-		if (base < 0.5) {
-			n_out12p0.y = 2.0 * base * blend;
-		} else {
-			n_out12p0.y = 1.0 - 2.0 * (1.0 - blend) * (1.0 - base);
-		}
-	}
-	{
-		float base=n_out4p0.z;
-		float blend=n_out11p0.z;
-		if (base < 0.5) {
-			n_out12p0.z = 2.0 * base * blend;
-		} else {
-			n_out12p0.z = 1.0 - 2.0 * (1.0 - blend) * (1.0 - base);
-		}
-	}
-
-// ColorOp:18
-	vec3 n_out18p0;
-	n_out18p0=vec3(1.0)-(vec3(1.0)-n_out2p0)*(vec3(1.0)-n_out4p0);
+	n_out12p0=max(n_out4p0,n_out11p0);
 
 // Texture:13
 	vec3 n_out13p0;
 	float n_out13p1;
-	vec4 tex_frg_13_read = texture( tex_frg_13 , n_out18p0.xy );
+	vec4 tex_frg_13_read = texture( tex_frg_13 , n_out2p0.xy );
 	n_out13p0 = tex_frg_13_read.rgb;
 	n_out13p1 = tex_frg_13_read.a;
+
+// Color:22
+	vec3 n_out22p0;
+	float n_out22p1;
+	n_out22p0 = vec3(0.646791,0.462438,0.192999);
+	n_out22p1 = 1.000000;
+
+// VectorOp:23
+	vec3 n_out23p0;
+	n_out23p0 = n_out12p0 + n_out22p0;
 
 // Output:0
 	ALBEDO = n_out12p0;
 	ALPHA = n_out13p1;
-	EMISSION = n_out12p0;
+	EMISSION = n_out23p0;
 	NORMAL = n_out12p0;
 	TRANSMISSION = n_out12p0;
 
@@ -321,7 +263,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( 254.124, 75 )
+graph_offset = Vector2( -153.611, 224.172 )
 modes/cull = 2
 nodes/vertex/0/position = Vector2( 1720, -20 )
 nodes/vertex/3/node = SubResource( 25 )
@@ -347,7 +289,7 @@ nodes/vertex/17/position = Vector2( 440, 140 )
 nodes/vertex/18/node = SubResource( 18 )
 nodes/vertex/18/position = Vector2( 60, 480 )
 nodes/vertex/19/node = SubResource( 19 )
-nodes/vertex/19/position = Vector2( 240, 380 )
+nodes/vertex/19/position = Vector2( 280, 380 )
 nodes/vertex/21/node = SubResource( 20 )
 nodes/vertex/21/position = Vector2( 1260, 140 )
 nodes/vertex/23/node = SubResource( 21 )
@@ -358,31 +300,29 @@ nodes/vertex/25/node = SubResource( 23 )
 nodes/vertex/25/position = Vector2( 260, 60 )
 nodes/vertex/26/node = SubResource( 24 )
 nodes/vertex/26/position = Vector2( 620, 300 )
-nodes/vertex/connections = PoolIntArray( 3, 0, 6, 0, 5, 0, 0, 0, 4, 0, 11, 0, 13, 0, 14, 0, 6, 2, 5, 2, 6, 0, 5, 0, 6, 1, 16, 0, 18, 0, 19, 0, 21, 0, 5, 1, 6, 1, 21, 0, 16, 0, 21, 1, 23, 0, 16, 1, 24, 0, 18, 0, 24, 0, 13, 0, 11, 0, 25, 1, 6, 0, 25, 0, 8, 0, 23, 0, 25, 0, 17, 0, 14, 0, 17, 1, 17, 0, 8, 0, 19, 0, 26, 0, 26, 0, 21, 2 )
-nodes/fragment/0/position = Vector2( 1260, 0 )
+nodes/vertex/connections = PoolIntArray( 3, 0, 6, 0, 5, 0, 0, 0, 4, 0, 11, 0, 13, 0, 14, 0, 6, 2, 5, 2, 6, 0, 5, 0, 6, 1, 16, 0, 18, 0, 19, 0, 21, 0, 5, 1, 6, 1, 21, 0, 16, 0, 21, 1, 23, 0, 16, 1, 24, 0, 18, 0, 24, 0, 13, 0, 11, 0, 25, 1, 6, 0, 25, 0, 8, 0, 23, 0, 25, 0, 17, 0, 14, 0, 17, 1, 17, 0, 8, 0, 26, 0, 21, 2, 19, 1, 26, 0 )
+nodes/fragment/0/position = Vector2( 1660, -20 )
 nodes/fragment/2/node = SubResource( 7 )
-nodes/fragment/2/position = Vector2( -100, 20 )
+nodes/fragment/2/position = Vector2( -120, -100 )
 nodes/fragment/3/node = SubResource( 8 )
 nodes/fragment/3/position = Vector2( -120, 140 )
 nodes/fragment/4/node = SubResource( 9 )
-nodes/fragment/4/position = Vector2( 620, -60 )
-nodes/fragment/5/node = SubResource( 10 )
-nodes/fragment/5/position = Vector2( 80, 100 )
-nodes/fragment/7/node = SubResource( 11 )
-nodes/fragment/7/position = Vector2( 400, 100 )
+nodes/fragment/4/position = Vector2( 640, -100 )
 nodes/fragment/8/node = SubResource( 12 )
-nodes/fragment/8/position = Vector2( 80, -40 )
+nodes/fragment/8/position = Vector2( 60, 40 )
 nodes/fragment/11/node = SubResource( 1 )
-nodes/fragment/11/position = Vector2( 620, 160 )
+nodes/fragment/11/position = Vector2( 600, 240 )
 nodes/fragment/12/node = SubResource( 2 )
-nodes/fragment/12/position = Vector2( 880, -20 )
+nodes/fragment/12/position = Vector2( 920, -60 )
 nodes/fragment/13/node = SubResource( 3 )
-nodes/fragment/13/position = Vector2( 1060, 240 )
-nodes/fragment/14/node = SubResource( 4 )
-nodes/fragment/14/position = Vector2( 300, -40 )
-nodes/fragment/18/node = SubResource( 5 )
-nodes/fragment/18/position = Vector2( 860, 240 )
-nodes/fragment/19/node = SubResource( 6 )
-nodes/fragment/19/position = Vector2( 80, 260 )
-nodes/fragment/connections = PoolIntArray( 2, 0, 8, 0, 3, 0, 5, 0, 7, 0, 4, 0, 4, 0, 12, 0, 11, 0, 12, 1, 2, 0, 11, 0, 13, 1, 0, 1, 12, 0, 0, 17, 12, 0, 0, 5, 8, 2, 7, 2, 5, 0, 7, 0, 8, 1, 14, 0, 14, 0, 7, 1, 12, 0, 0, 7, 3, 0, 19, 0, 4, 0, 18, 1, 2, 0, 18, 0, 18, 0, 13, 0, 12, 0, 0, 0, 19, 0, 11, 1 )
+nodes/fragment/13/position = Vector2( 1120, 200 )
+nodes/fragment/19/node = SubResource( 30 )
+nodes/fragment/19/position = Vector2( 180, 260 )
+nodes/fragment/20/node = SubResource( 31 )
+nodes/fragment/20/position = Vector2( 380, 260 )
+nodes/fragment/22/node = SubResource( 33 )
+nodes/fragment/22/position = Vector2( 1220, -120 )
+nodes/fragment/23/node = SubResource( 34 )
+nodes/fragment/23/position = Vector2( 1420, -140 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 8, 0, 4, 0, 12, 0, 11, 0, 12, 1, 13, 1, 0, 1, 12, 0, 0, 17, 12, 0, 0, 7, 12, 0, 0, 0, 3, 0, 19, 1, 20, 0, 11, 0, 8, 2, 20, 2, 19, 0, 20, 0, 8, 1, 20, 1, 8, 0, 19, 0, 12, 0, 23, 0, 22, 0, 23, 1, 23, 0, 0, 5, 2, 0, 4, 0, 2, 0, 13, 0 )
 

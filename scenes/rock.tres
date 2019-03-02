@@ -3,7 +3,6 @@
 [ext_resource path="res://materials/rocks/rock.material" type="Material" id=1]
 
 [resource]
-
 material = ExtResource( 1 )
 radius = 0.2
 height = 0.2

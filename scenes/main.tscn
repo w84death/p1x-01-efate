@@ -378,9 +378,10 @@ anims/hide_left = SubResource( 7 )
 anims/show_from_left = SubResource( 8 )
 
 [node name="demos" type="Panel" parent="HUD/main_menu"]
-margin_left = -328.0
+editor/display_folded = true
+margin_left = -378.0
 margin_top = -19.0
-margin_right = -3.0
+margin_right = -53.0
 margin_bottom = 20.0
 
 [node name="title" type="Label" parent="HUD/main_menu/demos"]
@@ -425,9 +426,10 @@ margin_bottom = 23.0
 text = "SCENE #4"
 
 [node name="testing" type="Panel" parent="HUD/main_menu"]
-margin_left = 27.0
+editor/display_folded = true
+margin_left = -23.0
 margin_top = -18.0
-margin_right = 235.0
+margin_right = 230.0
 margin_bottom = 18.0
 
 [node name="title" type="Label" parent="HUD/main_menu/testing"]
@@ -449,16 +451,22 @@ custom_constants/separation = 16
 alignment = 1
 
 [node name="scene50" type="Button" parent="HUD/main_menu/testing/buttons"]
-margin_left = 28.0
-margin_right = 95.0
+margin_left = 9.0
+margin_right = 76.0
 margin_bottom = 20.0
 text = "SCENE #50"
 
 [node name="scene51" type="Button" parent="HUD/main_menu/testing/buttons"]
-margin_left = 111.0
-margin_right = 178.0
+margin_left = 92.0
+margin_right = 159.0
 margin_bottom = 20.0
 text = "SCENE #51"
+
+[node name="scene52" type="Button" parent="HUD/main_menu/testing/buttons"]
+margin_left = 175.0
+margin_right = 242.0
+margin_bottom = 20.0
+text = "SCENE #52"
 
 [node name="tools" type="Panel" parent="HUD/main_menu"]
 margin_left = 289.0
@@ -609,6 +617,7 @@ text = "Confirm"
 [connection signal="pressed" from="HUD/main_menu/demos/buttons/scene4" to="." method="_on_scene4_pressed"]
 [connection signal="pressed" from="HUD/main_menu/testing/buttons/scene50" to="." method="_on_scene50_pressed"]
 [connection signal="pressed" from="HUD/main_menu/testing/buttons/scene51" to="." method="_on_scene51_pressed"]
+[connection signal="pressed" from="HUD/main_menu/testing/buttons/scene52" to="." method="_on_scene52_pressed"]
 [connection signal="pressed" from="HUD/main_menu/tools/buttons/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="HUD/main_menu/tools/buttons/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="HUD/settings/back/buttons/back" to="." method="_on_back_pressed"]

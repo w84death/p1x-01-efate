@@ -4,6 +4,10 @@ importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/flag_logo.png-f6f8b137482ed029d5a1f9c93d5ee291.s3tc.stex"
 path.etc2="res://.import/flag_logo.png-f6f8b137482ed029d5a1f9c93d5ee291.etc2.stex"
+metadata={
+"imported_formats": [ "s3tc", "etc2" ],
+"vram_texture": true
+}
 
 [deps]
 
