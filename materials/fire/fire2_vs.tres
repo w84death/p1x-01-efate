@@ -4,45 +4,45 @@
 [ext_resource path="res://materials/noise_512.tres" type="Texture" id=2]
 [ext_resource path="res://materials/fire/fire_offset_gradient.tres" type="Texture" id=3]
 
-[sub_resource type="VisualShaderNodeScalarOp" id=7]
+[sub_resource type="VisualShaderNodeScalarOp" id=1]
 operator = 1
 
-[sub_resource type="VisualShaderNodeVectorOp" id=8]
+[sub_resource type="VisualShaderNodeVectorOp" id=2]
 output_port_for_preview = 0
 default_input_values = [ 0, Vector3( 0, 0, 0 ), 1, Vector3( 0.05, 0.1, 0.05 ) ]
 operator = 2
 
-[sub_resource type="VisualShaderNodeScalarOp" id=9]
+[sub_resource type="VisualShaderNodeScalarOp" id=3]
 default_input_values = [ 0, 0.0, 1, 0.5 ]
 operator = 2
 
-[sub_resource type="VisualShaderNodeColorOp" id=10]
+[sub_resource type="VisualShaderNodeColorOp" id=4]
 output_port_for_preview = 0
 operator = 4
 
-[sub_resource type="VisualShaderNodeScalarConstant" id=11]
+[sub_resource type="VisualShaderNodeScalarConstant" id=5]
 constant = 1.0
 
-[sub_resource type="VisualShaderNodeScalarConstant" id=12]
+[sub_resource type="VisualShaderNodeScalarConstant" id=6]
 
-[sub_resource type="VisualShaderNodeTexture" id=1]
+[sub_resource type="VisualShaderNodeTexture" id=7]
 output_port_for_preview = 0
 texture = ExtResource( 1 )
 
-[sub_resource type="VisualShaderNodeInput" id=2]
+[sub_resource type="VisualShaderNodeInput" id=8]
 output_port_for_preview = 0
 input_name = "uv"
 
-[sub_resource type="VisualShaderNodeTexture" id=3]
+[sub_resource type="VisualShaderNodeTexture" id=9]
 output_port_for_preview = 0
 texture = ExtResource( 2 )
 
-[sub_resource type="VisualShaderNodeInput" id=4]
+[sub_resource type="VisualShaderNodeInput" id=10]
 input_name = "time"
 
-[sub_resource type="VisualShaderNodeVectorDecompose" id=5]
+[sub_resource type="VisualShaderNodeVectorDecompose" id=11]
 
-[sub_resource type="VisualShaderNodeVectorCompose" id=6]
+[sub_resource type="VisualShaderNodeVectorCompose" id=12]
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id=13]
 
@@ -83,7 +83,7 @@ texture = ExtResource( 2 )
 
 [resource]
 code = "shader_type spatial;
-render_mode cull_disabled, world_vertex_coords;
+render_mode depth_draw_always, cull_disabled, specular_disabled, world_vertex_coords;
 
 uniform sampler2D tex_vtx_7;uniform sampler2D tex_vtx_2;uniform sampler2D tex_frg_3;uniform sampler2D tex_frg_6;
 
@@ -273,6 +273,8 @@ void light() {
 "
 graph_offset = Vector2( -445.958, 82.5145 )
 modes/cull = 2
+modes/depth_draw = 1
+modes/specular = 4
 flags/world_vertex_coords = true
 nodes/vertex/0/position = Vector2( 1520, 60 )
 nodes/vertex/2/node = SubResource( 20 )
@@ -307,29 +309,29 @@ nodes/vertex/20/node = SubResource( 21 )
 nodes/vertex/20/position = Vector2( 620, 260 )
 nodes/vertex/connections = PoolIntArray( 4, 0, 2, 0, 3, 0, 6, 0, 6, 1, 5, 1, 6, 2, 5, 2, 6, 0, 5, 0, 2, 0, 8, 2, 5, 0, 8, 0, 8, 0, 0, 0, 6, 0, 14, 0, 14, 0, 7, 0, 6, 1, 15, 0, 15, 0, 14, 1, 13, 0, 15, 1, 12, 0, 8, 1, 6, 0, 18, 0, 18, 0, 12, 0, 11, 0, 18, 1, 11, 2, 20, 1, 6, 1, 12, 1, 20, 0, 12, 2, 6, 2, 20, 0, 7, 0, 17, 0, 17, 0, 11, 0 )
 nodes/fragment/0/position = Vector2( 1300, -140 )
-nodes/fragment/3/node = SubResource( 1 )
+nodes/fragment/3/node = SubResource( 7 )
 nodes/fragment/3/position = Vector2( 680, -140 )
-nodes/fragment/5/node = SubResource( 2 )
+nodes/fragment/5/node = SubResource( 8 )
 nodes/fragment/5/position = Vector2( -480, -60 )
-nodes/fragment/6/node = SubResource( 3 )
+nodes/fragment/6/node = SubResource( 9 )
 nodes/fragment/6/position = Vector2( 640, 140 )
-nodes/fragment/7/node = SubResource( 4 )
+nodes/fragment/7/node = SubResource( 10 )
 nodes/fragment/7/position = Vector2( -180, 360 )
-nodes/fragment/8/node = SubResource( 5 )
+nodes/fragment/8/node = SubResource( 11 )
 nodes/fragment/8/position = Vector2( -20, 200 )
-nodes/fragment/9/node = SubResource( 6 )
+nodes/fragment/9/node = SubResource( 12 )
 nodes/fragment/9/position = Vector2( 400, 200 )
-nodes/fragment/10/node = SubResource( 7 )
+nodes/fragment/10/node = SubResource( 1 )
 nodes/fragment/10/position = Vector2( 220, 120 )
-nodes/fragment/13/node = SubResource( 8 )
+nodes/fragment/13/node = SubResource( 2 )
 nodes/fragment/13/position = Vector2( -220, 100 )
-nodes/fragment/14/node = SubResource( 9 )
+nodes/fragment/14/node = SubResource( 3 )
 nodes/fragment/14/position = Vector2( 20, 340 )
-nodes/fragment/15/node = SubResource( 10 )
+nodes/fragment/15/node = SubResource( 4 )
 nodes/fragment/15/position = Vector2( 960, -120 )
-nodes/fragment/16/node = SubResource( 11 )
+nodes/fragment/16/node = SubResource( 5 )
 nodes/fragment/16/position = Vector2( 940, 260 )
-nodes/fragment/17/node = SubResource( 12 )
+nodes/fragment/17/node = SubResource( 6 )
 nodes/fragment/17/position = Vector2( 940, 180 )
 nodes/fragment/connections = PoolIntArray( 3, 1, 0, 1, 9, 0, 6, 0, 8, 0, 10, 0, 10, 0, 9, 0, 8, 1, 9, 1, 8, 2, 9, 2, 5, 0, 3, 0, 5, 0, 13, 0, 13, 0, 8, 0, 7, 0, 14, 0, 14, 0, 10, 1, 15, 0, 0, 0, 3, 0, 15, 0, 6, 0, 15, 1, 3, 0, 0, 17, 16, 0, 0, 3, 17, 0, 0, 2 )
 

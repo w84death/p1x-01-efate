@@ -3,7 +3,6 @@
 [ext_resource path="res://shaders/grass_particle.shader" type="Shader" id=1]
 
 [resource]
-
 shader = ExtResource( 1 )
 shader_param/TERRAIN_HEIGHT_SCALE = 128.0
 shader_param/TERRAIN_MIN_H = 0.5

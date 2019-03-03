@@ -4,7 +4,6 @@
 [ext_resource path="res://materials/terrain/noise_terrain_forest.tres" type="Texture" id=2]
 
 [resource]
-
 shader = ExtResource( 1 )
 shader_param/TERRAIN_HEIGHT_SCALE = 16.0
 shader_param/TERRAIN_MIN_H = 0.1
@@ -18,8 +17,8 @@ shader_param/ALIVE_SPEED = 0.5
 shader_param/ALIVE_RANGE = 24.0
 shader_param/GRASS_ROWS = 16.0
 shader_param/GRASS_SPACING = 8.0
-shader_param/GRASS_SCALE_MIN = 0.24
-shader_param/GRASS_SCALE_MAX = 26.34
+shader_param/GRASS_SCALE_MIN = 0.76
+shader_param/GRASS_SCALE_MAX = 28.55
 shader_param/MAP_SIZE = Vector2( 512, 512 )
 shader_param/HEIGHT_MAP = ExtResource( 2 )
 

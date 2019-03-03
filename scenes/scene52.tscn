@@ -23,36 +23,36 @@ normal_bias = 0.0
 propagation = 0.83
 interior = true
 
-[sub_resource type="BakedLightmapData" id=22]
+[sub_resource type="BakedLightmapData" id=3]
 bounds = AABB( -128, -32, -128, 256, 64, 256 )
 cell_space_transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 512, 128, 512 )
 cell_subdiv = 11
 octree = PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255 )
 
-[sub_resource type="CubeMesh" id=11]
+[sub_resource type="CubeMesh" id=4]
 size = Vector3( 12, 8, 24 )
 
-[sub_resource type="CubeMesh" id=12]
+[sub_resource type="CubeMesh" id=5]
 size = Vector3( 10, 6, 22 )
 
-[sub_resource type="CubeMesh" id=14]
+[sub_resource type="CubeMesh" id=6]
 size = Vector3( 2, 0.5, 4 )
 
-[sub_resource type="CubeMesh" id=16]
+[sub_resource type="CubeMesh" id=7]
 material = ExtResource( 5 )
 size = Vector3( 4.1, 2.77, 2.34 )
 subdivide_width = 3
 subdivide_height = 4
 subdivide_depth = 4
 
-[sub_resource type="CubeMesh" id=17]
+[sub_resource type="CubeMesh" id=8]
 material = ExtResource( 5 )
 size = Vector3( 3.4, 1.9, 2.26 )
 subdivide_width = 4
 subdivide_height = 4
 subdivide_depth = 4
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=9]
 resource_name = "fly_infront_stove"
 length = 16.0
 loop = true
@@ -69,11 +69,11 @@ tracks/0/keys = {
 "values": [ Vector3( -1.614, -0.268, 1.632 ), Vector3( 1.216, -0.268, 1.632 ) ]
 }
 
-[sub_resource type="PlaneMesh" id=19]
+[sub_resource type="PlaneMesh" id=10]
 material = ExtResource( 7 )
 size = Vector2( 2, 1 )
 
-[sub_resource type="CubeMesh" id=21]
+[sub_resource type="CubeMesh" id=11]
 material = ExtResource( 5 )
 
 [node name="scene52" type="Spatial"]
@@ -116,7 +116,7 @@ __meta__ = {
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
 bake_quality = 2
 bake_extents = Vector3( 128, 32, 128 )
-light_data = SubResource( 22 )
+light_data = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -126,116 +126,116 @@ __meta__ = {
 [node name="building" type="CSGMesh" parent="world"]
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
-mesh = SubResource( 11 )
+mesh = SubResource( 4 )
 
 [node name="CSGMesh" type="CSGMesh" parent="world/building"]
 operation = 2
-mesh = SubResource( 12 )
+mesh = SubResource( 5 )
 
 [node name="CSGMesh2" type="CSGMesh" parent="world/building"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44702, 0, 0 )
 operation = 2
-mesh = SubResource( 14 )
+mesh = SubResource( 6 )
 
 [node name="CSGMesh3" type="CSGMesh" parent="world/building"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.757, 0, 0 )
 operation = 2
-mesh = SubResource( 14 )
+mesh = SubResource( 6 )
 
 [node name="stove" type="CSGMesh" parent="world"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.04016, 0.52663 )
-mesh = SubResource( 16 )
+mesh = SubResource( 7 )
 
 [node name="CSGMesh" type="CSGMesh" parent="world/stove"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1 )
 operation = 2
-mesh = SubResource( 17 )
+mesh = SubResource( 8 )
 
 [node name="rock" type="MeshInstance" parent="world/stove"]
-transform = Transform( 0.494561, -0.231991, -0.837609, -0.44071, 0.763702, -0.471735, 0.749122, 0.602445, 0.275457, 1.567, -1.077, -0.228 )
+transform = Transform( -0.150112, 0.908951, 0.388941, -0.0960202, 0.378136, -0.920757, -0.983995, -0.175563, 0.0305147, -0.443, -0.937, -0.348 )
 use_in_baked_light = true
 mesh = ExtResource( 6 )
 material/0 = null
 
 [node name="rock5" type="MeshInstance" parent="world/stove"]
-transform = Transform( 0.233103, 0.0246477, -0.97214, -0.782821, 0.597845, -0.17255, 0.576935, 0.801233, 0.158654, -0.421, -0.851, 0.214 )
+transform = Transform( 0.233103, 0.0246477, -0.97214, -0.782821, 0.597845, -0.17255, 0.576935, 0.801233, 0.158654, -0.421, -1.501, 0.214 )
 use_in_baked_light = true
 mesh = ExtResource( 6 )
 material/0 = null
 
 [node name="rock4" type="MeshInstance" parent="world/stove"]
-transform = Transform( 0.92454, 0.374189, 0.0721642, -0.334169, 0.705025, 0.625516, 0.183184, -0.60243, 0.776867, -1.521, -1.051, 0.407 )
+transform = Transform( 0.92454, 0.374189, 0.0721642, -0.334169, 0.705025, 0.625516, 0.183184, -0.60243, 0.776867, -1.481, -1.451, 0.247 )
 use_in_baked_light = true
 mesh = ExtResource( 6 )
 material/0 = null
 
 [node name="rock2" type="MeshInstance" parent="world/stove"]
-transform = Transform( 0.355681, 0.561762, -0.746937, -0.928059, 0.11785, -0.353295, -0.110441, 0.818862, 0.563266, 1.348, -0.81, 0.595 )
+transform = Transform( 0.355681, 0.561762, -0.746937, -0.928059, 0.11785, -0.353295, -0.110441, 0.818862, 0.563266, 0.968, -1.56, 0.305 )
 use_in_baked_light = true
 mesh = ExtResource( 6 )
 material/0 = null
 
 [node name="rock_star" type="MeshInstance" parent="world/stove"]
-transform = Transform( 0.70791, 0.367917, 0.60291, -0.609297, 0.749858, 0.257819, -0.35724, -0.549864, 0.755003, -0.805233, -0.268, 1.632 )
+transform = Transform( -0.67477, -0.662025, 0.326202, -0.60873, 0.749149, 0.261195, -0.417292, -0.0223223, -0.908499, -1.614, -0.268, 1.632 )
 use_in_baked_light = true
 mesh = ExtResource( 6 )
 material/0 = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="world/stove/rock_star"]
 autoplay = "fly_infront_stove"
-anims/fly_infront_stove = SubResource( 23 )
+anims/fly_infront_stove = SubResource( 9 )
 
 [node name="fire" type="MeshInstance" parent="world/stove"]
-transform = Transform( -1.54543e-08, -0.353553, 0.353553, 0.5, -2.18557e-08, 0, 1.54543e-08, 0.353553, 0.353553, 0.26, -0.474386, 0.16 )
+transform = Transform( -1.53406e-08, -0.350952, -0.356135, 0.5, -2.18557e-08, 0, -1.55672e-08, -0.356135, 0.350952, 0.15, -0.434, 0.55 )
 use_in_baked_light = true
-mesh = SubResource( 19 )
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="fire2" type="MeshInstance" parent="world/stove"]
+transform = Transform( -8.07398e-09, -0.184711, 0.46463, 0.5, -2.18557e-08, 0, 2.03097e-08, 0.46463, 0.184711, 0.15, -0.434, 0.55 )
+use_in_baked_light = true
+mesh = SubResource( 10 )
 material/0 = null
 
 [node name="fire6" type="MeshInstance" parent="world/stove"]
 transform = Transform( -2.07992e-08, -0.475831, -0.153574, 0.5, -2.18557e-08, 0, -6.71292e-09, -0.153574, 0.475831, -0.315989, -0.474386, 0.873476 )
 use_in_baked_light = true
-mesh = SubResource( 19 )
+mesh = SubResource( 10 )
 material/0 = null
 
 [node name="fire8" type="MeshInstance" parent="world/stove"]
 transform = Transform( -2.07992e-08, -0.475831, -0.153574, 0.5, -2.18557e-08, 0, -6.71292e-09, -0.153574, 0.475831, 0.753664, -0.474386, 0.748867 )
 use_in_baked_light = true
-mesh = SubResource( 19 )
-material/0 = null
-
-[node name="fire2" type="MeshInstance" parent="world/stove"]
-transform = Transform( -1.54543e-08, -0.353553, -0.353553, 0.5, -2.18557e-08, 0, -1.54543e-08, -0.353553, 0.353553, 0.26, -0.474386, 0.16 )
-use_in_baked_light = true
-mesh = SubResource( 19 )
+mesh = SubResource( 10 )
 material/0 = null
 
 [node name="fire5" type="MeshInstance" parent="world/stove"]
 transform = Transform( 6.71292e-09, 0.153574, -0.475831, 0.5, -2.18557e-08, 0, -2.07992e-08, -0.475831, -0.153574, -0.315989, -0.474386, 0.873476 )
 use_in_baked_light = true
-mesh = SubResource( 19 )
+mesh = SubResource( 10 )
 material/0 = null
 
 [node name="fire7" type="MeshInstance" parent="world/stove"]
 transform = Transform( 6.71292e-09, 0.153574, -0.475831, 0.5, -2.18557e-08, 0, -2.07992e-08, -0.475831, -0.153574, 0.753664, -0.474386, 0.748867 )
 use_in_baked_light = true
-mesh = SubResource( 19 )
+mesh = SubResource( 10 )
 material/0 = null
 
 [node name="fire4" type="MeshInstance" parent="world/stove"]
 transform = Transform( -1.93688e-08, -0.443106, 0.231641, 0.5, -2.18557e-08, 0, 1.01253e-08, 0.231641, 0.443106, -0.886334, -0.474386, 0.389267 )
 use_in_baked_light = true
-mesh = SubResource( 19 )
+mesh = SubResource( 10 )
 material/0 = null
 
 [node name="fire3" type="MeshInstance" parent="world/stove"]
 transform = Transform( -1.01253e-08, -0.231641, -0.443106, 0.5, -2.18557e-08, 0, -1.93688e-08, -0.443106, 0.231641, -0.886334, -0.474386, 0.389267 )
 use_in_baked_light = true
-mesh = SubResource( 19 )
+mesh = SubResource( 10 )
 material/0 = null
 
 [node name="CSGMesh2" type="CSGMesh" parent="world/stove"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.14, 0 )
-mesh = SubResource( 21 )
+mesh = SubResource( 11 )
 
 [node name="OmniLight" type="OmniLight" parent="world/stove"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.942, -0.21, 0.458 )

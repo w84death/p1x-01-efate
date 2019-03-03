@@ -30,7 +30,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "clips": PoolStringArray( "dolly_in_laguna", "in", "over_lagua_drone", "into the joungle", "fire", "fire2" ),
-"times": PoolRealArray( 0.1, 8.2, 24.2, 48.5, 60.6, 68.6 )
+"times": PoolRealArray( 0.1, 8.2, 24.2, 48.5, 60.6, 68.7 )
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -75,7 +75,7 @@ tracks/1/keys = {
 "values": [ Vector3( 7.11, 171.19, 0 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=3]
 resource_name = "fire"
 length = 8.0
 tracks/0/type = "value"
@@ -103,7 +103,7 @@ tracks/1/keys = {
 "values": [ Vector3( -4.96, 293.12, 0 ), Vector3( -4.96, 292.97, 0 ), Vector3( -4.96, 326.86, 0 ), Vector3( -4.96, 326.86, 1.04 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=4]
 resource_name = "fire2"
 length = 8.0
 tracks/0/type = "value"
@@ -131,7 +131,7 @@ tracks/1/keys = {
 "values": [ Vector3( -18.23, 316.45, 0 ), Vector3( -19.78, 309.52, 0 ), Vector3( -19.78, 305.84, 0 ), Vector3( -10.6, 285.96, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 length = 16.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
@@ -158,8 +158,7 @@ tracks/1/keys = {
 "values": [ Vector3( -21.24, 149.61, 27.18 ), Vector3( -31.04, 127.86, 0.31 ), Vector3( -43.86, 127.86, 0.31 ), Vector3( -24.32, 147.96, 0.31 ), Vector3( -8.76, 205.81, 0.31 ), Vector3( -8.76, 229.74, 0.31 ), Vector3( -8.76, 238.13, 0.31 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "into the joungle"
+[sub_resource type="Animation" id=6]
 length = 12.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
@@ -186,7 +185,7 @@ tracks/1/keys = {
 "values": [ Vector3( -23.64, -79.008, 0 ), Vector3( -4.36, -46.268, 0 ), Vector3( 0.44, -49.338, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 length = 24.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
@@ -285,7 +284,7 @@ tracks/7/keys = {
 "values": [ Vector3( 0, 24.5479, -24.4226 ), Vector3( -4.58, 24.548, -24.423 ), Vector3( -4.58, 23.228, -24.423 ), Vector3( -4.58, 27.528, -24.423 ), Vector3( -4.58, 23.558, -24.423 ) ]
 }
 
-[sub_resource type="GIProbeData" id=6]
+[sub_resource type="GIProbeData" id=8]
 bounds = AABB( -96, -32, -96, 192, 64, 192 )
 cell_size = 0.75
 to_cell_xform = Transform( 1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, 128, 42.6667, 128 )
@@ -297,18 +296,18 @@ normal_bias = 0.0
 propagation = 0.7
 compress = true
 
-[sub_resource type="BakedLightmapData" id=17]
+[sub_resource type="BakedLightmapData" id=9]
 bounds = AABB( -96, -32, -96, 192, 64, 192 )
 cell_space_transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 384, 128, 384 )
 cell_subdiv = 11
 octree = PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255 )
 
-[sub_resource type="PlaneMesh" id=8]
+[sub_resource type="PlaneMesh" id=10]
 size = Vector2( 128, 128 )
 subdivide_width = 512
 subdivide_depth = 512
 
-[sub_resource type="ShaderMaterial" id=9]
+[sub_resource type="ShaderMaterial" id=11]
 shader = ExtResource( 12 )
 shader_param/TERRAIN_HEIGHT_SCALE = 64.0
 shader_param/TERRAIN_MIN_H = 0.34
@@ -327,7 +326,7 @@ shader_param/GRASS_SCALE_MAX = 3.47
 shader_param/MAP_SIZE = Vector2( 512, 512 )
 shader_param/HEIGHT_MAP = ExtResource( 13 )
 
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="ShaderMaterial" id=12]
 shader = ExtResource( 12 )
 shader_param/TERRAIN_HEIGHT_SCALE = 64.0
 shader_param/TERRAIN_MIN_H = 0.35
@@ -346,7 +345,7 @@ shader_param/GRASS_SCALE_MAX = 5.61
 shader_param/MAP_SIZE = Vector2( 512, 512 )
 shader_param/HEIGHT_MAP = ExtResource( 13 )
 
-[sub_resource type="SphereMesh" id=11]
+[sub_resource type="SphereMesh" id=13]
 material = ExtResource( 16 )
 radial_segments = 12
 rings = 6
@@ -359,16 +358,16 @@ autoplay = "demo"
 anims/demo = SubResource( 1 )
 
 [node name="main_camera" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.988202, 0.0189571, 0.151981, 0, 0.99231, -0.123775, -0.153158, -0.122314, -0.980603, 4.61, 0.88, -39.134 )
+transform = Transform( 0.83765, 0.0413549, -0.54464, 0.0070324, 0.99623, 0.0864603, 0.546162, -0.0762535, 0.834202, -6.821, 0.23, -4.63246 )
 current = true
 
 [node name="camera_anim" type="AnimationPlayer" parent="main_camera"]
 anims/dolly_in_laguna = SubResource( 2 )
-anims/fire = SubResource( 12 )
-anims/fire2 = SubResource( 18 )
-anims/in = SubResource( 3 )
-"anims/into the joungle" = SubResource( 4 )
-anims/over_lagua_drone = SubResource( 5 )
+anims/fire = SubResource( 3 )
+anims/fire2 = SubResource( 4 )
+anims/in = SubResource( 5 )
+"anims/into the joungle" = SubResource( 6 )
+anims/over_lagua_drone = SubResource( 7 )
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
 editor/display_folded = true
@@ -382,14 +381,14 @@ subdiv = 2
 extents = Vector3( 96, 32, 96 )
 energy = 0.6
 compress = true
-data = SubResource( 6 )
+data = SubResource( 8 )
 
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.5607, 0 )
 bake_quality = 2
 bake_hdr = true
 bake_extents = Vector3( 96, 32, 96 )
-light_data = SubResource( 17 )
+light_data = SubResource( 9 )
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( 0.873772, -0.267293, -0.406296, 0, -0.835424, 0.549606, -0.486335, -0.480231, -0.72997, 0, 41.9501, 0 )
@@ -404,7 +403,7 @@ directional_shadow_max_distance = 512.0
 [node name="terrain" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26, 0 )
 use_in_baked_light = true
-mesh = SubResource( 8 )
+mesh = SubResource( 10 )
 material/0 = ExtResource( 5 )
 
 [node name="palms1" type="Particles" parent="terrain"]
@@ -432,37 +431,37 @@ draw_pass_1 = ExtResource( 11 )
 use_in_baked_light = true
 amount = 1024
 visibility_aabb = AABB( -128, 0, -128, 256, 32, 256 )
-process_material = SubResource( 9 )
+process_material = SubResource( 11 )
 draw_pass_1 = ExtResource( 14 )
 
 [node name="flowers1" type="Particles" parent="terrain"]
 use_in_baked_light = true
 amount = 1024
 visibility_aabb = AABB( -128, 0, -128, 256, 32, 256 )
-process_material = SubResource( 10 )
+process_material = SubResource( 12 )
 draw_pass_1 = ExtResource( 15 )
 
 [node name="oLED" type="MeshInstance" parent="terrain"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.5479, -24.4226 )
-mesh = SubResource( 11 )
+mesh = SubResource( 13 )
 material/0 = null
 
 [node name="oLED2" type="MeshInstance" parent="terrain"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21, 23.008, -24.423 )
 visible = false
-mesh = SubResource( 11 )
+mesh = SubResource( 13 )
 material/0 = null
 
 [node name="oLED3" type="MeshInstance" parent="terrain"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.108, -29.693 )
 visible = false
-mesh = SubResource( 11 )
+mesh = SubResource( 13 )
 material/0 = null
 
 [node name="oLED4" type="MeshInstance" parent="terrain"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.58, 23.558, -24.423 )
 visible = false
-mesh = SubResource( 11 )
+mesh = SubResource( 13 )
 material/0 = null
 
 [node name="fireplace" parent="terrain" instance=ExtResource( 17 )]

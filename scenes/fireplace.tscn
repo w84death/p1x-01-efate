@@ -3,21 +3,21 @@
 [ext_resource path="res://materials/fire/fire2_vs.tres" type="Shader" id=1]
 [ext_resource path="res://materials/rocks/rock.material" type="Material" id=2]
 
-[sub_resource type="ShaderMaterial" id=16]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
 
-[sub_resource type="PlaneMesh" id=13]
-material = SubResource( 16 )
+[sub_resource type="PlaneMesh" id=2]
+material = SubResource( 1 )
 size = Vector2( 2.39, 1.46 )
 
-[sub_resource type="PlaneMesh" id=18]
-material = SubResource( 16 )
+[sub_resource type="PlaneMesh" id=3]
+material = SubResource( 1 )
 size = Vector2( 4.28, 0.45 )
 
-[sub_resource type="SphereMesh" id=14]
+[sub_resource type="SphereMesh" id=4]
 material = ExtResource( 2 )
-radius = 0.05
-height = 0.002
+radius = 0.43
+height = 0.56
 radial_segments = 8
 rings = 4
 
@@ -27,60 +27,60 @@ transform = Transform( -1.16446e-08, -0.266397, 0.963863, 1, -4.37114e-08, 8.881
 [node name="fire" type="MeshInstance" parent="."]
 transform = Transform( 1, -3.55271e-15, -9.76996e-15, 2.13163e-14, 1, 0, 8.88178e-16, 0, 1, 0.0408312, -0.497116, 0.0744057 )
 use_in_baked_light = true
-mesh = SubResource( 13 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="fire2" type="MeshInstance" parent="."]
 transform = Transform( 1, -7.41252e-08, 3.13956e-08, -7.41252e-08, -0.695788, 0.718248, -3.13956e-08, -0.718248, -0.695788, 0.163324, -0.497116, 0.0744057 )
 use_in_baked_light = true
-mesh = SubResource( 13 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="fire4" type="MeshInstance" parent="."]
 transform = Transform( 1, -7.41252e-08, 3.13956e-08, -7.41252e-08, -0.695788, 0.718248, -3.13956e-08, -0.718248, -0.695788, -0.439205, -0.61491, -0.410089 )
 use_in_baked_light = true
-mesh = SubResource( 13 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="fire3" type="MeshInstance" parent="."]
 transform = Transform( 1, -2.09601e-08, 3.73237e-08, -2.096e-08, 0.52049, 0.853869, -3.73238e-08, -0.853869, 0.52049, -0.439205, -0.489083, -0.473413 )
 use_in_baked_light = true
-mesh = SubResource( 13 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="fire6" type="MeshInstance" parent="."]
 transform = Transform( 1, -7.41252e-08, 3.13956e-08, -7.41252e-08, -0.695788, 0.718248, -3.13956e-08, -0.718248, -0.695788, 0.857445, -0.824078, -0.173575 )
 use_in_baked_light = true
-mesh = SubResource( 18 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="fire5" type="MeshInstance" parent="."]
 transform = Transform( 1, -2.3447e-09, 1.41238e-08, -2.34462e-09, 0.946361, 0.323117, -1.41239e-08, -0.323117, 0.946361, 0.653291, -0.483853, -0.220373 )
 use_in_baked_light = true
-mesh = SubResource( 18 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="rock" type="MeshInstance" parent="."]
 transform = Transform( -1.16446e-08, 0.332046, -0.943263, -0.266397, 0.909177, 0.320047, 0.963863, 0.251283, 0.0884561, -1.57664, -0.962899, -1.14553 )
 use_in_baked_light = true
-mesh = SubResource( 14 )
+mesh = SubResource( 4 )
 material/0 = null
 
 [node name="rock4" type="MeshInstance" parent="."]
 transform = Transform( -3.79564e-08, 0.332046, -0.943263, -0.868341, 0.467829, 0.164684, 0.495969, 0.819074, 0.288329, -1.1275, -0.749741, 0.0710573 )
 use_in_baked_light = true
-mesh = SubResource( 14 )
+mesh = SubResource( 4 )
 material/0 = null
 
 [node name="rock2" type="MeshInstance" parent="."]
 transform = Transform( -1.16446e-08, -0.878812, -0.477169, -0.266397, 0.459926, -0.847054, 0.963864, 0.127117, -0.234113, -1.61239, 0.150998, -0.0250783 )
 use_in_baked_light = true
-mesh = SubResource( 14 )
+mesh = SubResource( 4 )
 material/0 = null
 
 [node name="rock3" type="MeshInstance" parent="."]
 transform = Transform( -1.16446e-08, -0.878812, -0.477169, -0.266397, 0.459926, -0.847054, 0.963863, 0.127117, -0.234113, -1.38087, -1.69497, 0.93583 )
 use_in_baked_light = true
-mesh = SubResource( 14 )
+mesh = SubResource( 4 )
 material/0 = null
 
