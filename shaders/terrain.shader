@@ -5,6 +5,8 @@ uniform float HEIGHT_FACTOR = 128.0;
 uniform float MOUNTAINS_FACTOR = 24.;
 uniform float RANDOM_UV_FACTOR = 4.;
 uniform float GRASS_UV_FACTOR = 4.;
+uniform float WAVE_SCALE = 0.05;
+uniform float WAVE_SPEED_FACTOR = 4.0;
 
 varying float color_height;
 uniform sampler2D heightmap;
@@ -13,10 +15,7 @@ uniform float white_line = 0.8;
 uniform float green_line = 0.5;
 uniform float ground_line = 0.38;
 uniform float blue_line = 0.4;
-uniform float GOLDEN_ANGLE_RADIAN = 2.39996;
-uniform float WAVES_FACTOR_BIG = 16.;
-uniform float WAVES_FACTOR_SMALL = 8.;
-uniform int WAVES_ITERAIONS = 4;
+uniform int OCTAVES = 6;
 
 float get_height(vec2 pos) {
 	pos -= .5 * HEIGHTMAP_SIZE;
@@ -24,48 +23,57 @@ float get_height(vec2 pos) {
 	return texture(heightmap, pos).r;
 }
 
-vec2 wavedx(vec2 position, vec2 direction, float speed, float frequency, float timeshift) {
-	float x = dot(direction, position) * frequency + timeshift * speed;
-	float wave = exp(sin(x) - 1.0);
-	float dx = wave * cos(x);
-	return vec2(wave, -dx);
+
+float random (in vec2 st) {
+    return fract(sin(dot(st.xy,vec2(12.9898,78.233)))*43758.5453123);
 }
 
-float get_waves(vec2 position, int iterations, float Time){
-	float iter = 0.0;
-	float phase = 6.0;
-	float speed = 2.0;
-	float weight = 1.0;
-	float w = 0.0;
-	float ws = 0.0;
-	for(int i=0;i<iterations;i++){
-		vec2 p = vec2(sin(iter), cos(iter));
-		vec2 res = wavedx(position, p, speed, phase, Time);
-		position += normalize(p) * res.y * weight * 0.048;
-		w += res.x * weight;
-		iter += 12.0;
-		ws += weight;
-		weight = mix(weight, 0.0, 0.2);
-		phase *= 1.18;
-		speed *= 1.07;
-	}
-	return w / ws;
+// Based on Morgan McGuire @morgan3d
+// https://www.shadertoy.com/view/4dS3Wd
+float noise (in vec2 st) {
+    vec2 i = floor(st);
+    vec2 f = fract(st);
+
+    // Four corners in 2D of a tile
+    float a = random(i);
+    float b = random(i + vec2(1.0, 0.0));
+    float c = random(i + vec2(0.0, 1.0));
+    float d = random(i + vec2(1.0, 1.0));
+
+    vec2 u = f * f * (3.0 - 2.0 * f);
+
+    return mix(a, b, u.x) +
+            (c - a)* u.y * (1.0 - u.x) +
+            (d - b) * u.x * u.y;
 }
 
+float fbm (vec2 st) {
+    // Initial values
+    float value = 0.0;
+    float amplitude = .5;
+    float frequency = 0.;
+    //
+    // Loop of octaves
+    for (int i = 0; i < OCTAVES; i++) {
+        value += amplitude * noise(st);
+        st *= 2.;
+        amplitude *= .5;
+    }
+    return value;
+}
 void vertex() {
 	float h = get_height(VERTEX.xz);
 	color_height = h;
 	
 	float shore_line = step(blue_line, color_height);
 	float mountains_line = smoothstep(green_line, white_line, color_height);
-	float ran = texture(noisemap, VERTEX.xz * 8.).x * MOUNTAINS_FACTOR;
-	h = mix(blue_line, h, shore_line);
+	float rand = texture(noisemap, VERTEX.xz * 8.).x * MOUNTAINS_FACTOR;
+	float waves = blue_line + fbm(VERTEX.xz * .2  + TIME * WAVE_SPEED_FACTOR) * WAVE_SCALE - 0.01;
+
+    h = mix(waves, h, shore_line);
 	
-	float w = get_waves(VERTEX.xz * 0.2, WAVES_ITERAIONS, TIME);
-	float anim = mix(w, 0., shore_line);
-	h += mix(0., ran * .007, ground_line);
-	h = h * HEIGHT_FACTOR + anim;
-	float fh = mix(h, h + ran, mountains_line);
+	h = h * HEIGHT_FACTOR;
+	float fh = mix(h, h + rand, mountains_line);
 	VERTEX.y = fh;
     
     /*TANGENT = normalize( vec3(0.0, get_height(VERTEX.xz + vec2(0.0, 0.2)) - get_height(VERTEX.xz + vec2(0.0, -0.2)), 0.4));

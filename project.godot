@@ -40,5 +40,4 @@ window/stretch/aspect="keep"
 threads/thread_model=2
 quality/shadows/filter_mode=2
 quality/voxel_cone_tracing/high_quality=false
-quality/filters/msaa=3
 environment/default_environment="res://environments/default_env.tres"
