@@ -100,18 +100,19 @@ void fragment() {
 	
 	// water (blue) vs rest
 	float b_line = step(blue_line, color_height);
-	alb.r = mix(.0 + ran * .05, 	alb.r, b_line);
+	alb.r = mix(.3 + ran * .05, 	alb.r, b_line);
 	alb.g = mix(.2 + ran * .15, 	alb.g, b_line);
-	alb.b = mix(.6, 				alb.b, b_line);
+	alb.b = mix(.2, 				alb.b, b_line);
 	
-	EMISSION = mix(vec3(0.), vec3(.1, .2, 1.), g_line);
+
 	TRANSMISSION = mix(vec3(0.), vec3(.3, .3, 1.), g_line);
+    TRANSMISSION += mix(vec3(0.), vec3(.1, .5, .8), b_line);
 	TRANSMISSION += mix(vec3(color_height * ran * 24.), vec3(0.), b_line);
 	TRANSMISSION += mix(vec3(.9, .9, .8), TRANSMISSION, g_line);
 	
 	SPECULAR = mix(1., .1, b_line);
-	ROUGHNESS = mix(.6, 0.8, b_line);
-	METALLIC = mix(0.5, 0.2, b_line);
-	
+	ROUGHNESS = mix(.0, 0.8, b_line);
+	METALLIC = mix(0.9, 0.2, b_line);
+
 	ALBEDO = alb;
 }
