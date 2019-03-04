@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://scripts/back_to_main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=2]
@@ -11,11 +11,23 @@
 [ext_resource path="res://scenes/futuristic_building2.tscn" type="PackedScene" id=9]
 [ext_resource path="res://materials/particles/small_peple.tres" type="Material" id=10]
 [ext_resource path="res://materials/turquise.material" type="Material" id=11]
-[ext_resource path="res://shaders/grass_particle.shader" type="Shader" id=12]
-[ext_resource path="res://materials/military_body.material" type="Material" id=13]
+[ext_resource path="res://materials/military_body.material" type="Material" id=12]
 
 [sub_resource type="Animation" id=1]
-resource_name = "demo"
+resource_name = "cube"
+length = 25.0
+tracks/0/type = "animation"
+tracks/0/path = NodePath("main_camera/camera_anim")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "cube_only" ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=2]
 length = 38.0
 tracks/0/type = "animation"
 tracks/0/path = NodePath("main_camera/camera_anim")
@@ -25,7 +37,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "clips": PoolStringArray( "from_the_office_room", "dolly", "from_hi_office", "down_to_cube" ),
-"times": PoolRealArray( 0, 6, 22.1, 30.2 )
+"times": PoolRealArray( 0, 6.1, 22.1, 30.2 )
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -42,8 +54,34 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "dolly"
+[sub_resource type="Animation" id=3]
+resource_name = "cube_only"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 11.6649, 20.31 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( -90, 61.9913, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
 length = 16.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
@@ -70,8 +108,7 @@ tracks/1/keys = {
 "values": [ Vector3( 10, 0, 0 ), Vector3( 10, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "down_to_cube"
+[sub_resource type="Animation" id=5]
 length = 8.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
@@ -80,10 +117,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 6, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 10.412, 20.31 ), Vector3( 0, 43.822, 20.31 ) ]
+"values": [ Vector3( 0, 10.412, 20.31 ), Vector3( 0, 16.6764, 20.31 ), Vector3( 0, 18.196, 20.31 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -92,10 +129,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 8 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 6, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -90, 59.28, 0 ), Vector3( -90, 131.58, 0 ) ]
+"values": [ Vector3( -90, 59.28, 0 ), Vector3( -90, 72.8363, 0 ), Vector3( -90, 83.516, 0 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("../HUD/white:modulate")
@@ -110,7 +147,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 length = 8.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -137,8 +174,7 @@ tracks/1/keys = {
 "values": [ Vector3( -8.197, 21.102, 32.62 ), Vector3( -8.197, 8.242, 32.62 ), Vector3( -1.957, 7.002, 25.5 ), Vector3( -1.117, 1.192, 23.14 ) ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "from_the_office_room"
+[sub_resource type="Animation" id=7]
 length = 6.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
@@ -147,10 +183,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 6 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 2.6, 3.8, 6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 11.16, 5.242, 3.19 ), Vector3( 11.16, 5.242, 30.53 ) ]
+"values": [ Vector3( 11.16, 5.242, 3.19 ), Vector3( 11.16, 5.242, 26.8847 ), Vector3( 11.16, 5.242, 30.53 ), Vector3( 11.16, 5.242, 33.32 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -165,7 +201,7 @@ tracks/1/keys = {
 "values": [ Vector3( 2.92, 23.3, 0 ) ]
 }
 
-[sub_resource type="GIProbeData" id=6]
+[sub_resource type="GIProbeData" id=8]
 bounds = AABB( -130, -32, -130, 260, 64, 260 )
 cell_size = 1.01562
 to_cell_xform = Transform( 0.984615, 0, 0, 0, 0.984615, 0, 0, 0, 0.984615, 128, 31.5077, 128 )
@@ -177,22 +213,22 @@ normal_bias = 0.0
 propagation = 0.4
 compress = true
 
-[sub_resource type="BakedLightmapData" id=7]
+[sub_resource type="BakedLightmapData" id=9]
 bounds = AABB( -128, -32, -128, 256, 64, 256 )
 cell_space_transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 512, 128, 512 )
 cell_subdiv = 11
 octree = PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255 )
 
-[sub_resource type="PlaneMesh" id=8]
+[sub_resource type="PlaneMesh" id=10]
 size = Vector2( 128, 128 )
 subdivide_width = 512
 
-[sub_resource type="SpatialMaterial" id=9]
+[sub_resource type="SpatialMaterial" id=11]
 metallic = 0.73
 metallic_specular = 1.0
 roughness = 0.0
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=12]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -207,59 +243,28 @@ tracks/0/keys = {
 "values": [ Vector3( -64, 0, 0 ), Vector3( -64, 360, 0 ) ]
 }
 
-[sub_resource type="SphereMesh" id=12]
+[sub_resource type="SphereMesh" id=13]
 radius = 1.4
 height = 24.0
 radial_segments = 16
 rings = 128
 
-[sub_resource type="CubeMesh" id=11]
+[sub_resource type="CubeMesh" id=14]
 material = ExtResource( 11 )
 size = Vector3( 0.1, 0.25, 0.1 )
 
-[sub_resource type="ShaderMaterial" id=13]
-shader = ExtResource( 12 )
-shader_param/TERRAIN_HEIGHT_SCALE = 128.0
-shader_param/TERRAIN_MIN_H = 0.5
-shader_param/TERRAIN_MAX_H = 0.6
-shader_param/seed = 21.723
-shader_param/TERRAIN_FLAT = true
-shader_param/VOID_CENTER = true
-shader_param/VOID_SIZE = 16.3
-shader_param/ALIVE = true
-shader_param/ALIVE_SPEED = 0.2
-shader_param/ALIVE_RANGE = 32.0
-shader_param/GRASS_ROWS = 32.0
-shader_param/GRASS_SPACING = 3.65
-shader_param/GRASS_SCALE_MIN = 1.0
-shader_param/GRASS_SCALE_MAX = 2.0
-shader_param/MAP_SIZE = Vector2( 1024, 1024 )
+[sub_resource type="Shader" id=15]
 
-[sub_resource type="CylinderMesh" id=14]
-material = ExtResource( 13 )
+[sub_resource type="ShaderMaterial" id=16]
+shader = SubResource( 15 )
+
+[sub_resource type="CylinderMesh" id=17]
+material = ExtResource( 12 )
 top_radius = 0.2
 bottom_radius = 0.2
 height = 0.1
 radial_segments = 16
 rings = 2
-
-[sub_resource type="ShaderMaterial" id=15]
-shader = ExtResource( 12 )
-shader_param/TERRAIN_HEIGHT_SCALE = 128.0
-shader_param/TERRAIN_MIN_H = 0.5
-shader_param/TERRAIN_MAX_H = 0.6
-shader_param/seed = 45.033
-shader_param/TERRAIN_FLAT = true
-shader_param/VOID_CENTER = true
-shader_param/VOID_SIZE = 15.81
-shader_param/ALIVE = true
-shader_param/ALIVE_SPEED = 0.34
-shader_param/ALIVE_RANGE = 32.0
-shader_param/GRASS_ROWS = 32.0
-shader_param/GRASS_SPACING = 3.65
-shader_param/GRASS_SCALE_MIN = 1.0
-shader_param/GRASS_SCALE_MAX = 2.0
-shader_param/MAP_SIZE = Vector2( 1024, 1024 )
 
 [node name="scene3" type="Spatial"]
 script = ExtResource( 1 )
@@ -268,16 +273,18 @@ script = ExtResource( 1 )
 
 [node name="main" type="AnimationPlayer" parent="."]
 autoplay = "demo"
-anims/demo = SubResource( 1 )
+anims/cube = SubResource( 1 )
+anims/demo = SubResource( 2 )
 
 [node name="main_camera" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, -14.58, 0.112, 32.65 )
 
 [node name="camera_anim" type="AnimationPlayer" parent="main_camera"]
-anims/dolly = SubResource( 2 )
-anims/down_to_cube = SubResource( 3 )
-anims/from_hi_office = SubResource( 4 )
-anims/from_the_office_room = SubResource( 5 )
+anims/cube_only = SubResource( 3 )
+anims/dolly = SubResource( 4 )
+anims/down_to_cube = SubResource( 5 )
+anims/from_hi_office = SubResource( 6 )
+anims/from_the_office_room = SubResource( 7 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 4 )
@@ -289,27 +296,27 @@ extents = Vector3( 130, 32, 130 )
 energy = 0.1
 propagation = 0.4
 compress = true
-data = SubResource( 6 )
+data = SubResource( 8 )
 
 [node name="BakedLightmap" type="BakedLightmap" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.950661, 0 )
 bake_quality = 2
 bake_extents = Vector3( 128, 32, 128 )
-light_data = SubResource( 7 )
+light_data = SubResource( 9 )
 
 [node name="terrain" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166069, 0, -0.166067 )
 use_in_baked_light = true
-mesh = SubResource( 8 )
-material/0 = SubResource( 9 )
+mesh = SubResource( 10 )
+material/0 = SubResource( 11 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
 autoplay = true
 
 [node name="sun" type="DirectionalLight" parent="."]
-transform = Transform( 1, -1.5715e-07, 7.66472e-08, 0, 0.438371, 0.898794, -1.74846e-07, -0.898794, 0.438371, 0, 0, 0 )
-light_energy = 3.0
+transform = Transform( 0.823334, 0.512311, -0.24425, 0, 0.430354, 0.90266, 0.567556, -0.743192, 0.354325, 0, 0, 0 )
+light_energy = 4.45
 shadow_enabled = true
 shadow_color = Color( 0.027451, 0.0980392, 0.219608, 1 )
 shadow_reverse_cull_face = true
@@ -318,13 +325,12 @@ directional_shadow_max_distance = 256.0
 
 [node name="sun_anim" type="AnimationPlayer" parent="sun"]
 playback_speed = 0.05
-anims/full_day = SubResource( 10 )
+anims/full_day = SubResource( 12 )
 
 [node name="city" type="Spatial" parent="."]
 
 [node name="the_box" parent="city" instance=ExtResource( 6 )]
-editor/display_folded = true
-transform = Transform( 0.786566, 0.0794594, 0.612372, 0.5, 0.5, -0.707106, -0.362372, 0.862373, 0.353553, 0, 4.905, 20 )
+transform = Transform( 0.240633, -0.739461, 0.628724, 0.475528, 0.654509, 0.587785, -0.846149, 0.157536, 0.50913, 0, 4.905, 20 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="city/the_box"]
 transform = Transform( -0.309477, 0.487623, -0.816363, -0.759781, 0.38944, 0.520644, 0.571803, 0.781384, 0.249964, -0.0789566, -0.237105, -0.244476 )
@@ -344,7 +350,7 @@ omni_attenuation = 0.757858
 [node name="blob" type="MeshInstance" parent="city"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07, 5.54, 20.25 )
 use_in_baked_light = true
-mesh = SubResource( 12 )
+mesh = SubResource( 13 )
 material/0 = ExtResource( 8 )
 
 [node name="block10" parent="city" instance=ExtResource( 9 )]
@@ -382,23 +388,15 @@ use_in_baked_light = true
 amount = 1024
 visibility_aabb = AABB( -128, 0, -128, 256, 128, 256 )
 process_material = ExtResource( 10 )
-draw_pass_1 = SubResource( 11 )
+draw_pass_1 = SubResource( 14 )
 
 [node name="cars" type="Particles" parent="city"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.46, 15.45 )
 use_in_baked_light = true
 amount = 1024
 visibility_aabb = AABB( -128, 0, -128, 256, 128, 256 )
-process_material = SubResource( 13 )
-draw_pass_1 = SubResource( 14 )
-
-[node name="cars2" type="Particles" parent="city"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.3, 15.45 )
-use_in_baked_light = true
-amount = 1024
-visibility_aabb = AABB( -128, 0, -128, 256, 128, 256 )
-process_material = SubResource( 15 )
-draw_pass_1 = SubResource( 14 )
+process_material = SubResource( 16 )
+draw_pass_1 = SubResource( 17 )
 
 
 [editable path="HUD"]

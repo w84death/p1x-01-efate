@@ -358,7 +358,7 @@ autoplay = "demo"
 anims/demo = SubResource( 1 )
 
 [node name="main_camera" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.83765, 0.0413549, -0.54464, 0.0070324, 0.99623, 0.0864603, 0.546162, -0.0762535, 0.834202, -6.821, 0.23, -4.63246 )
+transform = Transform( -0.988202, 0.0189571, 0.151981, 0, 0.99231, -0.123775, -0.153158, -0.122314, -0.980603, 13.43, 0.88, -39.134 )
 current = true
 
 [node name="camera_anim" type="AnimationPlayer" parent="main_camera"]
@@ -447,19 +447,19 @@ mesh = SubResource( 13 )
 material/0 = null
 
 [node name="oLED2" type="MeshInstance" parent="terrain"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.21, 23.008, -24.423 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.33274, 26.243, -24.423 )
 visible = false
 mesh = SubResource( 13 )
 material/0 = null
 
 [node name="oLED3" type="MeshInstance" parent="terrain"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.108, -29.693 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26.0693, -29.754 )
 visible = false
 mesh = SubResource( 13 )
 material/0 = null
 
 [node name="oLED4" type="MeshInstance" parent="terrain"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.58, 23.558, -24.423 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.58172, 23.1914, -24.423 )
 visible = false
 mesh = SubResource( 13 )
 material/0 = null
@@ -503,3 +503,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02231, -2.08723, -16.3113 )
 [editable path="main_camera"]
 
 [editable path="HUD"]
+
+[editable path="terrain/fireplace"]
