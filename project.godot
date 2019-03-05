@@ -38,6 +38,11 @@ window/stretch/aspect="keep"
 [rendering]
 
 threads/thread_model=2
-quality/shadows/filter_mode=2
-quality/filters/msaa=3
+quality/directional_shadow/size=2048
+quality/shadow_atlas/size=2048
+quality/shading/force_lambert_over_burley=true
+quality/shading/force_blinn_over_ggx=true
+quality/filters/use_nearest_mipmap_filter=true
+quality/voxel_cone_tracing/high_quality=false
+quality/filters/msaa=2
 environment/default_environment="res://environments/default_env.tres"

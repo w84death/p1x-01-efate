@@ -513,9 +513,10 @@ anchor_bottom = 0.5
 margin_left = -160.0
 margin_top = -61.0
 margin_right = 160.0
-margin_bottom = -53.0
+margin_bottom = -42.0
 rect_min_size = Vector2( 320, 0 )
-text = "In glorious 21:9 aspect ratio and 60fps."
+text = "Cinemascope (21:9) aspect ratio
+60 frames per second"
 align = 1
 autowrap = true
 
