@@ -21,6 +21,11 @@ boot_splash/image="res://media/splash-p1x.png"
 boot_splash/bg_color=Color( 0.133333, 0.133333, 0.133333, 1 )
 config/icon="res://media/icon.png"
 
+[debug]
+
+settings/fps/force_fps=60
+settings/stdout/print_fps=true
+
 [display]
 
 window/size/width=960
