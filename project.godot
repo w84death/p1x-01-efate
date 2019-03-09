@@ -15,16 +15,16 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Efate - P1X 01"
+config/name="Efate"
 run/main_scene="res://scenes/main.tscn"
+run/disable_stderr=true
 boot_splash/image="res://media/splash-p1x.png"
-boot_splash/bg_color=Color( 0.133333, 0.133333, 0.133333, 1 )
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://media/icon.png"
 
 [debug]
 
 settings/fps/force_fps=60
-settings/stdout/print_fps=true
 
 [display]
 
@@ -39,11 +39,12 @@ window/stretch/aspect="keep"
 [rendering]
 
 threads/thread_model=2
-quality/directional_shadow/size=2048
-quality/shadow_atlas/size=2048
+quality/shadows/filter_mode=2
 quality/shading/force_lambert_over_burley=true
 quality/shading/force_blinn_over_ggx=true
 quality/filters/use_nearest_mipmap_filter=true
 quality/voxel_cone_tracing/high_quality=false
+environment/default_clear_color=Color( 0, 0, 0, 1 )
+quality/reflections/atlas_size=4096
 quality/filters/msaa=2
 environment/default_environment="res://environments/default_env.tres"
