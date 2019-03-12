@@ -20,7 +20,7 @@
 [ext_resource path="res://scenes/boogie.tscn" type="PackedScene" id=18]
 [ext_resource path="res://models/Obelisks.dae" type="PackedScene" id=19]
 [ext_resource path="res://materials/light.material" type="Material" id=20]
-[ext_resource path="res://music/OKAM_vs_ps_-_01_-_Slit_View_of_the_Rapture.ogg" type="AudioStream" id=21]
+[ext_resource path="res://music/P1x 1.ogg" type="AudioStream" id=21]
 
 [sub_resource type="Animation" id=1]
 resource_name = "demo"
@@ -62,7 +62,7 @@ normal_bias = 0.0
 propagation = 0.6
 compress = true
 
-[sub_resource type="BakedLightmapData" id=15]
+[sub_resource type="BakedLightmapData" id=3]
 bounds = AABB( -128, -32, -128, 256, 64, 256 )
 cell_space_transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 512, 128, 512 )
 cell_subdiv = 11
@@ -372,7 +372,7 @@ __meta__ = {
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.950661, 0 )
 bake_quality = 2
 bake_extents = Vector3( 128, 32, 128 )
-light_data = SubResource( 15 )
+light_data = SubResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -405,6 +405,7 @@ anims/shaky = SubResource( 10 )
 current = true
 
 [node name="forest" type="Spatial" parent="."]
+editor/display_folded = true
 
 [node name="terrain" type="MeshInstance" parent="forest"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -32, 0 )

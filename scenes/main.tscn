@@ -326,18 +326,52 @@ anims/settings = SubResource( 3 )
 margin_left = -2.0
 margin_right = -2.0
 
-[node name="h1" type="Label" parent="HUD"]
+[node name="top" type="Control" parent="HUD"]
 anchor_left = 0.5
 anchor_right = 0.5
+margin_top = 30.0
+margin_bottom = 30.0
+
+[node name="h1" type="Label" parent="HUD/top"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 margin_left = -160.0
-margin_top = 10.0
+margin_top = -4.0
 margin_right = 160.0
-margin_bottom = 18.0
+margin_bottom = 4.0
 rect_min_size = Vector2( 320, 0 )
 text = "Welcome to the P1X firste demo - Efate"
 align = 1
 
+[node name="creds" type="Label" parent="HUD/top"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -49.5
+margin_top = 15.0
+margin_right = 49.5
+margin_bottom = 45.0
+custom_colors/font_color = Color( 0.290196, 0.815686, 1, 1 )
+text = "SHADERS: KJ
+MUSIC: Mirek Haenda
+MODELS: Mauryc, KJ"
+align = 1
+
+[node name="info" type="Label" parent="HUD"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -172.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = 18.0
+text = "Cinemascope (21:9) aspect ratio"
+align = 1
+
 [node name="title" type="Control" parent="HUD"]
+editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -381,10 +415,14 @@ anims/show_from_left = SubResource( 8 )
 
 [node name="demos" type="Panel" parent="HUD/main_menu"]
 editor/display_folded = true
-margin_left = -378.0
-margin_top = -19.0
-margin_right = -53.0
-margin_bottom = 20.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -69.5
+margin_right = 200.0
+margin_bottom = -30.5
 
 [node name="title" type="Label" parent="HUD/main_menu/demos"]
 anchor_left = 0.5
@@ -404,34 +442,44 @@ custom_constants/separation = 16
 alignment = 1
 
 [node name="scene1" type="Button" parent="HUD/main_menu/demos/buttons"]
-margin_left = 16.0
-margin_right = 77.0
+margin_left = 15.0
+margin_right = 76.0
 margin_bottom = 23.0
 text = "SCENE #1"
 
 [node name="scene2" type="Button" parent="HUD/main_menu/demos/buttons"]
-margin_left = 93.0
-margin_right = 154.0
+margin_left = 92.0
+margin_right = 153.0
 margin_bottom = 23.0
 text = "SCENE #2"
 
 [node name="scene3" type="Button" parent="HUD/main_menu/demos/buttons"]
-margin_left = 170.0
-margin_right = 231.0
+margin_left = 169.0
+margin_right = 230.0
 margin_bottom = 23.0
 text = "SCENE #3"
 
 [node name="scene4" type="Button" parent="HUD/main_menu/demos/buttons"]
-margin_left = 247.0
-margin_right = 308.0
+margin_left = 246.0
+margin_right = 307.0
 margin_bottom = 23.0
 text = "SCENE #4"
 
+[node name="scene5" type="Button" parent="HUD/main_menu/demos/buttons"]
+margin_left = 323.0
+margin_right = 384.0
+margin_bottom = 23.0
+text = "SCENE #5"
+
 [node name="testing" type="Panel" parent="HUD/main_menu"]
 editor/display_folded = true
-margin_left = -23.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -126.0
 margin_top = -18.0
-margin_right = 230.0
+margin_right = 133.0
 margin_bottom = 18.0
 
 [node name="title" type="Label" parent="HUD/main_menu/testing"]
@@ -453,24 +501,25 @@ custom_constants/separation = 16
 alignment = 1
 
 [node name="scene50" type="Button" parent="HUD/main_menu/testing/buttons"]
-margin_left = 9.0
-margin_right = 76.0
+margin_left = 12.0
+margin_right = 79.0
 margin_bottom = 20.0
 text = "SCENE #50"
 
-[node name="scene51" type="Button" parent="HUD/main_menu/testing/buttons"]
-margin_left = 92.0
-margin_right = 159.0
-margin_bottom = 20.0
-text = "SCENE #51"
-
 [node name="scene52" type="Button" parent="HUD/main_menu/testing/buttons"]
-margin_left = 175.0
-margin_right = 242.0
+margin_left = 95.0
+margin_right = 162.0
 margin_bottom = 20.0
 text = "SCENE #52"
 
+[node name="scene53" type="Button" parent="HUD/main_menu/testing/buttons"]
+margin_left = 178.0
+margin_right = 245.0
+margin_bottom = 20.0
+text = "SCENE #53"
+
 [node name="tools" type="Panel" parent="HUD/main_menu"]
+editor/display_folded = true
 margin_left = 289.0
 margin_top = -19.0
 margin_right = 428.0
@@ -505,22 +554,8 @@ margin_right = 126.0
 margin_bottom = 20.0
 text = "Quit"
 
-[node name="info" type="Label" parent="HUD/main_menu"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -160.0
-margin_top = -61.0
-margin_right = 160.0
-margin_bottom = -42.0
-rect_min_size = Vector2( 320, 0 )
-text = "Cinemascope (21:9) aspect ratio
-60 frames per second"
-align = 1
-autowrap = true
-
 [node name="settings" type="Control" parent="HUD"]
+editor/display_folded = true
 visible = false
 anchor_left = 0.5
 anchor_top = 1.0
@@ -618,9 +653,10 @@ text = "Confirm"
 [connection signal="pressed" from="HUD/main_menu/demos/buttons/scene2" to="." method="_on_scene2_pressed"]
 [connection signal="pressed" from="HUD/main_menu/demos/buttons/scene3" to="." method="_on_scene3_pressed"]
 [connection signal="pressed" from="HUD/main_menu/demos/buttons/scene4" to="." method="_on_scene4_pressed"]
+[connection signal="pressed" from="HUD/main_menu/demos/buttons/scene5" to="." method="_on_scene5_pressed"]
 [connection signal="pressed" from="HUD/main_menu/testing/buttons/scene50" to="." method="_on_scene50_pressed"]
-[connection signal="pressed" from="HUD/main_menu/testing/buttons/scene51" to="." method="_on_scene51_pressed"]
 [connection signal="pressed" from="HUD/main_menu/testing/buttons/scene52" to="." method="_on_scene52_pressed"]
+[connection signal="pressed" from="HUD/main_menu/testing/buttons/scene53" to="." method="_on_scene53_pressed"]
 [connection signal="pressed" from="HUD/main_menu/tools/buttons/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="HUD/main_menu/tools/buttons/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="HUD/settings/back/buttons/back" to="." method="_on_back_pressed"]

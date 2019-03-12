@@ -1,17 +1,16 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://scripts/back_to_main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://environments/clear_lab.tres" type="Environment" id=4]
-[ext_resource path="res://music/DASK_-_01_-_Arrival.ogg" type="AudioStream" id=5]
+[ext_resource path="res://music/P1x 1.ogg" type="AudioStream" id=5]
 [ext_resource path="res://scenes/the_box.tscn" type="PackedScene" id=6]
-[ext_resource path="res://music/OKAM_vs_ps_-_01_-_Slit_View_of_the_Rapture.ogg" type="AudioStream" id=7]
-[ext_resource path="res://materials/blob.material" type="Material" id=8]
-[ext_resource path="res://scenes/futuristic_building2.tscn" type="PackedScene" id=9]
-[ext_resource path="res://materials/particles/small_peple.tres" type="Material" id=10]
-[ext_resource path="res://materials/turquise.material" type="Material" id=11]
-[ext_resource path="res://materials/military_body.material" type="Material" id=12]
+[ext_resource path="res://materials/blob.material" type="Material" id=7]
+[ext_resource path="res://scenes/futuristic_building2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://materials/particles/small_peple.tres" type="Material" id=9]
+[ext_resource path="res://materials/turquise.material" type="Material" id=10]
+[ext_resource path="res://materials/military_body.material" type="Material" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "cube"
@@ -250,7 +249,7 @@ radial_segments = 16
 rings = 128
 
 [sub_resource type="CubeMesh" id=14]
-material = ExtResource( 11 )
+material = ExtResource( 10 )
 size = Vector3( 0.1, 0.25, 0.1 )
 
 [sub_resource type="Shader" id=15]
@@ -259,7 +258,7 @@ size = Vector3( 0.1, 0.25, 0.1 )
 shader = SubResource( 15 )
 
 [sub_resource type="CylinderMesh" id=17]
-material = ExtResource( 12 )
+material = ExtResource( 11 )
 top_radius = 0.2
 bottom_radius = 0.2
 height = 0.1
@@ -332,12 +331,6 @@ anims/full_day = SubResource( 12 )
 [node name="the_box" parent="city" instance=ExtResource( 6 )]
 transform = Transform( 0.240633, -0.739461, 0.628724, 0.475528, 0.654509, 0.587785, -0.846149, 0.157536, 0.50913, 0, 4.905, 20 )
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="city/the_box"]
-transform = Transform( -0.309477, 0.487623, -0.816363, -0.759781, 0.38944, 0.520644, 0.571803, 0.781384, 0.249964, -0.0789566, -0.237105, -0.244476 )
-stream = ExtResource( 7 )
-unit_size = 3.0
-autoplay = true
-
 [node name="OmniLight" type="OmniLight" parent="city/the_box"]
 transform = Transform( 0.813414, 0.483967, -0.322697, 0.140836, 0.3744, 0.91651, 0.564379, -0.790949, 0.236383, 0, 0, 0 )
 light_color = Color( 0.482353, 0.721569, 1, 1 )
@@ -351,43 +344,43 @@ omni_attenuation = 0.757858
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07, 5.54, 20.25 )
 use_in_baked_light = true
 mesh = SubResource( 13 )
-material/0 = ExtResource( 8 )
+material/0 = ExtResource( 7 )
 
-[node name="block10" parent="city" instance=ExtResource( 9 )]
+[node name="block10" parent="city" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, -2 )
 
-[node name="block11" parent="city" instance=ExtResource( 9 )]
+[node name="block11" parent="city" instance=ExtResource( 8 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 16, 37 )
 
-[node name="block2" parent="city" instance=ExtResource( 9 )]
+[node name="block2" parent="city" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14, 16, -1 )
 
-[node name="block9" parent="city" instance=ExtResource( 9 )]
+[node name="block9" parent="city" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14, 16, -14 )
 
-[node name="block5" parent="city" instance=ExtResource( 9 )]
+[node name="block5" parent="city" instance=ExtResource( 8 )]
 transform = Transform( 6.70552e-08, 0, 1, 0, 1, 0, -1, 0, 6.70552e-08, -14, 16, 12 )
 
-[node name="block7" parent="city" instance=ExtResource( 9 )]
+[node name="block7" parent="city" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14, 16, 24.7904 )
 
-[node name="block3" parent="city" instance=ExtResource( 9 )]
+[node name="block3" parent="city" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14, 16, -1 )
 
-[node name="block8" parent="city" instance=ExtResource( 9 )]
+[node name="block8" parent="city" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14, 16, -14 )
 
-[node name="block4" parent="city" instance=ExtResource( 9 )]
+[node name="block4" parent="city" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14, 16, 12 )
 
-[node name="block6" parent="city" instance=ExtResource( 9 )]
+[node name="block6" parent="city" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14, 16, 24.7904 )
 
 [node name="small_people" type="Particles" parent="city"]
 use_in_baked_light = true
 amount = 1024
 visibility_aabb = AABB( -128, 0, -128, 256, 128, 256 )
-process_material = ExtResource( 10 )
+process_material = ExtResource( 9 )
 draw_pass_1 = SubResource( 14 )
 
 [node name="cars" type="Particles" parent="city"]

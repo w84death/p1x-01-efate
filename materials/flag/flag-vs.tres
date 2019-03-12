@@ -10,7 +10,7 @@ input_name = "uv"
 texture = ExtResource( 1 )
 
 [sub_resource type="VisualShaderNodeScalarOp" id=3]
-default_input_values = [ 0, 0.0, 1, 3.0 ]
+default_input_values = [ 0, 0.0, 1, -3.0 ]
 operator = 2
 
 [sub_resource type="VisualShaderNodeScalarOp" id=4]
@@ -74,7 +74,7 @@ void vertex() {
 	n_out4p0 = TIME;
 
 // ScalarOp:11
-	float n_in11p1 = 3.00000;
+	float n_in11p1 = -3.00000;
 	float n_out11p0;
 	n_out11p0 = n_out4p0 * n_in11p1;
 
@@ -154,7 +154,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( 9.55712, -118 )
+graph_offset = Vector2( -119.443, 124 )
 modes/cull = 2
 flags/unshaded = true
 nodes/vertex/0/position = Vector2( 1720, -20 )

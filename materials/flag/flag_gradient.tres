@@ -2,8 +2,6 @@
 
 [sub_resource type="Gradient" id=1]
 
-
 [resource]
-
 gradient = SubResource( 1 )
 

@@ -31,20 +31,26 @@ func _on_scene3_pressed():
 
 func _on_scene4_pressed():
     get_tree().change_scene("scenes/scene4.tscn")
-    
+
+func _on_scene5_pressed():
+    get_tree().change_scene("scenes/scene5.tscn")
+
+
+
 func _on_scene50_pressed():
     get_tree().change_scene("scenes/scene50.tscn")
     
-func _on_scene51_pressed():
-    get_tree().change_scene("scenes/scene51.tscn")
-
 func _on_scene52_pressed():
     get_tree().change_scene("scenes/scene52.tscn")
+
+func _on_scene53_pressed():
+    get_tree().change_scene("scenes/scene53.tscn")
+
+
+
 
 func _on_settings_pressed():
     $main.play("settings")
 
 func _on_back_pressed():
     $main.play("menu")
-
-

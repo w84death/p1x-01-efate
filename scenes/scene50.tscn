@@ -10,11 +10,9 @@
 [ext_resource path="res://materials/city_building.material" type="Material" id=8]
 
 [sub_resource type="Animation" id=1]
-
 resource_name = "demo"
 
 [sub_resource type="GIProbeData" id=2]
-
 bounds = AABB( -130, -32, -130, 260, 64, 260 )
 cell_size = 2.03125
 to_cell_xform = Transform( 0.492308, 0, 0, 0, 0.492308, 0, 0, 0, 0.492308, 64, 15.7538, 64 )
@@ -24,26 +22,22 @@ bias = 1.5
 normal_bias = 0.0
 propagation = 0.7
 
-[sub_resource type="BakedLightmapData" id=6]
-
+[sub_resource type="BakedLightmapData" id=3]
 bounds = AABB( -128, -32, -128, 256, 64, 256 )
 cell_space_transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 512, 128, 512 )
 cell_subdiv = 11
 octree = PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255 )
 
 [sub_resource type="PlaneMesh" id=4]
-
 size = Vector2( 128, 128 )
 subdivide_width = 512
 subdivide_depth = 512
 
 [sub_resource type="CubeMesh" id=5]
-
 material = ExtResource( 8 )
 size = Vector3( 4, 28, 4 )
 
-[sub_resource type="CubeMesh" id=7]
-
+[sub_resource type="CubeMesh" id=6]
 material = ExtResource( 8 )
 size = Vector3( 1, 14, 8 )
 
@@ -69,7 +63,7 @@ data = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.950661, 0 )
 bake_quality = 2
 bake_extents = Vector3( 128, 32, 128 )
-light_data = SubResource( 6 )
+light_data = SubResource( 3 )
 
 [node name="sun" type="DirectionalLight" parent="."]
 transform = Transform( -0.857616, -0.460975, 0.228028, 0, 0.443384, 0.896332, -0.51429, 0.768709, -0.380253, 0, 0, 0 )
@@ -101,7 +95,7 @@ mesh = SubResource( 5 )
 [node name="CSGMesh" type="CSGMesh" parent="world/CSGMesh"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.64751, 0 )
 operation = 2
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 
 [node name="CSGMesh4" type="CSGMesh" parent="world"]
 transform = Transform( 0.15567, 0.337152, 0.334806, 0, 0.352317, -0.354785, -0.475149, 0.110459, 0.10969, -41.153, 7.346, -32.416 )
@@ -110,7 +104,7 @@ mesh = SubResource( 5 )
 [node name="CSGMesh" type="CSGMesh" parent="world/CSGMesh4"]
 transform = Transform( 0.020153, 0.179689, 0.46616, 0, 0.46654, -0.179836, -0.499594, 0.00724847, 0.0188044, 0, 8.64751, 0 )
 operation = 2
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 
 [node name="CSGMesh5" type="CSGMesh" parent="world"]
 transform = Transform( -0.489627, -0.0170185, 0.099877, 0, 0.492896, 0.0839866, -0.101317, 0.0822443, -0.48267, -67.2187, 11.5786, -49.381 )
@@ -119,7 +113,7 @@ mesh = SubResource( 5 )
 [node name="CSGMesh" type="CSGMesh" parent="world/CSGMesh5"]
 transform = Transform( 0.0403061, 0.359379, 0.932321, 0, 0.933079, -0.359671, -0.999187, 0.0144969, 0.0376088, 0, 8.64751, 0 )
 operation = 2
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 
 [node name="CSGMesh6" type="CSGMesh" parent="world"]
 transform = Transform( -0.715422, 0.39798, 0.574267, 0.434281, 0.897154, -0.0807208, -0.547331, 0.191643, -0.814679, -37.136, 13.029, -25.586 )
@@ -128,7 +122,7 @@ mesh = SubResource( 5 )
 [node name="CSGMesh" type="CSGMesh" parent="world/CSGMesh6"]
 transform = Transform( 0.0403061, 0.359379, 0.932321, 0, 0.933079, -0.359671, -0.999187, 0.0144969, 0.0376088, 0, 8.64751, 0 )
 operation = 2
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 
 [node name="CSGMesh2" type="CSGMesh" parent="world"]
 transform = Transform( 0.59745, -0.654805, 0.462908, 0.754895, 0.264508, -0.600141, 0.270532, 0.708001, 0.652339, 28.927, 9.712, -24.741 )
@@ -137,7 +131,7 @@ mesh = SubResource( 5 )
 [node name="CSGMesh" type="CSGMesh" parent="world/CSGMesh2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.64751, 0 )
 operation = 2
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 
 [node name="CSGMesh3" type="CSGMesh" parent="world"]
 transform = Transform( 0.998085, -0.427589, -1.03489, -0.243881, 1.27004, -0.759954, 1.09286, 0.673925, 0.775549, 41.5382, 9.712, -31.6022 )
@@ -146,7 +140,7 @@ mesh = SubResource( 5 )
 [node name="CSGMesh" type="CSGMesh" parent="world/CSGMesh3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.64751, 0 )
 operation = 2
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 
 
 [editable path="world/flag"]
