@@ -30,7 +30,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 480, 351 ) ]
+"values": [ Vector2( 640, 498 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("HUD/settings:visible")
@@ -54,7 +54,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 1460, 351 ) ]
+"values": [ Vector2( 1460, 498 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -188,7 +188,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 480, 351 ), Vector2( -500, 351 ) ]
+"values": [ Vector2( 640, 498 ), Vector2( -500, 498 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:visible")
@@ -212,7 +212,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 1460, 351 ) ]
+"values": [ Vector2( 1460, 498 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("../settings:visible")
@@ -238,7 +238,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -500, 351 ), Vector2( 480, 351 ) ]
+"values": [ Vector2( -500, 498 ), Vector2( 640, 498 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:visible")
@@ -264,7 +264,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 480, 351 ), Vector2( 1460, 351 ) ]
+"values": [ Vector2( 640, 498 ), Vector2( 1460, 498 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:visible")
@@ -302,7 +302,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1460, 351 ), Vector2( 480, 351 ) ]
+"values": [ Vector2( 1460, 498 ), Vector2( 640, 498 ) ]
 }
 
 [node name="main" type="Control"]
@@ -321,6 +321,7 @@ anims/menu = SubResource( 2 )
 anims/settings = SubResource( 3 )
 
 [node name="scene0" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 margin_left = -2.0
@@ -350,10 +351,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -49.5
-margin_top = 15.0
-margin_right = 49.5
-margin_bottom = 45.0
+margin_left = -96.5
+margin_top = 9.0
+margin_right = 96.5
+margin_bottom = 51.0
+custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.290196, 0.815686, 1, 1 )
 text = "SHADERS: KJ
 MUSIC: Mirek Haenda
@@ -406,8 +408,8 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_top = -60.0
-margin_bottom = -60.0
+margin_top = -50.0
+margin_bottom = -50.0
 
 [node name="menu_anim" type="AnimationPlayer" parent="HUD/main_menu"]
 anims/hide_left = SubResource( 7 )
@@ -472,7 +474,6 @@ margin_bottom = 23.0
 text = "SCENE #5"
 
 [node name="testing" type="Panel" parent="HUD/main_menu"]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -555,16 +556,15 @@ margin_bottom = 20.0
 text = "Quit"
 
 [node name="settings" type="Control" parent="HUD"]
-editor/display_folded = true
 visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 980.0
-margin_top = -60.0
-margin_right = 980.0
-margin_bottom = -60.0
+margin_left = 820.0
+margin_top = -50.0
+margin_right = 820.0
+margin_bottom = -50.0
 
 [node name="settings_anim" type="AnimationPlayer" parent="HUD/settings"]
 anims/hide_right = SubResource( 9 )
@@ -576,9 +576,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -96.0
-margin_top = -78.0
+margin_top = -68.0
 margin_right = 96.0
-margin_bottom = -42.0
+margin_bottom = -32.0
 
 [node name="title" type="Label" parent="HUD/settings/graphics"]
 anchor_left = 0.5

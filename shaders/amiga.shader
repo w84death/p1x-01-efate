@@ -18,7 +18,7 @@ void fragment() {
 	}
 	
 	ALBEDO = c;
-	METALLIC = 0.2;
+	METALLIC = 0.3;
 	SPECULAR = 0.3;
 	ROUGHNESS = 0.8;
     RIM = 0.4;
