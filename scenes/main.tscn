@@ -351,14 +351,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -96.5
+margin_left = -102.5
 margin_top = 9.0
-margin_right = 96.5
+margin_right = 102.5
 margin_bottom = 51.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0.290196, 0.815686, 1, 1 )
 text = "SHADERS: KJ
-MUSIC: Mirek Haenda
+MUSIC: Mirek Harenda
 MODELS: Mauryc, KJ"
 align = 1
 
