@@ -30,7 +30,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 460, 361 ) ]
+"values": [ Vector2( 960, 666 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("HUD/settings:visible")
@@ -54,7 +54,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 1460, 361 ) ]
+"values": [ Vector2( 1460, 666 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -188,7 +188,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 460, 361 ), Vector2( -500, 361 ) ]
+"values": [ Vector2( 960, 666 ), Vector2( -500, 666 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:visible")
@@ -212,7 +212,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 1460, 361 ) ]
+"values": [ Vector2( 2420, 666 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("../settings:visible")
@@ -238,7 +238,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -500, 361 ), Vector2( 460, 361 ) ]
+"values": [ Vector2( -500, 666 ), Vector2( 960, 666 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:visible")
@@ -264,7 +264,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 460, 361 ), Vector2( 1460, 361 ) ]
+"values": [ Vector2( 960, 666 ), Vector2( 2420, 666 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:visible")
@@ -302,7 +302,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1460, 361 ), Vector2( 460, 361 ) ]
+"values": [ Vector2( 2420, 666 ), Vector2( 960, 666 ) ]
 }
 
 [node name="main" type="Control"]
@@ -408,8 +408,8 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_top = -50.0
-margin_bottom = -50.0
+margin_top = -157.0
+margin_bottom = -157.0
 
 [node name="menu_anim" type="AnimationPlayer" parent="HUD/main_menu"]
 anims/hide_left = SubResource( 7 )
@@ -556,15 +556,14 @@ margin_bottom = 20.0
 text = "Quit"
 
 [node name="settings" type="Control" parent="HUD"]
-visible = false
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 820.0
-margin_top = -50.0
-margin_right = 820.0
-margin_bottom = -50.0
+margin_left = 1460.0
+margin_top = -157.0
+margin_right = 1460.0
+margin_bottom = -157.0
 
 [node name="settings_anim" type="AnimationPlayer" parent="HUD/settings"]
 anims/hide_right = SubResource( 9 )
