@@ -649,6 +649,7 @@ margin_left = 14.0
 margin_right = 69.0
 margin_bottom = 20.0
 text = "Confirm"
+
 [connection signal="pressed" from="HUD/main_menu/demos/buttons/scene52" to="." method="_on_scene52_pressed"]
 [connection signal="pressed" from="HUD/main_menu/demos/buttons/scene4" to="." method="_on_scene4_pressed"]
 [connection signal="pressed" from="HUD/main_menu/demos/buttons/scene53" to="." method="_on_scene53_pressed"]

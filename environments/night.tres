@@ -31,3 +31,4 @@ dof_blur_near_quality = 2
 glow_enabled = true
 glow_intensity = 1.0
 glow_bloom = 0.3
+
