@@ -1,0 +1,15 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://materials/noise_512_contrast.tres" type="Texture" id=1]
+
+[resource]
+albedo_color = Color( 0, 0, 0, 1 )
+metallic = 0.05
+metallic_specular = 0.2
+metallic_texture_channel = 4
+roughness = 0.48
+roughness_texture_channel = 4
+normal_enabled = true
+normal_scale = 0.55
+normal_texture = ExtResource( 1 )
+uv1_triplanar = true

@@ -321,7 +321,6 @@ anims/menu = SubResource( 2 )
 anims/settings = SubResource( 3 )
 
 [node name="scene0" parent="." instance=ExtResource( 3 )]
-editor/display_folded = true
 
 [node name="HUD" parent="." instance=ExtResource( 4 )]
 margin_left = -2.0
@@ -373,7 +372,6 @@ text = "Cinemascope (21:9) aspect ratio"
 align = 1
 
 [node name="title" type="Control" parent="HUD"]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -416,7 +414,6 @@ anims/hide_left = SubResource( 7 )
 anims/show_from_left = SubResource( 8 )
 
 [node name="demos" type="Panel" parent="HUD/main_menu"]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -436,51 +433,43 @@ margin_bottom = 6.0
 text = "Demos"
 
 [node name="buttons" type="HBoxContainer" parent="HUD/main_menu/demos"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 8.0
-margin_bottom = -8.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.0
+margin_top = -11.5
+margin_right = 200.0
+margin_bottom = 11.5
 custom_constants/separation = 16
 alignment = 1
 
-[node name="scene1" type="Button" parent="HUD/main_menu/demos/buttons"]
-margin_left = 15.0
-margin_right = 76.0
-margin_bottom = 23.0
-text = "SCENE #1"
-
-[node name="scene2" type="Button" parent="HUD/main_menu/demos/buttons"]
-margin_left = 92.0
+[node name="scene52" type="Button" parent="HUD/main_menu/demos/buttons"]
+margin_left = 86.0
 margin_right = 153.0
 margin_bottom = 23.0
-text = "SCENE #2"
+text = "SCENE #52"
 
-[node name="scene3" type="Button" parent="HUD/main_menu/demos/buttons"]
+[node name="scene4" type="Button" parent="HUD/main_menu/demos/buttons"]
 margin_left = 169.0
 margin_right = 230.0
 margin_bottom = 23.0
-text = "SCENE #3"
-
-[node name="scene4" type="Button" parent="HUD/main_menu/demos/buttons"]
-margin_left = 246.0
-margin_right = 307.0
-margin_bottom = 23.0
 text = "SCENE #4"
 
-[node name="scene5" type="Button" parent="HUD/main_menu/demos/buttons"]
-margin_left = 323.0
-margin_right = 384.0
+[node name="scene53" type="Button" parent="HUD/main_menu/demos/buttons"]
+margin_left = 246.0
+margin_right = 313.0
 margin_bottom = 23.0
-text = "SCENE #5"
+text = "SCENE #53"
 
 [node name="testing" type="Panel" parent="HUD/main_menu"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -126.0
+margin_left = -243.0
 margin_top = -18.0
-margin_right = 133.0
+margin_right = 243.0
 margin_bottom = 18.0
 
 [node name="title" type="Label" parent="HUD/main_menu/testing"]
@@ -493,34 +482,47 @@ margin_bottom = 6.0
 text = "Testing"
 
 [node name="buttons" type="HBoxContainer" parent="HUD/main_menu/testing"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 8.0
-margin_right = -2.0
-margin_bottom = -8.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -187.5
+margin_top = -10.0
+margin_right = 187.5
+margin_bottom = 10.0
 custom_constants/separation = 16
 alignment = 1
 
 [node name="scene50" type="Button" parent="HUD/main_menu/testing/buttons"]
-margin_left = 12.0
-margin_right = 79.0
+margin_right = 67.0
 margin_bottom = 20.0
 text = "SCENE #50"
 
-[node name="scene52" type="Button" parent="HUD/main_menu/testing/buttons"]
-margin_left = 95.0
-margin_right = 162.0
+[node name="scene1" type="Button" parent="HUD/main_menu/testing/buttons"]
+margin_left = 83.0
+margin_right = 144.0
 margin_bottom = 20.0
-text = "SCENE #52"
+text = "SCENE #1"
 
-[node name="scene53" type="Button" parent="HUD/main_menu/testing/buttons"]
-margin_left = 178.0
-margin_right = 245.0
+[node name="scene2" type="Button" parent="HUD/main_menu/testing/buttons"]
+margin_left = 160.0
+margin_right = 221.0
 margin_bottom = 20.0
-text = "SCENE #53"
+text = "SCENE #2"
+
+[node name="scene3" type="Button" parent="HUD/main_menu/testing/buttons"]
+margin_left = 237.0
+margin_right = 298.0
+margin_bottom = 20.0
+text = "SCENE #3"
+
+[node name="scene5" type="Button" parent="HUD/main_menu/testing/buttons"]
+margin_left = 314.0
+margin_right = 375.0
+margin_bottom = 20.0
+text = "SCENE #5"
 
 [node name="tools" type="Panel" parent="HUD/main_menu"]
-editor/display_folded = true
 margin_left = 289.0
 margin_top = -19.0
 margin_right = 428.0
@@ -647,15 +649,14 @@ margin_left = 14.0
 margin_right = 69.0
 margin_bottom = 20.0
 text = "Confirm"
-
-[connection signal="pressed" from="HUD/main_menu/demos/buttons/scene1" to="." method="_on_scene1_pressed"]
-[connection signal="pressed" from="HUD/main_menu/demos/buttons/scene2" to="." method="_on_scene2_pressed"]
-[connection signal="pressed" from="HUD/main_menu/demos/buttons/scene3" to="." method="_on_scene3_pressed"]
+[connection signal="pressed" from="HUD/main_menu/demos/buttons/scene52" to="." method="_on_scene52_pressed"]
 [connection signal="pressed" from="HUD/main_menu/demos/buttons/scene4" to="." method="_on_scene4_pressed"]
-[connection signal="pressed" from="HUD/main_menu/demos/buttons/scene5" to="." method="_on_scene5_pressed"]
+[connection signal="pressed" from="HUD/main_menu/demos/buttons/scene53" to="." method="_on_scene53_pressed"]
 [connection signal="pressed" from="HUD/main_menu/testing/buttons/scene50" to="." method="_on_scene50_pressed"]
-[connection signal="pressed" from="HUD/main_menu/testing/buttons/scene52" to="." method="_on_scene52_pressed"]
-[connection signal="pressed" from="HUD/main_menu/testing/buttons/scene53" to="." method="_on_scene53_pressed"]
+[connection signal="pressed" from="HUD/main_menu/testing/buttons/scene1" to="." method="_on_scene1_pressed"]
+[connection signal="pressed" from="HUD/main_menu/testing/buttons/scene2" to="." method="_on_scene2_pressed"]
+[connection signal="pressed" from="HUD/main_menu/testing/buttons/scene3" to="." method="_on_scene3_pressed"]
+[connection signal="pressed" from="HUD/main_menu/testing/buttons/scene5" to="." method="_on_scene5_pressed"]
 [connection signal="pressed" from="HUD/main_menu/tools/buttons/settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="HUD/main_menu/tools/buttons/quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="HUD/settings/back/buttons/back" to="." method="_on_back_pressed"]

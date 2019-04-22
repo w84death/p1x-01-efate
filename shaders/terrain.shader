@@ -8,6 +8,8 @@ uniform float GRASS_UV_FACTOR = 4.;
 uniform float WAVE_SCALE = 0.05;
 uniform float WAVE_SPEED_FACTOR = 4.0;
 
+uniform float SCROLL_SPEED = 0.1;
+
 varying float color_height;
 uniform sampler2D heightmap;
 uniform sampler2D noisemap;
@@ -17,9 +19,10 @@ uniform float ground_line = 0.38;
 uniform float blue_line = 0.4;
 uniform int OCTAVES = 6;
 
-float get_height(vec2 pos) {
+float get_height(vec2 pos, float t) {
 	pos -= .5 * HEIGHTMAP_SIZE;
 	pos /= HEIGHTMAP_SIZE;
+    //pos.y -= t;
 	return texture(heightmap, pos).r;
 }
 
@@ -62,7 +65,7 @@ float fbm (vec2 st) {
     return value;
 }
 void vertex() {
-	float h = get_height(VERTEX.xz);
+	float h = get_height(VERTEX.xz, TIME * SCROLL_SPEED);
 	color_height = h;
 	
 	float shore_line = step(blue_line, color_height);
@@ -100,19 +103,18 @@ void fragment() {
 	
 	// water (blue) vs rest
 	float b_line = step(blue_line, color_height);
-	alb.r = mix(.3 + ran * .05, 	alb.r, b_line);
+	alb.r = mix(.2 + ran * .05, 	alb.r, b_line);
 	alb.g = mix(.2 + ran * .15, 	alb.g, b_line);
 	alb.b = mix(.2, 				alb.b, b_line);
-	
+	//alb = mix(vec3(clamp(alb + color_height, 0., 0.4)), 	alb, b_line);
 
 	TRANSMISSION = mix(vec3(0.), vec3(.3, .3, 1.), g_line);
-    TRANSMISSION += mix(vec3(0.), vec3(.1, .5, .8), b_line);
-	TRANSMISSION += mix(vec3(color_height * ran * 24.), vec3(0.), b_line);
+    TRANSMISSION = mix(TRANSMISSION, vec3(.1, .5, .8), b_line);
 	TRANSMISSION += mix(vec3(.9, .9, .8), TRANSMISSION, g_line);
 	
-	SPECULAR = mix(1., .1, b_line);
-	ROUGHNESS = mix(.0, 0.8, b_line);
-	METALLIC = mix(0.9, 0.2, b_line);
+	SPECULAR = mix(.8, .5, b_line);
+	ROUGHNESS = mix(.2, 0.8, b_line);
+	METALLIC = mix(0.4, 0.2, b_line);
 
 	ALBEDO = alb;
 }

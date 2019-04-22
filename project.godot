@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Efate"
-run/main_scene="res://scenes/scene53.tscn"
+run/main_scene="res://scenes/main.tscn"
 run/disable_stderr=true
 boot_splash/image="res://media/splash-p1x.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )

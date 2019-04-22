@@ -23,6 +23,8 @@ uniform bool ALIVE = false;
 uniform float ALIVE_SPEED = .5;
 uniform float ALIVE_RANGE = 24.0;
 
+uniform float SCROLL_SPEED = 0.01;
+
 // VEGETATION SETTINGS
 uniform float GRASS_ROWS = 64;
 uniform float GRASS_SPACING = 8.0;
@@ -37,10 +39,11 @@ uniform vec2 MAP_SIZE = vec2(1024.0, 1024.0);
 // HELPERS ---------------------------------------------------------------------
 
 // RETURNS HEIGHT FROM HEIGHT_MAP
-float get_height(vec2 pos) {
+float get_height(vec2 pos, float t) {
     if (TERRAIN_FLAT == true) return 0.;
 	pos -= 0.5 * MAP_SIZE;
 	pos /= MAP_SIZE; // center
+    //pos.y -= t;
 	float h = texture(HEIGHT_MAP, pos).r; // read height from texture
 	return h; // adjust for the overall terrain SCALE
 }
@@ -51,7 +54,6 @@ mat4 enterTheMatrix(vec3 pos, vec3 axis, float angle, float SCALE){
     float s = sin(angle);
     float c = cos(angle);
     float oc = 1.0 - c;
-
 	// converts matrix for position, angle (for each axix) and SCALE
     return mat4(vec4((oc * axis.x * axis.x + c)* SCALE,		oc * axis.x * axis.y - axis.z * s,	oc * axis.z * axis.x + axis.y * s,	0.0),
                 vec4(oc * axis.x * axis.y + axis.z * s,		(oc * axis.y * axis.y + c) * SCALE,	oc * axis.y * axis.z - axis.x * s,	0.0),
@@ -83,7 +85,7 @@ void vertex() {
 
 	pos.x += ran * GRASS_SPACING;
 	pos.z += ran * GRASS_SPACING; // apply noise and spacing
-	pos.y = get_height(pos.xz); // apply height
+	pos.y = get_height(pos.xz, TIME * SCROLL_SPEED); // apply height
     
     if (ALIVE) {
         pos.x += sin(ALIVE_SPEED * TIME + pos.x + ran) * ALIVE_RANGE;
