@@ -10,3 +10,4 @@ lacunarity = 2.3
 [resource]
 seamless = true
 noise = SubResource( 1 )
+
