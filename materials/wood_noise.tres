@@ -7,3 +7,4 @@ period = 139.9
 [resource]
 seamless = true
 noise = SubResource( 1 )
+

@@ -10,3 +10,4 @@ rim = 1.0
 rim_tint = 0.0
 transmission_enabled = true
 transmission = Color( 1, 0, 0, 1 )
+

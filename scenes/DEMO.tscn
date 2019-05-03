@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://gui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/DEMO.gd" type="Script" id=2]
+[ext_resource path="res://scenes/scene50.tscn" type="PackedScene" id=3]
+[ext_resource path="res://gui/loading_p.png" type="Texture" id=4]
+[ext_resource path="res://gui/loading_p1.png" type="Texture" id=5]
+[ext_resource path="res://gui/loading_p1x.png" type="Texture" id=6]
+[ext_resource path="res://gui/loading_p1x_final.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "the_demo"
+length = 5.0
+
+[node name="DEMO" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="main" type="AnimationPlayer" parent="."]
+autoplay = "the_demo"
+anims/the_demo = SubResource( 1 )
+
+[node name="SCENES" type="Spatial" parent="."]
+
+[node name="scene50" parent="SCENES" instance=ExtResource( 3 )]
+
+[node name="LOADING" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="black" type="ColorRect" parent="LOADING"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="p" type="TextureRect" parent="LOADING"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -411.5
+margin_right = 960.0
+margin_bottom = 411.5
+texture = ExtResource( 4 )
+
+[node name="p1" type="TextureRect" parent="LOADING"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -411.5
+margin_right = 960.0
+margin_bottom = 411.5
+texture = ExtResource( 5 )
+
+[node name="p1x" type="TextureRect" parent="LOADING"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -411.5
+margin_right = 960.0
+margin_bottom = 411.5
+texture = ExtResource( 6 )
+
+[node name="p1x_final" type="TextureRect" parent="LOADING"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -411.5
+margin_right = 960.0
+margin_bottom = 411.5
+texture = ExtResource( 7 )
+

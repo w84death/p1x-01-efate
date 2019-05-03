@@ -13,3 +13,4 @@ normal_enabled = true
 normal_scale = 0.55
 normal_texture = ExtResource( 1 )
 uv1_triplanar = true
+
