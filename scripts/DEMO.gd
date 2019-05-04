@@ -1,4 +1,4 @@
-extends Control
+extends Spatial
 
 #
 # P1X 01 - Efate
@@ -6,9 +6,12 @@ extends Control
 # https://github.com/w84death/p1x-01-efate
 # https://p1x.in
 #
+export var INIT = false
+export var NEXT_SCENE_NUMBER = 1
 
 func _ready():
-    pass # Replace with function body.
+    if INIT:
+        next_scene()
 
 func _input(event):
     if Input.is_key_pressed(KEY_ESCAPE):
@@ -20,12 +23,6 @@ func quit_game():
 func _on_quit_pressed():
     quit_game()
 
-func play_scene(id):
-    get_tree().change_scene("scenes/scene"+str(id)+".tscn")
-    #$'SCENES/scene52'.show();
-    #$'SCENES/scene52/main_camera'.set_current(true);
-    #$'SCENES/scene52/master'.play("demo");
-
-func run_demo():
-    play_scene(52)
+func next_scene():
+    get_tree().change_scene("scenes/scene" + str(NEXT_SCENE_NUMBER) + ".tscn")
     

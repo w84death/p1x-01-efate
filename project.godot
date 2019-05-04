@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Efate"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/DEMO.tscn"
 run/disable_stderr=true
 boot_splash/image="res://media/splash-p1x.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
@@ -29,7 +29,7 @@ settings/fps/force_fps=60
 [display]
 
 window/size/width=1920
-window/size/height=823
+window/size/height=1080
 window/size/fullscreen=true
 mouse_cursor/custom_image="res://media/coursor.png"
 mouse_cursor/custom_image_hotspot=Vector2( 8, 8 )
@@ -40,10 +40,6 @@ window/stretch/aspect="keep"
 
 threads/thread_model=2
 quality/shadows/filter_mode=2
-quality/subsurface_scattering/quality=2
-quality/subsurface_scattering/follow_surface=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )
-quality/reflections/atlas_size=9192
-quality/reflections/atlas_subdiv=16
 quality/filters/msaa=2
 environment/default_environment="res://environments/default_env.tres"
