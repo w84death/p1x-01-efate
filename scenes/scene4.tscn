@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://scripts/DEMO.gd" type="Script" id=1]
 [ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=2]
@@ -19,10 +19,12 @@
 [ext_resource path="res://scenes/lamp.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/creds_kj.tscn" type="PackedScene" id=18]
 [ext_resource path="res://materials/sintext_vs.material" type="Material" id=19]
+[ext_resource path="res://materials/white_white.material" type="Material" id=20]
+[ext_resource path="res://materials/black.material" type="Material" id=21]
 
 [sub_resource type="Animation" id=1]
 resource_name = "demo"
-length = 20.0
+length = 38.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -30,7 +32,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 20 ),
+"times": PoolRealArray( 38 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -44,8 +46,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"clips": PoolStringArray( "scene2", "scene1" ),
-"times": PoolRealArray( 1.2, 5.2 )
+"clips": PoolStringArray( "reset", "intro flat", "intro - top down", "rabbits" ),
+"times": PoolRealArray( 0, 1, 13, 23 )
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("HUD/white:modulate")
@@ -61,7 +63,125 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-resource_name = "reset"
+resource_name = "intro - top down"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4.1, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -90, -73.07, 0 ), Vector3( 8.04115, -115.463, 0 ), Vector3( 46.63, -143, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 3.7, 6.6, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -23.396, 84.497, 10.796 ), Vector3( -22.0485, 19.432, 10.4022 ), Vector3( -21.856, 10.137, 10.346 ), Vector3( -21.856, 10.137, 10.346 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../sun:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -34.51, 325.82, -180 ), Vector3( -49.22, 170.72, -180 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "intro flat"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 12 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -33.28, 36, -28.774 ), Vector3( -33.28, 36, 33.066 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 6.1, 12 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -17.04, -90, 0 ), Vector3( 1, -90, 0 ), Vector3( -17.04, -90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 15.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.7, 7, 12.3, 15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -17.915, 10.45, -31.045 ), Vector3( -23.515, 12.56, -21.295 ), Vector3( -23.515, 12.8, -14.385 ), Vector3( -18.195, 14.74, -0.125 ), Vector3( -18.545, 15.19, 6.035 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.7, 7, 12.3, 15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 4.106, -168.53, -18.58 ), Vector3( 6.956, -181.35, -11.23 ), Vector3( 1.696, -150.17, 12.47 ), Vector3( -10.134, -148.87, -1.73 ), Vector3( -2.534, -135.02, 5.62 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../sun:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -34.51, 239.67, -180 ), Vector3( -34.51, 186.55, -180 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../terrain/rabbit0:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 80.65, 17.34, 0 ), Vector3( 82.67, 64.24, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
 tracks/0/interp = 1
@@ -72,7 +192,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 5.7, 12.3, -35.544 ) ]
+"values": [ Vector3( -33.28, 36, -28.774 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rotation_degrees")
@@ -84,81 +204,19 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector3( 5.5, 124.65, 0 ) ]
+"values": [ Vector3( -17.04, -90, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-length = 15.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2.3, 6.9, 9.7, 11.5, 14.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( -20.84, 13.63, -27.904 ), Vector3( -20.49, 12.85, -3.454 ), Vector3( -21.52, 12.65, 5.446 ), Vector3( -25.39, 16.03, 8.586 ), Vector3( -26.64, 21.29, 11.366 ), Vector3( -26.64, 34.01, 11.366 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:rotation_degrees")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2.3, 6.9, 9.7, 11.5, 14.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 8.15, 131.54, 18.46 ), Vector3( 8.15, 177.35, 14.55 ), Vector3( 20.31, 178.68, 0 ), Vector3( 45.27, 135.33, -0.35 ), Vector3( 81.01, 94.35, 0.34 ), Vector3( 81.01, 94.35, 64.48 ) ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "scene2"
-length = 4.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( -25.585, 84.065, -27.415 ), Vector3( -25.585, 14, -27.415 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:rotation_degrees")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 2.2, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( -62.934, -149.49, 0 ), Vector3( -54.974, -163.355, 0 ), Vector3( 4.106, -177.22, 0 ) ]
-}
-
-[sub_resource type="GIProbeData" id=5]
+[sub_resource type="GIProbeData" id=6]
 bounds = AABB( -96, -32, -96, 192, 64, 192 )
 cell_size = 0.75
 to_cell_xform = Transform( 1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, 128, 42.6667, 128 )
-dynamic_data = PoolIntArray( 0, 9, 256, 128, 256, 1, 0, 0, 0, 1, 0, 0, 481514680, 0, 6, 64, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 0 )
+dynamic_data = PoolIntArray( 0, 9, 256, 128, 256, 177, 120, 0, 770109744, 0, 446209744, 0, 716918720, 0, 97, 0, 1, -1, -1, -1, 84, -1, -1, -1, 0, 0, 8355711, 0, -1, -1, -1, -1, -1, 2, -1, -1, 0, 0, 8355711, 65537, -1, -1, -1, -1, -1, 3, -1, -1, 0, 0, 8355711, 131086, -1, -1, -1, -1, 4, -1, -1, -1, 0, 0, 8355711, 196723, -1, -1, -1, 5, -1, -1, -1, -1, 0, 0, 8355711, 263071, 38, 28, 11, 6, -1, -1, -1, -1, 0, 0, 8355711, 335103, 7, 63, 9, -1, 57, 55, 23, -1, 0, 0, 8355711, 419839, 69, 61, 8, 76, -1, 62, -1, 73, 0, 0, 8355711, 507903, -1, -1, -1, -1, -1, -1, -1, -1, 6842208, 0, 11538268, 589823, 10, 26, 80, 79, 20, 27, 21, 78, 0, 0, 8355711, 524287, -1, -1, -1, -1, -1, -1, -1, -1, 10197391, 0, 10169633, 589823, -1, 12, -1, 15, -1, 66, -1, 17, 0, 0, 8355711, 406527, -1, 68, -1, 13, -1, 70, -1, 14, 0, 0, 8355711, 491519, -1, -1, -1, -1, -1, -1, -1, -1, 6250072, 0, 6293850, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 2044004, 589823, -1, 16, -1, -1, 82, 19, -1, 81, 0, 0, 8355711, 491519, -1, -1, -1, -1, -1, -1, -1, -1, 4934213, 0, 7954947, 589823, 83, 18, -1, 22, -1, -1, -1, -1, 0, 0, 8355711, 483327, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 1623449, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 8781941, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 8224256, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 11584544, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 5429296, 589823, 25, 77, 24, -1, -1, -1, -1, -1, 0, 0, 8355711, 483327, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 10740537, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 6022201, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 15945830, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 12898617, 589823, -1, -1, 29, 48, -1, -1, 32, 50, 0, 0, 8355711, 408575, 46, -1, 45, 47, 30, 31, 41, 35, 0, 0, 8355711, 516095, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 8083192, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 11370486, 589823, 34, 33, 37, 36, -1, -1, 53, 52, 0, 0, 8355711, 507903, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 8955896, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 5869048, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 14782159, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 9559252, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 2993877, 589823, -1, -1, -1, 42, -1, -1, -1, 39, 0, 0, 8355711, 397311, -1, -1, -1, 40, -1, -1, -1, -1, 0, 0, 8355711, 466943, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 815028, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 7875293, 589823, -1, -1, -1, 54, -1, 44, -1, 43, 0, 0, 8355711, 483327, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 3286189, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631985, 0, 4081373, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 11079594, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 11284183, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 15222444, 589823, -1, -1, -1, -1, -1, -1, 49, -1, 0, 0, 8355711, 466943, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 15383203, 589823, -1, -1, 51, -1, -1, -1, -1, -1, 0, 0, 8355711, 466943, -1, -1, -1, -1, -1, -1, -1, -1, 12631985, 0, 13752486, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631985, 0, 5500587, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 3004585, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 7013268, 589823, 56, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 466943, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 13689221, 589823, 65, 58, 72, 71, 60, 59, -1, -1, 0, 0, 8355711, 507903, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 9960579, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 5699462, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 3203971, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 16209279, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 16489856, 589823, -1, -1, -1, -1, 64, -1, 74, -1, 0, 0, 8355711, 475135, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 15450753, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 1756544, 589823, -1, 67, -1, 75, -1, -1, -1, -1, 0, 0, 8355711, 475135, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 31872, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 6881663, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 11864959, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 2434431, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 9633144, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 2809205, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 15515762, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631985, 0, 15255679, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 100977, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 16342636, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 9431354, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 7010916, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 14583594, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 3614787, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 10707208, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 2434436, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 350849, 589823, -1, 85, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 65537, -1, 86, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 131087, -1, 87, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 196731, -1, -1, -1, -1, -1, -1, 88, -1, 0, 0, 8355711, 263135, 111, 106, 89, 94, 123, 120, 140, 136, 0, 0, 8355711, 335615, -1, 90, -1, 92, -1, 97, -1, 99, 0, 0, 8355711, 412671, -1, -1, -1, -1, -1, 144, -1, 91, 0, 0, 8355711, 475135, -1, -1, -1, -1, -1, -1, -1, -1, 7763309, 0, 9175165, 589823, -1, -1, -1, -1, -1, 93, -1, -1, 0, 0, 8355711, 466943, -1, -1, -1, -1, -1, -1, -1, -1, 3486769, 0, 9845270, 589823, 95, -1, 170, -1, 133, -1, 104, -1, 0, 0, 8355711, 412671, -1, -1, -1, -1, 145, 150, 96, 158, 0, 0, 8355711, 491519, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 14560366, 589823, 148, 149, 160, 98, 147, 143, 159, 157, 0, 0, 8355711, 524287, -1, -1, -1, -1, -1, -1, -1, -1, 7697516, 0, 2303864, 589823, 172, 100, 175, 102, 169, 101, 176, 103, 0, 0, 8355711, 524287, -1, -1, -1, -1, -1, -1, -1, -1, 11644835, 0, 7553807, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 1951061, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 14367559, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 9559853, 589823, 105, 162, 173, -1, 164, 163, -1, -1, 0, 0, 8355711, 499711, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 12024332, 589823, -1, -1, 129, -1, -1, -1, 107, -1, 0, 0, 8355711, 400383, 109, -1, 116, 118, 108, -1, 110, 119, 0, 0, 8355711, 507903, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 8422398, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 9919223, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 9088502, 589823, -1, -1, -1, 127, -1, -1, -1, 112, 0, 0, 8355711, 400383, -1, 115, 132, 117, -1, 114, 131, 113, 0, 0, 8355711, 507903, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 2652124, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 5860599, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 7292656, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 12732380, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 6167238, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 15695291, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 13158857, 589823, -1, -1, 121, -1, -1, -1, -1, -1, 0, 0, 8355711, 395263, -1, -1, 122, 126, -1, -1, -1, -1, 0, 0, 8355711, 475135, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 6480586, 589823, -1, -1, -1, 124, -1, -1, -1, -1, 0, 0, 8355711, 394239, -1, -1, -1, 125, -1, -1, -1, -1, 0, 0, 8355711, 466943, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 2341824, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631985, 0, 10219698, 589823, -1, -1, -1, -1, -1, -1, -1, 128, 0, 0, 8355711, 466943, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 9569436, 589823, -1, -1, -1, -1, -1, -1, 130, -1, 0, 0, 8355711, 466943, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 13311907, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 873121, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 2435484, 589823, 146, 134, 161, 155, 152, 135, 153, 151, 0, 0, 8355711, 524287, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 16680834, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 13754758, 589823, 137, -1, 165, -1, -1, -1, -1, -1, 0, 0, 8355711, 397311, 139, 138, 154, -1, -1, -1, -1, -1, 0, 0, 8355711, 483327, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 10418824, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 6421383, 589823, -1, 141, -1, 167, -1, -1, -1, -1, 0, 0, 8355711, 396287, -1, 142, -1, 156, -1, -1, -1, -1, 0, 0, 8355711, 475135, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 1492869, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 102787, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 9044095, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 14230912, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631985, 0, 15878528, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 221312, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 2434176, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 5310592, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631985, 0, 16275583, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 13231995, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 9698687, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 9633144, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 6618236, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 16553335, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 2151547, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 369784, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631985, 0, 16341880, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 93556, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 2369391, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 16082774, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 15180607, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 12967245, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 8836899, 589823, 166, -1, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 466943, -1, -1, -1, -1, -1, -1, -1, -1, 12631985, 0, 5960019, 589823, -1, 168, -1, -1, -1, -1, -1, -1, 0, 0, 8355711, 466943, -1, -1, -1, -1, -1, -1, -1, -1, 12631985, 0, 3464276, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 1281729, 589823, -1, -1, -1, -1, 171, -1, 174, -1, 0, 0, 8355711, 475135, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 13451312, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 8847490, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12631986, 0, 6931734, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697521, 0, 12263237, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 8988962, 589823, -1, -1, -1, -1, -1, -1, -1, -1, 12697522, 0, 3578138, 589823 )
 dynamic_range = 4
 bias = 1.5
 normal_bias = 0.0
 propagation = 0.7
 compress = true
-
-[sub_resource type="BakedLightmapData" id=6]
-bounds = AABB( -96, -32, -96, 192, 64, 192 )
-cell_space_transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 384, 128, 384 )
-cell_subdiv = 11
-octree = PoolByteArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255 )
 
 [sub_resource type="PlaneMesh" id=7]
 custom_aabb = AABB( -128, 0, -128, 256, 64, 256 )
@@ -206,10 +264,60 @@ shader_param/GRASS_SCALE_MAX = 9.08
 shader_param/MAP_SIZE = Vector2( 512, 512 )
 shader_param/HEIGHT_MAP = ExtResource( 13 )
 
-[sub_resource type="SphereMesh" id=10]
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.253072, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.754525, 0.959364 ), -0.365758, -0.365758, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+emission_shape = 2
+emission_box_extents = Vector3( 64, 1, 64 )
+gravity = Vector3( 0, 1, 0 )
+angular_velocity = 7.52316e-37
+tangential_accel = 0.4
+scale_curve = SubResource( 11 )
+
+[sub_resource type="SpatialMaterial" id=13]
+
+[sub_resource type="SphereMesh" id=14]
+material = SubResource( 13 )
+radius = 0.025
+height = 0.05
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereMesh" id=15]
 material = ExtResource( 16 )
 radial_segments = 24
 rings = 12
+
+[sub_resource type="CapsuleMesh" id=16]
+material = ExtResource( 20 )
+
+[sub_resource type="CapsuleMesh" id=17]
+material = ExtResource( 20 )
+radius = 0.2
+radial_segments = 32
+
+[sub_resource type="CapsuleMesh" id=18]
+material = ExtResource( 20 )
+radius = 0.2
+mid_height = 0.5
+radial_segments = 32
+
+[sub_resource type="SphereMesh" id=19]
+radius = 0.2
+height = 0.4
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereMesh" id=20]
+material = ExtResource( 21 )
+radius = 0.14
+height = 0.1
+radial_segments = 16
+rings = 8
 
 [node name="scene4" type="Spatial"]
 script = ExtResource( 1 )
@@ -220,15 +328,17 @@ autoplay = "demo"
 anims/demo = SubResource( 1 )
 
 [node name="main_camera" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.856104, 0.492756, 0.155812, 0.141016, 0.0673217, -0.987716, -0.497193, 0.867559, -0.0118523, -26.64, 34.01, 11.366 )
+transform = Transform( -4.37114e-08, 0.293039, -0.956099, 0, 0.9561, 0.293039, 0.999999, 1.28091e-08, -4.17924e-08, -33.28, 36, -28.774 )
 current = true
 
 [node name="camera_anim" type="AnimationPlayer" parent="main_camera"]
-anims/reset = SubResource( 2 )
-anims/scene1 = SubResource( 3 )
-anims/scene2 = SubResource( 4 )
+"anims/intro - top down" = SubResource( 2 )
+"anims/intro flat" = SubResource( 3 )
+anims/rabbits = SubResource( 4 )
+anims/reset = SubResource( 5 )
 
 [node name="HUD" parent="." instance=ExtResource( 3 )]
+editor/display_folded = true
 
 [node name="white" parent="HUD" index="2"]
 modulate = Color( 1, 1, 1, 1 )
@@ -241,17 +351,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.8033, 0 )
 subdiv = 2
 extents = Vector3( 96, 32, 96 )
 compress = true
-data = SubResource( 5 )
-
-[node name="BakedLightmap" type="BakedLightmap" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.5607, 0 )
-bake_quality = 2
-bake_hdr = true
-bake_extents = Vector3( 96, 32, 96 )
-light_data = SubResource( 6 )
+data = SubResource( 6 )
 
 [node name="sun" type="DirectionalLight" parent="."]
-transform = Transform( 0.999166, 0.0231318, 0.0336445, -7.20387e-08, -0.824028, 0.56655, 0.0408293, -0.566078, -0.82334, 0, 41.9501, 0 )
+transform = Transform( 0.504979, -0.489008, -0.711244, 7.20388e-08, -0.824028, 0.56655, -0.863132, -0.286096, -0.416117, 0, 41.9501, 0 )
 light_color = Color( 1, 0.956863, 0.662745, 1 )
 light_energy = 2.0
 light_specular = 0.7
@@ -291,25 +394,37 @@ draw_pass_1 = ExtResource( 11 )
 [node name="grass1" type="Particles" parent="terrain"]
 use_in_baked_light = true
 amount = 9216
-visibility_aabb = AABB( -128, -43.2912, -128, 256, 118.582, 256 )
+visibility_aabb = AABB( -128, 0, -128, 256, 64, 256 )
 process_material = SubResource( 8 )
 draw_pass_1 = ExtResource( 14 )
 
 [node name="flowers1" type="Particles" parent="terrain"]
 use_in_baked_light = true
 amount = 1024
-visibility_aabb = AABB( -128, 0, -128, 256, 32, 256 )
+visibility_aabb = AABB( -128, 0, -128, 256, 64, 256 )
 process_material = SubResource( 9 )
 draw_pass_1 = ExtResource( 15 )
+
+[node name="dust" type="Particles" parent="terrain"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42112, 35.4583, 4.5881 )
+use_in_baked_light = true
+amount = 8192
+lifetime = 8.0
+preprocess = 14.0
+speed_scale = 0.5
+visibility_aabb = AABB( -128, 0, -128, 256, 128, 256 )
+process_material = SubResource( 12 )
+draw_pass_1 = SubResource( 14 )
 
 [node name="oLED" type="MeshInstance" parent="terrain"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.39, 24.278, -26.143 )
 visible = false
 use_in_baked_light = true
-mesh = SubResource( 10 )
+mesh = SubResource( 15 )
 material/0 = null
 
 [node name="city" type="Spatial" parent="terrain"]
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26, 0 )
 visible = false
 
@@ -341,10 +456,81 @@ transform = Transform( 0.999621, -0.00188708, 0.027481, -0.0113131, 0.881501, 0.
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02231, -2.08723, -16.3113 )
 
 [node name="shaders" parent="terrain" instance=ExtResource( 18 )]
+editor/display_folded = true
 transform = Transform( -1.5499, 0, -1.26404, 0, 2, 0, 1.26404, 0, -1.5499, -18.3333, 38.5654, 10.4555 )
+visible = false
 
 [node name="text-0" parent="terrain/shaders/kj/shaders" index="0"]
 material/0 = ExtResource( 19 )
+
+[node name="rabbit0" type="CSGMesh" parent="terrain"]
+transform = Transform( 0.954552, 0.294082, 0.0484212, 0, 0.162465, -0.986714, -0.298041, 0.941871, 0.155081, -14.475, 38.36, -10.737 )
+mesh = SubResource( 16 )
+
+[node name="ear_l" type="CSGMesh" parent="terrain/rabbit0"]
+transform = Transform( 0.970296, 0.033669, -0.239568, 0, 0.990268, 0.139173, 0.241922, -0.135039, 0.960853, 0.5, 0, -1.61 )
+mesh = SubResource( 17 )
+
+[node name="ear_r" type="CSGMesh" parent="terrain/rabbit0"]
+transform = Transform( 0.970296, 0.033669, 0.239568, 0, 0.990268, -0.139173, -0.241922, 0.135039, 0.960853, -0.5, 0, -1.13 )
+mesh = SubResource( 17 )
+
+[node name="ear2" type="CSGMesh" parent="terrain/rabbit0/ear_r"]
+transform = Transform( -0.23582, -0.508052, 0.828415, -0.135248, 0.86132, 0.489731, -0.962339, 0.0034472, -0.27183, -0.220761, -0.18051, -0.504189 )
+mesh = SubResource( 18 )
+
+[node name="eye_place" type="CSGMesh" parent="terrain/rabbit0"]
+transform = Transform( 1, 2.98023e-08, 7.45058e-09, 0, 1, -7.45058e-09, 0, 0, 1, 0.28, -0.8, -1.05 )
+operation = 2
+mesh = SubResource( 19 )
+
+[node name="eye_place2" type="CSGMesh" parent="terrain/rabbit0"]
+transform = Transform( 1, 2.98023e-08, 7.45058e-09, 0, 1, -7.45058e-09, 0, 0, 1, -0.28, -0.8, -1.05 )
+operation = 2
+mesh = SubResource( 19 )
+
+[node name="eye" type="CSGMesh" parent="terrain/rabbit0"]
+transform = Transform( 1, 8.9407e-08, -7.45058e-09, -2.98023e-08, 0.95019, -0.311672, 0, 0.311672, 0.95019, -0.249999, -0.69573, -0.958765 )
+mesh = SubResource( 20 )
+
+[node name="eye2" type="CSGMesh" parent="terrain/rabbit0"]
+transform = Transform( 1, 8.9407e-08, -7.45058e-09, -2.98023e-08, 0.95019, -0.311672, 0, 0.311672, 0.95019, 0.25, -0.69573, -0.958765 )
+mesh = SubResource( 20 )
+
+[node name="rabbit1" type="CSGMesh" parent="terrain"]
+editor/display_folded = true
+transform = Transform( 0.874026, 0.479423, 0.078938, 0, 0.162465, -0.986714, -0.485878, 0.862414, 0.141999, -8.905, 38.47, 8.233 )
+mesh = SubResource( 16 )
+
+[node name="ear_l" type="CSGMesh" parent="terrain/rabbit1"]
+transform = Transform( 0.970296, 0.033669, -0.239568, 0, 0.990268, 0.139173, 0.241922, -0.135039, 0.960853, 0.5, 0, -1.61 )
+mesh = SubResource( 17 )
+
+[node name="ear_r" type="CSGMesh" parent="terrain/rabbit1"]
+transform = Transform( 0.970296, 0.033669, 0.239568, 0, 0.990268, -0.139173, -0.241922, 0.135039, 0.960853, -0.5, 0, -1.13 )
+mesh = SubResource( 17 )
+
+[node name="ear2" type="CSGMesh" parent="terrain/rabbit1/ear_r"]
+transform = Transform( -0.23582, -0.508052, 0.828415, -0.135248, 0.86132, 0.489731, -0.962339, 0.0034472, -0.27183, -0.220761, -0.18051, -0.504189 )
+mesh = SubResource( 18 )
+
+[node name="eye_place" type="CSGMesh" parent="terrain/rabbit1"]
+transform = Transform( 1, 2.98023e-08, 7.45058e-09, 0, 1, -7.45058e-09, 0, 0, 1, 0.28, -0.8, -1.05 )
+operation = 2
+mesh = SubResource( 19 )
+
+[node name="eye_place2" type="CSGMesh" parent="terrain/rabbit1"]
+transform = Transform( 1, 2.98023e-08, 7.45058e-09, 0, 1, -7.45058e-09, 0, 0, 1, -0.28, -0.8, -1.05 )
+operation = 2
+mesh = SubResource( 19 )
+
+[node name="eye" type="CSGMesh" parent="terrain/rabbit1"]
+transform = Transform( 1, 8.9407e-08, -7.45058e-09, -2.98023e-08, 0.95019, -0.311672, 0, 0.311672, 0.95019, -0.249999, -0.69573, -0.958765 )
+mesh = SubResource( 20 )
+
+[node name="eye2" type="CSGMesh" parent="terrain/rabbit1"]
+transform = Transform( 1, 8.9407e-08, -7.45058e-09, -2.98023e-08, 0.95019, -0.311672, 0, 0.311672, 0.95019, 0.25, -0.69573, -0.958765 )
+mesh = SubResource( 20 )
 
 
 [editable path="main_camera"]

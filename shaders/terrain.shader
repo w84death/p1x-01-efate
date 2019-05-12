@@ -91,8 +91,8 @@ void fragment() {
 	
 	// sand (yellow) vs grass (green)
 	float y_line = step(ground_line + ran * .15, color_height);
-	alb.r = mix(.6 + ran *.3, 	(.23 - ran * .1) * ran2, 	y_line);
-	alb.g = mix(.4 + ran *.2, 	(.9 - ran * .1) * ran2, 	y_line);
+	alb.r = mix(.6 + ran *.3, 	(.4 - ran * .1) * ran2, 	y_line);
+	alb.g = mix(.4 + ran *.2, 	(.5 - ran * .2) * ran2, 	y_line);
 	alb.b = mix(.3 + ran *.2, 	(0.1) * ran2, 				y_line);
 	
 	// rest vs white top

@@ -29,7 +29,7 @@ settings/fps/force_fps=60
 [display]
 
 window/size/width=1920
-window/size/height=1080
+window/size/height=822
 window/size/fullscreen=true
 mouse_cursor/custom_image="res://media/coursor.png"
 mouse_cursor/custom_image_hotspot=Vector2( 8, 8 )
@@ -41,5 +41,5 @@ window/stretch/aspect="keep"
 threads/thread_model=2
 quality/shadows/filter_mode=2
 environment/default_clear_color=Color( 0, 0, 0, 1 )
-quality/filters/msaa=2
+quality/filters/msaa=3
 environment/default_environment="res://environments/default_env.tres"
