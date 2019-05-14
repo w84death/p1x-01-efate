@@ -1,0 +1,143 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://materials/terrain/joungle.material" type="Material" id=1]
+[ext_resource path="res://materials/particles/scene4_palms1.material" type="Material" id=2]
+[ext_resource path="res://models/palm1.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://materials/particles/scene4_palms2.material" type="Material" id=4]
+[ext_resource path="res://models/palm2.mesh" type="ArrayMesh" id=5]
+[ext_resource path="res://materials/particles/scene4_palms3.material" type="Material" id=6]
+[ext_resource path="res://models/palm3.mesh" type="ArrayMesh" id=7]
+[ext_resource path="res://shaders/grass_particle.shader" type="Shader" id=8]
+[ext_resource path="res://materials/terrain/noise_terrain_joung;e.tres" type="Texture" id=9]
+[ext_resource path="res://models/grass1.mesh" type="ArrayMesh" id=10]
+[ext_resource path="res://models/grass2.mesh" type="ArrayMesh" id=11]
+[ext_resource path="res://scenes/rabbit.tscn" type="PackedScene" id=12]
+[ext_resource path="res://materials/white_white.material" type="Material" id=13]
+
+[sub_resource type="PlaneMesh" id=1]
+custom_aabb = AABB( -128, 0, -128, 256, 64, 256 )
+size = Vector2( 128, 128 )
+subdivide_width = 512
+subdivide_depth = 512
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 8 )
+shader_param/TERRAIN_HEIGHT_SCALE = 96.0
+shader_param/TERRAIN_MIN_H = 0.34
+shader_param/TERRAIN_MAX_H = 0.47
+shader_param/seed = 42.073
+shader_param/TERRAIN_FLAT = false
+shader_param/VOID_CENTER = false
+shader_param/VOID_SIZE = 12.0
+shader_param/ALIVE = false
+shader_param/ALIVE_SPEED = 0.5
+shader_param/ALIVE_RANGE = 24.0
+shader_param/SCROLL_SPEED = 0.01
+shader_param/GRASS_ROWS = 64.0
+shader_param/GRASS_SPACING = 1.0
+shader_param/GRASS_SCALE_MIN = 0.3
+shader_param/GRASS_SCALE_MAX = 4.26
+shader_param/MAP_SIZE = Vector2( 512, 512 )
+shader_param/HEIGHT_MAP = ExtResource( 9 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 8 )
+shader_param/TERRAIN_HEIGHT_SCALE = 96.0
+shader_param/TERRAIN_MIN_H = 0.35
+shader_param/TERRAIN_MAX_H = 0.46
+shader_param/seed = 58.213
+shader_param/TERRAIN_FLAT = false
+shader_param/VOID_CENTER = false
+shader_param/VOID_SIZE = 12.0
+shader_param/ALIVE = false
+shader_param/ALIVE_SPEED = 0.5
+shader_param/ALIVE_RANGE = 24.0
+shader_param/SCROLL_SPEED = 0.01
+shader_param/GRASS_ROWS = 32.0
+shader_param/GRASS_SPACING = 4.0
+shader_param/GRASS_SCALE_MIN = 0.63
+shader_param/GRASS_SCALE_MAX = 9.08
+shader_param/MAP_SIZE = Vector2( 512, 512 )
+shader_param/HEIGHT_MAP = ExtResource( 9 )
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.253072, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.754525, 0.959364 ), -0.365758, -0.365758, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+emission_shape = 2
+emission_box_extents = Vector3( 64, 1, 64 )
+gravity = Vector3( 0, 1, 0 )
+angular_velocity = 7.52316e-37
+tangential_accel = 0.4
+scale_curve = SubResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=7]
+
+[sub_resource type="SphereMesh" id=8]
+material = SubResource( 7 )
+radius = 0.025
+height = 0.05
+radial_segments = 8
+rings = 4
+
+[sub_resource type="CapsuleMesh" id=9]
+material = ExtResource( 13 )
+
+[node name="joungle" type="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26, 0 )
+use_in_baked_light = true
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )
+
+[node name="palms1" type="Particles" parent="."]
+use_in_baked_light = true
+amount = 1024
+visibility_aabb = AABB( -128, 32, -128, 256, 64, 256 )
+process_material = ExtResource( 2 )
+draw_pass_1 = ExtResource( 3 )
+
+[node name="palms2" type="Particles" parent="."]
+use_in_baked_light = true
+amount = 1024
+visibility_aabb = AABB( -128, 32, -128, 256, 64, 256 )
+process_material = ExtResource( 4 )
+draw_pass_1 = ExtResource( 5 )
+
+[node name="palms3" type="Particles" parent="."]
+use_in_baked_light = true
+amount = 256
+visibility_aabb = AABB( -128, 32, -128, 256, 64, 256 )
+process_material = ExtResource( 6 )
+draw_pass_1 = ExtResource( 7 )
+
+[node name="grass1" type="Particles" parent="."]
+use_in_baked_light = true
+amount = 4096
+visibility_aabb = AABB( -128, 32, -128, 256, 64, 256 )
+process_material = SubResource( 2 )
+draw_pass_1 = ExtResource( 10 )
+
+[node name="flowers1" type="Particles" parent="."]
+use_in_baked_light = true
+amount = 1024
+visibility_aabb = AABB( -128, 32, -128, 256, 64, 256 )
+process_material = SubResource( 3 )
+draw_pass_1 = ExtResource( 11 )
+
+[node name="dust" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42112, 30.7281, 4.5881 )
+use_in_baked_light = true
+amount = 8192
+lifetime = 8.0
+preprocess = 14.0
+speed_scale = 0.5
+visibility_aabb = AABB( -128, 24, -128, 256, 128, 256 )
+process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 8 )
+
+[node name="rabbit0" parent="." instance=ExtResource( 12 )]
+mesh = SubResource( 9 )
+

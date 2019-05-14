@@ -4,13 +4,14 @@
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://environments/clear_lab.tres" type="Environment" id=4]
-[ext_resource path="res://music/P1x 1.ogg" type="AudioStream" id=5]
+[ext_resource path="res://music/soundtrack.ogg" type="AudioStream" id=5]
 [ext_resource path="res://scenes/the_box.tscn" type="PackedScene" id=6]
 [ext_resource path="res://materials/blob.material" type="Material" id=7]
 [ext_resource path="res://scenes/futuristic_building2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://materials/particles/small_peple.tres" type="Material" id=9]
 [ext_resource path="res://materials/turquise.material" type="Material" id=10]
 [ext_resource path="res://materials/military_body.material" type="Material" id=11]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "cube"

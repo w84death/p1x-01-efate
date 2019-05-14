@@ -25,4 +25,7 @@ func _on_quit_pressed():
 
 func next_scene():
     get_tree().change_scene("scenes/scene" + str(NEXT_SCENE_NUMBER) + ".tscn")
-    
+
+func bake_gi():
+    $"GIProbe".bake()
+    pass

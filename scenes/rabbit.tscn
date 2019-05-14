@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://materials/white_white.material" type="Material" id=1]
+[ext_resource path="res://materials/black.material" type="Material" id=2]
+
+[sub_resource type="CapsuleMesh" id=1]
+material = ExtResource( 1 )
+
+[sub_resource type="CapsuleMesh" id=2]
+material = ExtResource( 1 )
+radius = 0.2
+radial_segments = 32
+
+[sub_resource type="CapsuleMesh" id=3]
+material = ExtResource( 1 )
+radius = 0.2
+mid_height = 0.5
+radial_segments = 32
+
+[sub_resource type="SphereMesh" id=4]
+radius = 0.2
+height = 0.4
+radial_segments = 8
+rings = 4
+
+[sub_resource type="SphereMesh" id=5]
+material = ExtResource( 2 )
+radius = 0.14
+height = 0.1
+radial_segments = 16
+rings = 8
+
+[node name="rabbit0" type="CSGMesh"]
+editor/display_folded = true
+transform = Transform( 0.914818, 0.400382, 0.0529245, 0, 0.131045, -0.991376, -0.403864, 0.90693, 0.119883, -14.035, 38.73, -10.417 )
+mesh = SubResource( 1 )
+
+[node name="ear_l" type="CSGMesh" parent="."]
+transform = Transform( 0.970296, 0.033669, -0.239568, 0, 0.990268, 0.139173, 0.241922, -0.135039, 0.960853, 0.5, 0, -1.61 )
+mesh = SubResource( 2 )
+
+[node name="ear_r" type="CSGMesh" parent="."]
+transform = Transform( 0.970296, 0.033669, 0.239568, 0, 0.990268, -0.139173, -0.241922, 0.135039, 0.960853, -0.5, 0, -1.13 )
+mesh = SubResource( 2 )
+
+[node name="ear2" type="CSGMesh" parent="ear_r"]
+transform = Transform( -0.23582, -0.508052, 0.828415, -0.135248, 0.86132, 0.489731, -0.962339, 0.0034472, -0.27183, -0.220761, -0.18051, -0.504189 )
+mesh = SubResource( 3 )
+
+[node name="eye_place" type="CSGMesh" parent="."]
+transform = Transform( 1, 2.98023e-08, 7.45058e-09, 0, 1, -7.45058e-09, 0, 0, 1, 0.28, -0.8, -1.05 )
+operation = 2
+mesh = SubResource( 4 )
+
+[node name="eye_place2" type="CSGMesh" parent="."]
+transform = Transform( 1, 2.98023e-08, 7.45058e-09, 0, 1, -7.45058e-09, 0, 0, 1, -0.28, -0.8, -1.05 )
+operation = 2
+mesh = SubResource( 4 )
+
+[node name="eye" type="CSGMesh" parent="."]
+transform = Transform( 1, 8.9407e-08, -7.45058e-09, -2.98023e-08, 0.95019, -0.311672, 0, 0.311672, 0.95019, -0.249999, -0.69573, -0.958765 )
+mesh = SubResource( 5 )
+
+[node name="eye2" type="CSGMesh" parent="."]
+transform = Transform( 1, 8.9407e-08, -7.45058e-09, -2.98023e-08, 0.95019, -0.311672, 0, 0.311672, 0.95019, 0.25, -0.69573, -0.958765 )
+mesh = SubResource( 5 )
+

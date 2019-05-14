@@ -1,31 +1,697 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://gui/theme.tres" type="Theme" id=1]
-[ext_resource path="res://scripts/DEMO.gd" type="Script" id=2]
-[ext_resource path="res://gui/loading_p.png" type="Texture" id=3]
-[ext_resource path="res://gui/loading_p1.png" type="Texture" id=4]
-[ext_resource path="res://gui/loading_p1x.png" type="Texture" id=5]
-[ext_resource path="res://gui/loading_p1x_final.png" type="Texture" id=6]
+[ext_resource path="res://scripts/DEMO.gd" type="Script" id=1]
+[ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://environments/demo_gidata.tres" type="GIProbeData" id=3]
+[ext_resource path="res://scenes/desert.tscn" type="PackedScene" id=4]
+[ext_resource path="res://materials/sintext.material" type="Material" id=5]
+[ext_resource path="res://scenes/joungle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://gui/loading_p.png" type="Texture" id=8]
+[ext_resource path="res://gui/loading_p1.png" type="Texture" id=9]
+[ext_resource path="res://gui/loading_p1x.png" type="Texture" id=10]
+[ext_resource path="res://gui/loading_p1x_final.png" type="Texture" id=11]
+[ext_resource path="res://music/soundtrack.ogg" type="AudioStream" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "the_demo"
-length = 5.0
-
-[node name="DEMO" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-theme = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
+length = 200.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("audio:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("SCENES/joungle:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 8.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SCENES/desert:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HUD/white:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 7, 8, 8.6, 9.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 8.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "bake_gi"
+}, {
+"args": [  ],
+"method": "bake_gi"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("environment:environment:background_sky:ground_horizon_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 8, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.980392, 0.976471, 0.839216, 1 ), Color( 0.980392, 0.976471, 0.839216, 1 ), Color( 0.705882, 0.792157, 0.909804, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("environment:environment:fog_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 8, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.984314, 0.870588, 1 ), Color( 1, 0.984314, 0.870588, 1 ), Color( 0.403922, 0.52549, 0.494118, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("environment:environment:fog_height_min")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 8, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 9.0, 9.0, 32.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("environment:environment:fog_height_max")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 8, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -8.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("environment:environment:background_sky:sun_color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 8, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.984314, 0.709804, 0.709804, 1 ), Color( 0.984314, 0.709804, 0.709804, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("SUN:light_energy")
+tracks/10/interp = 0
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 8, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 4.0, 4.0, 2.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("main_camera:translation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 8, 8.4, 9, 10, 13, 14, 20.4, 25.2, 27.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 2, 5, 0 ), Vector3( 2, 5, 0 ), Vector3( -30.06, 15.09, -29.665 ), Vector3( -30.06, 15.09, -29.665 ), Vector3( -23.0782, 14.1052, -28.8802 ), Vector3( -19.5873, 13.6127, -28.4877 ), Vector3( -3.53, 12.06, -29.495 ), Vector3( -7.02, 44.5, -27.075 ), Vector3( -13.77, 36.1, -10.575 ), Vector3( -11.76, 36, -7.185 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("main_camera:rotation_degrees")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 8, 8.4, 9, 10, 13, 14, 19.4, 24.7, 27.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( -5.986, -103.135, 23.43 ), Vector3( -5.986, -103.135, 23.43 ), Vector3( -5.54055, -144.629, 15.6906 ), Vector3( -5.31782, -165.376, 11.8209 ), Vector3( -4.516, -240.065, -2.11 ), Vector3( -12.306, -220.405, 5.6 ), Vector3( -42.926, -220.405, 5.6 ), Vector3( -43.106, -190.915, 5.6 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("SUN:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 8, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -160, 0, 0 ), Vector3( -160, 0, 0 ), Vector3( -128, 0, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("SUN:light_indirect_energy")
+tracks/14/interp = 0
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 8, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 2.0, 2.0, 4.0 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("SUN:light_color")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 8, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.921569, 0.580392, 0.580392, 1 ), Color( 0.921569, 0.580392, 0.580392, 1 ), Color( 1, 0.956863, 0.662745, 1 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("environment:environment:background_sky:sun_latitude")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 8, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 32.0, 32.0, 75.9 ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("environment:environment:background_sky:sun_longitude")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 8, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -140.5 ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("environment:environment:background_sky:sky_curve")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.151362, 0.151362 ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("environment:environment:ambient_light_color")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 8, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.882353, 0.588235, 1 ), Color( 1, 0.882353, 0.588235, 1 ), Color( 0, 1, 0.203922, 1 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("environment:environment:ambient_light_energy")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 0, 8, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.4, 0.4, 0.2 ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("environment:environment:fog_height_curve")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 8.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.21914 ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("environment:environment:fog_depth_curve")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 8.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.466519 ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("environment:environment:fog_depth_begin")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0, 8.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 64.0, 16.0 ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("environment:environment:fog_depth_end")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 0, 8.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 256.0, 96.0 ]
+}
+tracks/25/type = "value"
+tracks/25/path = NodePath("environment:environment:background_sky:sky_top_color")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 0, 8, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.556863, 0.756863, 1 ), Color( 0, 0.556863, 0.756863, 1 ), Color( 0.25098, 0.619608, 0.756863, 1 ) ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("SCENES/desert/text/p1x:visible")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0, 3.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("SCENES/desert/text/proudly:visible")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0, 3.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("SCENES/desert/text/presents:visible")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0, 3.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath("SCENES/desert/text/first:visible")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0, 2.5, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("SCENES/desert/text/demo:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0, 2.5, 5.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/31/type = "value"
+tracks/31/path = NodePath("SCENES/desert/text/efate:visible")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/keys = {
+"times": PoolRealArray( 0, 2.5, 6.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/32/type = "value"
+tracks/32/path = NodePath("SCENES/desert/trip_cloud:emitting")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/keys = {
+"times": PoolRealArray( 0, 1, 7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/33/type = "value"
+tracks/33/path = NodePath("SCENES/desert/text/p1x:translation")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/keys = {
+"times": PoolRealArray( 0, 1.2, 1.4, 2.4, 2.6, 3.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 32, 6, 0 ), Vector3( -1, 6, 0 ), Vector3( 0, 6, 0 ), Vector3( 0, 6, 0 ), Vector3( 1, 6, 0 ), Vector3( -32, 6, 0 ) ]
+}
+tracks/34/type = "value"
+tracks/34/path = NodePath("SCENES/desert/text/proudly:translation")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/keys = {
+"times": PoolRealArray( 0, 1.4, 1.6, 2.6, 2.8, 3.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 32, 0, 0 ), Vector3( -1, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 1, 0, 0 ), Vector3( -32, 0, 0 ) ]
+}
+tracks/35/type = "value"
+tracks/35/path = NodePath("SCENES/desert/text/presents:translation")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/keys = {
+"times": PoolRealArray( 0, 1.7, 1.9, 2.9, 3.1, 3.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 32, -2.5, 0 ), Vector3( -1, -2.5, 0 ), Vector3( 0, -2.5, 0 ), Vector3( 0, -2.5, 0 ), Vector3( 1, -2.5, 0 ), Vector3( -32, -2.5, 0 ) ]
+}
+tracks/36/type = "value"
+tracks/36/path = NodePath("SCENES/desert/text/demo:translation")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/keys = {
+"times": PoolRealArray( 0, 2.5, 3.5, 3.7, 4.8, 5, 5.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 32, 4.14, 0 ), Vector3( 32, 4.14, 0 ), Vector3( -1, 4.14, 0 ), Vector3( 0, 4.14, 0 ), Vector3( 0, 4.14, 0 ), Vector3( 1, 4.14, 0 ), Vector3( -32, 4.14, 0 ) ]
+}
+tracks/37/type = "value"
+tracks/37/path = NodePath("SCENES/desert/text/efate:translation")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/keys = {
+"times": PoolRealArray( 0, 2.5, 4, 4.2, 5.5, 5.7, 6.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 32, 0, 0 ), Vector3( 32, 0, 0 ), Vector3( -1, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 1, 0, 0 ), Vector3( -32, 0, 0 ) ]
+}
+tracks/38/type = "value"
+tracks/38/path = NodePath("SCENES/desert/text/first:translation")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/keys = {
+"times": PoolRealArray( 0, 2.5, 3.3, 3.5, 4.6, 4.8, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 32, 6.82, 0 ), Vector3( 32, 6.82, 0 ), Vector3( -1, 6.82, 0 ), Vector3( 0, 6.82, 0 ), Vector3( 0, 6.82, 0 ), Vector3( 1, 6.82, 0 ), Vector3( -32, 6.82, 0 ) ]
+}
+tracks/39/type = "value"
+tracks/39/path = NodePath("SCENES/desert/trip_cloud:translation")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/keys = {
+"times": PoolRealArray( 0, 1, 3.5, 7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 2, -200 ), Vector3( 0, 2, -200 ), Vector3( 0, 2, -128 ), Vector3( 0, 2, 64 ) ]
+}
+tracks/40/type = "value"
+tracks/40/path = NodePath("environment:environment:background_sky:sky_horizon_color")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/keys = {
+"times": PoolRealArray( 0, 8, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.980392, 0.976471, 0.839216, 1 ), Color( 0.980392, 0.976471, 0.839216, 1 ), Color( 0.705882, 0.792157, 0.909804, 1 ) ]
+}
+tracks/41/type = "value"
+tracks/41/path = NodePath("environment:environment:background_sky:ground_bottom_color")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/keys = {
+"times": PoolRealArray( 0, 8, 8.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.313726, 0.313726, 0.301961, 1 ), Color( 0.313726, 0.313726, 0.301961, 1 ), Color( 0.113725, 0.113725, 0.101961, 1 ) ]
+}
+tracks/42/type = "value"
+tracks/42/path = NodePath("GIProbe:energy")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/keys = {
+"times": PoolRealArray( 0, 8.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.25 ]
+}
+
+[sub_resource type="ProceduralSky" id=2]
+sky_top_color = Color( 0, 0.556863, 0.756863, 1 )
+sky_horizon_color = Color( 0.980392, 0.976471, 0.839216, 1 )
+sky_curve = 0.151362
+ground_bottom_color = Color( 0.313726, 0.313726, 0.301961, 1 )
+ground_horizon_color = Color( 0.980392, 0.976471, 0.839216, 1 )
+ground_curve = 0.234254
+sun_color = Color( 0.984314, 0.709804, 0.709804, 1 )
+sun_latitude = 32.0
+
+[sub_resource type="Environment" id=3]
+background_mode = 2
+background_sky = SubResource( 2 )
+ambient_light_color = Color( 1, 0.882353, 0.588235, 1 )
+ambient_light_energy = 0.4
+fog_enabled = true
+fog_color = Color( 1, 0.984314, 0.870588, 1 )
+fog_depth_begin = 64.0
+fog_depth_end = 256.0
+fog_depth_curve = 0.466519
+fog_transmit_enabled = true
+fog_height_enabled = true
+fog_height_min = 9.0
+fog_height_max = 0.0
+fog_height_curve = 2.21914
+tonemap_mode = 2
+tonemap_exposure = 0.7
+tonemap_white = 2.0
+ss_reflections_enabled = true
+ss_reflections_max_steps = 256
+ss_reflections_roughness = false
+ssao_enabled = true
+ssao_radius = 2.0
+ssao_intensity = 5.0
+ssao_radius2 = 3.0
+ssao_intensity2 = 4.0
+ssao_ao_channel_affect = 1.0
+ssao_quality = 1
+dof_blur_far_enabled = true
+dof_blur_far_distance = 42.0
+dof_blur_far_transition = 12.0
+dof_blur_far_quality = 2
+dof_blur_near_enabled = true
+dof_blur_near_distance = 4.0
+dof_blur_near_quality = 2
+glow_enabled = true
+glow_levels/2 = true
+glow_bloom = 0.2
+adjustment_enabled = true
+adjustment_brightness = 0.9
+adjustment_contrast = 1.2
+
+[node name="DEMO" type="Spatial"]
+script = ExtResource( 1 )
 
 [node name="main" type="AnimationPlayer" parent="."]
 autoplay = "the_demo"
 anims/the_demo = SubResource( 1 )
 
+[node name="main_camera" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5, 0 )
+current = true
+
+[node name="environment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
+
+[node name="SUN" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, -0.939693, 0.34202, 0, -0.34202, -0.939693, 0, 128, 0 )
+light_color = Color( 0.921569, 0.580392, 0.580392, 1 )
+light_energy = 4.0
+light_indirect_energy = 2.0
+shadow_enabled = true
+shadow_color = Color( 0.0196078, 0.054902, 0.117647, 1 )
+shadow_reverse_cull_face = true
+directional_shadow_blend_splits = true
+directional_shadow_max_distance = 512.0
+
+[node name="GIProbe" type="GIProbe" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.8033, 0 )
+subdiv = 2
+extents = Vector3( 96, 40, 270 )
+dynamic_range = 5
+propagation = 1.0
+compress = true
+data = ExtResource( 3 )
+
 [node name="SCENES" type="Spatial" parent="."]
-script = ExtResource( 2 )
-INIT = true
+
+[node name="desert" parent="SCENES" instance=ExtResource( 4 )]
+
+[node name="terrain" parent="SCENES/desert" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.09 )
+
+[node name="text" parent="SCENES/desert" index="1"]
+editor/display_folded = false
+
+[node name="p1x" parent="SCENES/desert/text" index="0"]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 8, 32, 6, 0 )
+
+[node name="text1-0" parent="SCENES/desert/text/p1x" index="0"]
+use_in_baked_light = true
+material/0 = ExtResource( 5 )
+
+[node name="proudly" parent="SCENES/desert/text" index="1"]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 8, 32, 0, 0 )
+
+[node name="text2-0" parent="SCENES/desert/text/proudly" index="0"]
+use_in_baked_light = true
+material/0 = ExtResource( 5 )
+
+[node name="presents" parent="SCENES/desert/text" index="2"]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 8, 32, -2.5, 0 )
+
+[node name="text3-0" parent="SCENES/desert/text/presents" index="0"]
+use_in_baked_light = true
+material/0 = ExtResource( 5 )
+
+[node name="first" parent="SCENES/desert/text" index="3"]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 8, 32, 6.82, 0 )
+
+[node name="text4-0" parent="SCENES/desert/text/first" index="0"]
+use_in_baked_light = true
+material/0 = ExtResource( 5 )
+
+[node name="demo" parent="SCENES/desert/text" index="4"]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 8, 32, 4.14, 0 )
+
+[node name="text5-0" parent="SCENES/desert/text/demo" index="0"]
+use_in_baked_light = true
+material/0 = ExtResource( 5 )
+
+[node name="efate" parent="SCENES/desert/text" index="5"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 12, 32, 0, 0 )
+
+[node name="text6-0" parent="SCENES/desert/text/efate" index="0"]
+use_in_baked_light = true
+material/0 = ExtResource( 5 )
+
+[node name="trip_cloud" parent="SCENES/desert" index="2"]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 2, -200 )
+amount = 2048
+lifetime = 3.0
+visibility_aabb = AABB( -32, -256, -32, 64, 512, 64 )
+
+[node name="joungle" parent="SCENES" instance=ExtResource( 6 )]
+visible = false
+
+[node name="rabbit0" parent="SCENES/joungle" index="6"]
+transform = Transform( 0.624833, 0.728705, 0.280307, 0, 0.35902, -0.93333, -0.780757, 0.583177, 0.224328, -6.285, 37.94, -19.547 )
+
+[node name="HUD" parent="." instance=ExtResource( 7 )]
+
+[node name="white" parent="HUD" index="2"]
+modulate = Color( 1, 1, 1, 1 )
 
 [node name="LOADING" type="Control" parent="."]
 visible = false
@@ -48,7 +714,7 @@ margin_left = -960.0
 margin_top = -411.5
 margin_right = 960.0
 margin_bottom = 411.5
-texture = ExtResource( 3 )
+texture = ExtResource( 8 )
 
 [node name="p1" type="TextureRect" parent="LOADING"]
 visible = false
@@ -60,7 +726,7 @@ margin_left = -960.0
 margin_top = -411.5
 margin_right = 960.0
 margin_bottom = 411.5
-texture = ExtResource( 4 )
+texture = ExtResource( 9 )
 
 [node name="p1x" type="TextureRect" parent="LOADING"]
 visible = false
@@ -72,7 +738,7 @@ margin_left = -960.0
 margin_top = -411.5
 margin_right = 960.0
 margin_bottom = 411.5
-texture = ExtResource( 5 )
+texture = ExtResource( 10 )
 
 [node name="p1x_final" type="TextureRect" parent="LOADING"]
 visible = false
@@ -84,5 +750,26 @@ margin_left = -960.0
 margin_top = -411.5
 margin_right = 960.0
 margin_bottom = 411.5
-texture = ExtResource( 6 )
+texture = ExtResource( 11 )
 
+[node name="audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+
+[editable path="SCENES/desert"]
+
+[editable path="SCENES/desert/text/p1x"]
+
+[editable path="SCENES/desert/text/proudly"]
+
+[editable path="SCENES/desert/text/presents"]
+
+[editable path="SCENES/desert/text/first"]
+
+[editable path="SCENES/desert/text/demo"]
+
+[editable path="SCENES/desert/text/efate"]
+
+[editable path="SCENES/joungle"]
+
+[editable path="HUD"]

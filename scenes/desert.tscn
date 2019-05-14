@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://materials/infinite_terrain/infinite_terrain.material" type="Material" id=1]
+[ext_resource path="res://models/p1x.dae" type="PackedScene" id=2]
+[ext_resource path="res://models/proudly.dae" type="PackedScene" id=3]
+[ext_resource path="res://models/presents.dae" type="PackedScene" id=4]
+[ext_resource path="res://models/first.dae" type="PackedScene" id=5]
+[ext_resource path="res://models/demo.dae" type="PackedScene" id=6]
+[ext_resource path="res://models/efate.dae" type="PackedScene" id=7]
+[ext_resource path="res://materials/dust_cloud.material" type="Material" id=8]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 96, 512 )
+subdivide_width = 192
+subdivide_depth = 1024
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.159221, 1 ), 0.190805, 0.190805, 0, 0, Vector2( 0.881775, 1 ), -0.536388, -0.536388, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 4, 4, 4 )
+gravity = Vector3( 0, 0, 0 )
+scale_curve = SubResource( 3 )
+
+[sub_resource type="SphereMesh" id=5]
+material = ExtResource( 8 )
+radius = 2.0
+height = 4.0
+radial_segments = 16
+rings = 8
+
+[node name="desert" type="Spatial"]
+
+[node name="terrain" type="MeshInstance" parent="."]
+extra_cull_margin = 4.0
+use_in_baked_light = true
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text" type="Position3D" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.27, -24 )
+
+[node name="p1x" type="Spatial" parent="text" instance=ExtResource( 2 )]
+editor/display_folded = true
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 4, -16, 6, 0 )
+
+[node name="proudly" type="Spatial" parent="text" instance=ExtResource( 3 )]
+editor/display_folded = true
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 3, 16, 0, 0 )
+
+[node name="presents" type="Spatial" parent="text" instance=ExtResource( 4 )]
+editor/display_folded = true
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 3, -16, -2.5, 0 )
+
+[node name="first" type="Spatial" parent="text" instance=ExtResource( 5 )]
+editor/display_folded = true
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 3, 32, 6.82, 0 )
+visible = false
+
+[node name="demo" type="Spatial" parent="text" instance=ExtResource( 6 )]
+editor/display_folded = true
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 3, -32, 4.14, 0 )
+visible = false
+
+[node name="efate" type="Spatial" parent="text" instance=ExtResource( 7 )]
+editor/display_folded = true
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 12, 0, 0, 0 )
+visible = false
+
+[node name="trip_cloud" type="Particles" parent="."]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 8, -128 )
+use_in_baked_light = true
+emitting = false
+amount = 512
+lifetime = 8.0
+visibility_aabb = AABB( -32, 0, -32, 64, 255, 255 )
+local_coords = false
+process_material = SubResource( 4 )
+draw_pass_1 = SubResource( 5 )
+

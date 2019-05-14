@@ -20,7 +20,8 @@
 [ext_resource path="res://scenes/boogie.tscn" type="PackedScene" id=18]
 [ext_resource path="res://models/Obelisks.dae" type="PackedScene" id=19]
 [ext_resource path="res://materials/light.material" type="Material" id=20]
-[ext_resource path="res://music/P1x 1.ogg" type="AudioStream" id=21]
+[ext_resource path="res://music/soundtrack.ogg" type="AudioStream" id=21]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "demo"

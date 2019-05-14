@@ -1,24 +1,10 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/DEMO.gd" type="Script" id=1]
 [ext_resource path="res://scenes/main_camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/HUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://environments/joungle.tres" type="Environment" id=4]
-[ext_resource path="res://materials/terrain/joungle.material" type="Material" id=5]
-[ext_resource path="res://materials/particles/scene4_palms1.material" type="Material" id=6]
-[ext_resource path="res://models/palm1.mesh" type="ArrayMesh" id=7]
-[ext_resource path="res://materials/particles/scene4_palms2.material" type="Material" id=8]
-[ext_resource path="res://models/palm2.mesh" type="ArrayMesh" id=9]
-[ext_resource path="res://materials/particles/scene4_palms3.material" type="Material" id=10]
-[ext_resource path="res://models/palm3.mesh" type="ArrayMesh" id=11]
-[ext_resource path="res://shaders/grass_particle.shader" type="Shader" id=12]
-[ext_resource path="res://materials/terrain/noise_terrain_joung;e.tres" type="Texture" id=13]
-[ext_resource path="res://models/grass1.mesh" type="ArrayMesh" id=14]
-[ext_resource path="res://models/grass2.mesh" type="ArrayMesh" id=15]
-[ext_resource path="res://scenes/creds_kj.tscn" type="PackedScene" id=16]
-[ext_resource path="res://materials/sintext_vs.material" type="Material" id=17]
-[ext_resource path="res://materials/white_white.material" type="Material" id=18]
-[ext_resource path="res://materials/black.material" type="Material" id=19]
+[ext_resource path="res://scenes/joungle.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "demo"
@@ -207,7 +193,7 @@ tracks/2/keys = {
 "values": [ Vector3( -34.51, 239.67, -180 ), Vector3( -34.51, 186.55, -180 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("../terrain/rabbit0:rotation_degrees")
+tracks/3/path = NodePath("../joungle/rabbit0:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -256,102 +242,6 @@ normal_bias = 0.0
 propagation = 0.7
 compress = true
 
-[sub_resource type="PlaneMesh" id=8]
-custom_aabb = AABB( -128, 0, -128, 256, 64, 256 )
-size = Vector2( 128, 128 )
-subdivide_width = 512
-subdivide_depth = 512
-
-[sub_resource type="ShaderMaterial" id=9]
-shader = ExtResource( 12 )
-shader_param/TERRAIN_HEIGHT_SCALE = 96.0
-shader_param/TERRAIN_MIN_H = 0.34
-shader_param/TERRAIN_MAX_H = 0.47
-shader_param/seed = 42.073
-shader_param/TERRAIN_FLAT = false
-shader_param/VOID_CENTER = false
-shader_param/VOID_SIZE = 12.0
-shader_param/ALIVE = false
-shader_param/ALIVE_SPEED = 0.5
-shader_param/ALIVE_RANGE = 24.0
-shader_param/SCROLL_SPEED = 0.01
-shader_param/GRASS_ROWS = 64.0
-shader_param/GRASS_SPACING = 1.0
-shader_param/GRASS_SCALE_MIN = 0.3
-shader_param/GRASS_SCALE_MAX = 4.26
-shader_param/MAP_SIZE = Vector2( 512, 512 )
-shader_param/HEIGHT_MAP = ExtResource( 13 )
-
-[sub_resource type="ShaderMaterial" id=10]
-shader = ExtResource( 12 )
-shader_param/TERRAIN_HEIGHT_SCALE = 96.0
-shader_param/TERRAIN_MIN_H = 0.35
-shader_param/TERRAIN_MAX_H = 0.46
-shader_param/seed = 58.213
-shader_param/TERRAIN_FLAT = false
-shader_param/VOID_CENTER = false
-shader_param/VOID_SIZE = 12.0
-shader_param/ALIVE = false
-shader_param/ALIVE_SPEED = 0.5
-shader_param/ALIVE_RANGE = 24.0
-shader_param/SCROLL_SPEED = 0.01
-shader_param/GRASS_ROWS = 32.0
-shader_param/GRASS_SPACING = 4.0
-shader_param/GRASS_SCALE_MIN = 0.63
-shader_param/GRASS_SCALE_MAX = 9.08
-shader_param/MAP_SIZE = Vector2( 512, 512 )
-shader_param/HEIGHT_MAP = ExtResource( 13 )
-
-[sub_resource type="Curve" id=11]
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.253072, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.754525, 0.959364 ), -0.365758, -0.365758, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=12]
-curve = SubResource( 11 )
-
-[sub_resource type="ParticlesMaterial" id=13]
-emission_shape = 2
-emission_box_extents = Vector3( 64, 1, 64 )
-gravity = Vector3( 0, 1, 0 )
-angular_velocity = 7.52316e-37
-tangential_accel = 0.4
-scale_curve = SubResource( 12 )
-
-[sub_resource type="SpatialMaterial" id=14]
-
-[sub_resource type="SphereMesh" id=15]
-material = SubResource( 14 )
-radius = 0.025
-height = 0.05
-radial_segments = 8
-rings = 4
-
-[sub_resource type="CapsuleMesh" id=16]
-material = ExtResource( 18 )
-
-[sub_resource type="CapsuleMesh" id=17]
-material = ExtResource( 18 )
-radius = 0.2
-radial_segments = 32
-
-[sub_resource type="CapsuleMesh" id=18]
-material = ExtResource( 18 )
-radius = 0.2
-mid_height = 0.5
-radial_segments = 32
-
-[sub_resource type="SphereMesh" id=19]
-radius = 0.2
-height = 0.4
-radial_segments = 8
-rings = 4
-
-[sub_resource type="SphereMesh" id=20]
-material = ExtResource( 19 )
-radius = 0.14
-height = 0.1
-radial_segments = 16
-rings = 8
-
 [node name="scene4" type="Spatial"]
 script = ExtResource( 1 )
 NEXT_SCENE_NUMBER = 53
@@ -361,7 +251,7 @@ autoplay = "demo"
 anims/demo = SubResource( 1 )
 
 [node name="main_camera" parent="." instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, -0.0172286, -0.999852, 0, 0.999852, -0.0172286, 1, -7.53087e-10, -4.37049e-08, -30.1, 17.34, -22.7743 )
+transform = Transform( -0.981591, -0.0153768, -0.190375, 0.00315862, 0.995311, -0.0966788, 0.190969, -0.0955004, -0.97694, -23.515, 12.666, -18.2417 )
 current = true
 
 [node name="camera_anim" type="AnimationPlayer" parent="main_camera"]
@@ -385,7 +275,7 @@ compress = true
 data = SubResource( 7 )
 
 [node name="sun" type="DirectionalLight" parent="."]
-transform = Transform( -0.162235, -0.606495, -0.77836, 0.00342627, -0.789152, 0.614189, -0.986746, 0.0969763, 0.130106, 0, 41.9501, 0 )
+transform = Transform( 0.726816, -0.389125, -0.565969, 7.20387e-08, -0.824028, 0.56655, -0.686832, -0.411778, -0.598916, 0, 41.9501, 0 )
 light_color = Color( 1, 0.956863, 0.662745, 1 )
 light_energy = 2.0
 light_specular = 0.7
@@ -395,176 +285,9 @@ shadow_reverse_cull_face = true
 directional_shadow_blend_splits = true
 directional_shadow_max_distance = 512.0
 
-[node name="terrain" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26, 0 )
-use_in_baked_light = true
-mesh = SubResource( 8 )
-material/0 = ExtResource( 5 )
-
-[node name="palms1" type="Particles" parent="terrain"]
-use_in_baked_light = true
-amount = 1024
-visibility_aabb = AABB( -128, 32, -128, 256, 64, 256 )
-process_material = ExtResource( 6 )
-draw_pass_1 = ExtResource( 7 )
-
-[node name="palms2" type="Particles" parent="terrain"]
-use_in_baked_light = true
-amount = 1024
-visibility_aabb = AABB( -128, 32, -128, 256, 64, 256 )
-process_material = ExtResource( 8 )
-draw_pass_1 = ExtResource( 9 )
-
-[node name="palms3" type="Particles" parent="terrain"]
-use_in_baked_light = true
-amount = 256
-visibility_aabb = AABB( -128, 32, -128, 256, 64, 256 )
-process_material = ExtResource( 10 )
-draw_pass_1 = ExtResource( 11 )
-
-[node name="grass1" type="Particles" parent="terrain"]
-use_in_baked_light = true
-amount = 4096
-visibility_aabb = AABB( -128, 32, -128, 256, 64, 256 )
-process_material = SubResource( 9 )
-draw_pass_1 = ExtResource( 14 )
-
-[node name="flowers1" type="Particles" parent="terrain"]
-use_in_baked_light = true
-amount = 1024
-visibility_aabb = AABB( -128, 32, -128, 256, 64, 256 )
-process_material = SubResource( 10 )
-draw_pass_1 = ExtResource( 15 )
-
-[node name="dust" type="Particles" parent="terrain"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.42112, 30.7281, 4.5881 )
-use_in_baked_light = true
-amount = 8192
-lifetime = 8.0
-preprocess = 14.0
-speed_scale = 0.5
-visibility_aabb = AABB( -128, 0, -128, 256, 128, 256 )
-process_material = SubResource( 13 )
-draw_pass_1 = SubResource( 15 )
-
-[node name="shaders" parent="terrain" instance=ExtResource( 16 )]
-editor/display_folded = true
-transform = Transform( -1.5499, 0, -1.26404, 0, 2, 0, 1.26404, 0, -1.5499, -18.3333, 38.5654, 10.4555 )
-visible = false
-
-[node name="text-0" parent="terrain/shaders/kj/shaders" index="0"]
-material/0 = ExtResource( 17 )
-
-[node name="rabbit0" type="CSGMesh" parent="terrain"]
-editor/display_folded = true
-transform = Transform( 0.914818, 0.400382, 0.0529245, 0, 0.131045, -0.991376, -0.403864, 0.90693, 0.119883, -14.035, 38.73, -10.417 )
-mesh = SubResource( 16 )
-
-[node name="ear_l" type="CSGMesh" parent="terrain/rabbit0"]
-transform = Transform( 0.970296, 0.033669, -0.239568, 0, 0.990268, 0.139173, 0.241922, -0.135039, 0.960853, 0.5, 0, -1.61 )
-mesh = SubResource( 17 )
-
-[node name="ear_r" type="CSGMesh" parent="terrain/rabbit0"]
-transform = Transform( 0.970296, 0.033669, 0.239568, 0, 0.990268, -0.139173, -0.241922, 0.135039, 0.960853, -0.5, 0, -1.13 )
-mesh = SubResource( 17 )
-
-[node name="ear2" type="CSGMesh" parent="terrain/rabbit0/ear_r"]
-transform = Transform( -0.23582, -0.508052, 0.828415, -0.135248, 0.86132, 0.489731, -0.962339, 0.0034472, -0.27183, -0.220761, -0.18051, -0.504189 )
-mesh = SubResource( 18 )
-
-[node name="eye_place" type="CSGMesh" parent="terrain/rabbit0"]
-transform = Transform( 1, 2.98023e-08, 7.45058e-09, 0, 1, -7.45058e-09, 0, 0, 1, 0.28, -0.8, -1.05 )
-operation = 2
-mesh = SubResource( 19 )
-
-[node name="eye_place2" type="CSGMesh" parent="terrain/rabbit0"]
-transform = Transform( 1, 2.98023e-08, 7.45058e-09, 0, 1, -7.45058e-09, 0, 0, 1, -0.28, -0.8, -1.05 )
-operation = 2
-mesh = SubResource( 19 )
-
-[node name="eye" type="CSGMesh" parent="terrain/rabbit0"]
-transform = Transform( 1, 8.9407e-08, -7.45058e-09, -2.98023e-08, 0.95019, -0.311672, 0, 0.311672, 0.95019, -0.249999, -0.69573, -0.958765 )
-mesh = SubResource( 20 )
-
-[node name="eye2" type="CSGMesh" parent="terrain/rabbit0"]
-transform = Transform( 1, 8.9407e-08, -7.45058e-09, -2.98023e-08, 0.95019, -0.311672, 0, 0.311672, 0.95019, 0.25, -0.69573, -0.958765 )
-mesh = SubResource( 20 )
-
-[node name="rabbit2" type="CSGMesh" parent="terrain"]
-editor/display_folded = true
-transform = Transform( -0.235312, 0.947729, 0.215493, 0, 0.221719, -0.97511, -0.971919, -0.229455, -0.052173, 15.755, 38.48, -29.987 )
-mesh = SubResource( 16 )
-
-[node name="ear_l" type="CSGMesh" parent="terrain/rabbit2"]
-transform = Transform( 0.970296, 0.033669, -0.239568, 0, 0.990268, 0.139173, 0.241922, -0.135039, 0.960853, 0.5, 0, -1.61 )
-mesh = SubResource( 17 )
-
-[node name="ear_r" type="CSGMesh" parent="terrain/rabbit2"]
-transform = Transform( 0.970296, 0.033669, 0.239568, 0, 0.990268, -0.139173, -0.241922, 0.135039, 0.960853, -0.5, 0, -1.13 )
-mesh = SubResource( 17 )
-
-[node name="ear2" type="CSGMesh" parent="terrain/rabbit2/ear_r"]
-transform = Transform( -0.23582, -0.508052, 0.828415, -0.135248, 0.86132, 0.489731, -0.962339, 0.0034472, -0.27183, -0.220761, -0.18051, -0.504189 )
-mesh = SubResource( 18 )
-
-[node name="eye_place" type="CSGMesh" parent="terrain/rabbit2"]
-transform = Transform( 1, 2.98023e-08, 7.45058e-09, 0, 1, -7.45058e-09, 0, 0, 1, 0.28, -0.8, -1.05 )
-operation = 2
-mesh = SubResource( 19 )
-
-[node name="eye_place2" type="CSGMesh" parent="terrain/rabbit2"]
-transform = Transform( 1, 2.98023e-08, 7.45058e-09, 0, 1, -7.45058e-09, 0, 0, 1, -0.28, -0.8, -1.05 )
-operation = 2
-mesh = SubResource( 19 )
-
-[node name="eye" type="CSGMesh" parent="terrain/rabbit2"]
-transform = Transform( 1, 8.9407e-08, -7.45058e-09, -2.98023e-08, 0.95019, -0.311672, 0, 0.311672, 0.95019, -0.249999, -0.69573, -0.958765 )
-mesh = SubResource( 20 )
-
-[node name="eye2" type="CSGMesh" parent="terrain/rabbit2"]
-transform = Transform( 1, 8.9407e-08, -7.45058e-09, -2.98023e-08, 0.95019, -0.311672, 0, 0.311672, 0.95019, 0.25, -0.69573, -0.958765 )
-mesh = SubResource( 20 )
-
-[node name="rabbit1" type="CSGMesh" parent="terrain"]
-editor/display_folded = true
-transform = Transform( 0.874026, 0.479423, 0.078938, 0, 0.162465, -0.986714, -0.485878, 0.862414, 0.141999, -8.905, 38.47, 8.233 )
-mesh = SubResource( 16 )
-
-[node name="ear_l" type="CSGMesh" parent="terrain/rabbit1"]
-transform = Transform( 0.970296, 0.033669, -0.239568, 0, 0.990268, 0.139173, 0.241922, -0.135039, 0.960853, 0.5, 0, -1.61 )
-mesh = SubResource( 17 )
-
-[node name="ear_r" type="CSGMesh" parent="terrain/rabbit1"]
-transform = Transform( 0.970296, 0.033669, 0.239568, 0, 0.990268, -0.139173, -0.241922, 0.135039, 0.960853, -0.5, 0, -1.13 )
-mesh = SubResource( 17 )
-
-[node name="ear2" type="CSGMesh" parent="terrain/rabbit1/ear_r"]
-transform = Transform( -0.23582, -0.508052, 0.828415, -0.135248, 0.86132, 0.489731, -0.962339, 0.0034472, -0.27183, -0.220761, -0.18051, -0.504189 )
-mesh = SubResource( 18 )
-
-[node name="eye_place" type="CSGMesh" parent="terrain/rabbit1"]
-transform = Transform( 1, 2.98023e-08, 7.45058e-09, 0, 1, -7.45058e-09, 0, 0, 1, 0.28, -0.8, -1.05 )
-operation = 2
-mesh = SubResource( 19 )
-
-[node name="eye_place2" type="CSGMesh" parent="terrain/rabbit1"]
-transform = Transform( 1, 2.98023e-08, 7.45058e-09, 0, 1, -7.45058e-09, 0, 0, 1, -0.28, -0.8, -1.05 )
-operation = 2
-mesh = SubResource( 19 )
-
-[node name="eye" type="CSGMesh" parent="terrain/rabbit1"]
-transform = Transform( 1, 8.9407e-08, -7.45058e-09, -2.98023e-08, 0.95019, -0.311672, 0, 0.311672, 0.95019, -0.249999, -0.69573, -0.958765 )
-mesh = SubResource( 20 )
-
-[node name="eye2" type="CSGMesh" parent="terrain/rabbit1"]
-transform = Transform( 1, 8.9407e-08, -7.45058e-09, -2.98023e-08, 0.95019, -0.311672, 0, 0.311672, 0.95019, 0.25, -0.69573, -0.958765 )
-mesh = SubResource( 20 )
+[node name="joungle" parent="." instance=ExtResource( 5 )]
 
 
 [editable path="main_camera"]
 
 [editable path="HUD"]
-
-[editable path="terrain/shaders"]
-
-[editable path="terrain/shaders/kj/shaders"]
